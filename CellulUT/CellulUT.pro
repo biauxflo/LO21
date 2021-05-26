@@ -1,0 +1,2 @@
+QT += widgets
+QT += xml
