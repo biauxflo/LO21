@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<automate>
+    <name lang="en">Game's Life</name>
+    <etats>
+        <etat>
+            <label lang="en">dead</label>
+            <color lang="en">black</color>
+            <indice>0</indice>
+        </etat>
+        <etat>
+            <label lang="en">alive</label>
+            <color lang="en">white</color>
+            <indice>1</indice>
+        </etat>
+    </etats>
+    <voisinage lang="en">neumann</voisinage>
+    <!-- Une règle est définie par son état actuel, le nombre de voisins dans un tel état -->
+    <!-- pour le passage à l'état suivant. -->
+    <regles>
+    <!-- La règle suivant dit : si une cellule est morte (0) est possède 3 voisines vivante (1), il devient vivante (1)-->
+        <regle>
+            <actuel>0</actuel>
+            <voisines>
+                <voisine>
+                    <etat>1</etat>
+                    <nombre>3</nombre>
+                </voisine>
+            </voisines>
+            <suivant>1</suivant>
+        </regle>
+        <regle>
+            <actuel>1</actuel>
+            <voisines>
+                <voisine>
+                    <etat>1</etat>
+                    <nombre>3</nombre>
+                </voisine>
+            </voisines>
+            <suivant>1</suivant>
+        </regle>
+        <regle>
+            <actuel>1</actuel>
+            <voisines>
+                <voisine>
+                    <etat>1</etat>
+                    <nombre>2</nombre>
+                </voisine>
+            </voisines>
+            <suivant>1</suivant>
+        </regle>
+        <!-- règle par défaut (dans tous les autres cas)-->
+        <defaut>
+            <suivant>0</suivant>
+        </defaut>
+    </regles>
+</automate>
