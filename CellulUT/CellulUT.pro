@@ -2,7 +2,7 @@ QT += widgets
 QT += xml
 
 HEADERS += \
-    automate.h
+    Automate.h
 
 SOURCES += \
-    automate.cpp
+    Automate.cpp
