@@ -7,6 +7,8 @@
 
 #include <iostream>
 #include <cmath>
+#include "Cellule.h"
+#include "Automate.h"
 
 /**
 * \class Voisinage
@@ -19,14 +21,14 @@ private :
     * \brief Constructeur de recopie de la classe Voisinage
     * \param v Voisinage à recopier
     */
-    Voisinage(const Voisinage& v)=false;
+    Voisinage(const Voisinage& v)= delete;
 
     /**
     * \brief Surcharge de l'opérateur d'affectation
      * \param v Voisinage à affecter
      * \return Voisinage
      */
-    Voisinage& operator=(const Visinage& v)=false;
+    Voisinage& operator=(const Voisinage& v)= delete;
 public:
     /**
     * \brief Constructeur (par defaut) de la classe Voisinage
@@ -40,7 +42,7 @@ public:
     /**
     * \brief Methode virtual qui calcule le voisinage d'une cellue (surchargee dans les classes filles)
      */
-    virtual Cellule * calculerVoisinage(Cellule tab[], Automate * a, unsigned int x, unsigned int y) const {}
+    virtual CELLULE_NP::Cellule * calculerVoisinage(CELLULE_NP::Cellule tab[], AUTOMATE_NP::Automate * a, unsigned int x, unsigned int y) const {}
 };
 
 

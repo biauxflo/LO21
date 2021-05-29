@@ -4,7 +4,7 @@
 
 #include "Arbitraire.h"
 
-Cellule * Arbitraire::calculerVoisinage(Cellule tab[], Automate * a, unsigned int x, unsigned int y) const{
+CELLULE_NP::Cellule * Arbitraire::calculerVoisinage(CELLULE_NP::Cellule tab[], AUTOMATE_NP::Automate * a, unsigned int x, unsigned int y) const{
 
 }
 

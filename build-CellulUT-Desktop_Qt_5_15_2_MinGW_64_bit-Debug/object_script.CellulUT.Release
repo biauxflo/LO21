@@ -1,0 +1,11 @@
+release/Automate.o
+release/Cellule.o
+release/Etat.o
+release/Reseau.o
+release/Arbitraire.o
+release/Moore.o
+release/MooreGeneral.o
+release/Neumann.o
+release/NeumannGeneral.o
+release/Voisinage.o
+release/VoisinageARayon.o
