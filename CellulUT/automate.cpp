@@ -32,9 +32,10 @@ void appliquerConfiguration(QXmlStreamReader xmlReader){
 }
 
 void calculerTransition(){
+    Cellule[][] reseauCopie = reseau; // faire operateur de recopie
     for(unsigned int i = 0; i < reseau.getHauteur(); i++){
         for(unsigned int j = 0; j < reseau.getLargeur(); j++){
-            Cellule& c = reseau.getCellule(i,j);
+            Cellule& c = reseauCopie[i][j];
             Etat& e = regleTransition.creerTransition(c.getVoisinage());
             c.setEtat(e);
         }
