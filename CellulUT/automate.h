@@ -13,6 +13,7 @@ namespace AUTOMATE{
 
     public:
         Automate();
+        Automate(Reseau r, Etat[] e, Voisinage v, Transition rt): reseau(r), etats(e), voisinage(v), regleTransition(rt) {}
         ~Automate();
 
         // GETTERS
@@ -23,7 +24,7 @@ namespace AUTOMATE{
         unsigned int getNbEtatsMax() { return nbEtatsMax; }
         Transition getRegleTransition() { return regleTransition; }
 
-        void appliquerConfiguration(QDomElement config);
+        void appliquerConfiguration(QXmlStreamReader xmlReader);
         void calculerTransition();
 
     };
