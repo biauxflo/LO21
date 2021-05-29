@@ -4,8 +4,8 @@
 
 #ifndef LO21_CELLULE_H
 #define LO21_CELLULE_H
+#include "Reseau.h"
 #include "Etat.h"
-class Reseau;
 
 class Cellule
 {

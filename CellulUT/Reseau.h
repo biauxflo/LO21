@@ -5,7 +5,7 @@
 #ifndef LO21_RESEAU_H
 #define LO21_RESEAU_H
 #include "Cellule.h"
-class Etat;
+#include "Etat.h"
 
 int const MAXCELL = 200;
 

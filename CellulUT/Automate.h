@@ -2,11 +2,14 @@
 #define AUTOMATE_H
 
 #include <QtXml>
+#include "Cellule.h"
+#include "Reseau.h"
+#include "Etat.h"
 
 namespace AUTOMATE{
     class Automate{
         Reseau reseau;
-        Etat[] etats;
+        Etat etats[];
         Voisinage voisinage;
         unsigned int nbEtatsMax;
         Transition regleTransition;
