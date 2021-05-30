@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<automate>
+    <name lang="en">Game's Life</name>
+    <etats>
+        <etat>
+            <label lang="en">dead</label>
+            <color lang="en">black</color>
+            <indice>0</indice>
+        </etat>
+        <etat>
+            <label lang="en">alive</label>
+            <color lang="en">white</color>
+            <indice>1</indice>
+        </etat>
+    </etats>
+    <voisinage lang="en">neumann</voisinage>
+    <regle>gamelife</regle>
+</automate>
