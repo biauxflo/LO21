@@ -15,7 +15,7 @@ namespace RESEAU_NP{
         unsigned int horloge;
         unsigned int taille;
         //AUTOMATE_NP::Automate& automate;
-        CELLULE_NP::Cellule** cellule;
+        CELLULE_NP::Cellule** cellules;
         /*
         void allocArray()
         {
@@ -32,14 +32,16 @@ namespace RESEAU_NP{
         {
             for(unsigned int i = 0; i < taille ; i++)
             {
-                delete [] cellule[i];
+                delete [] cellules[i];
             }
-            delete [] cellule;
+            delete [] cellules;
         }
 
-        int getLargeur () {return largeur;}
-        int getLongueur () {return longueur;}
-        int getHorloge () {return horloge;}
+        unsigned int getLargeur () const {return largeur;}
+        unsigned int getLongueur () const {return longueur;}
+        unsigned int getHorloge () const {return horloge;}
+        CELLULE_NP::Cellule** getCellules() const {return cellules;}
+        CELLULE_NP::Cellule getCellule(unsigned int i, unsigned int j) const {return cellules[i][j];}
 
         void setLargeur (int lar);
         void setLongeur (int lon);

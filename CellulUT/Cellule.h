@@ -15,16 +15,16 @@ namespace CELLULE_NP{
         unsigned int abs;
         unsigned int ord;
         ETAT_NP::Etat& etat;
-        //RESEAU_NP::Reseau& reseau;
 
     public:
         Cellule(unsigned int abs, unsigned int ord, ETAT_NP::Etat& etat) : abs(abs), ord(ord), etat(etat) {}
+        Cellule& operator=(const Cellule& c);
         int getAbscisse () const {return abs;}
         int getOrdonnee () const {return ord;}
+        ETAT_NP::Etat& getEtat() const {return etat;}
         void setAbscisse (int x);
         void setOrdonnee (int y);
         void setEtat (ETAT_NP::Etat& e);
-        // void getVoisinnage(...)
     };
 }
 

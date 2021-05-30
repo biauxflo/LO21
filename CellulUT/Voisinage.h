@@ -42,7 +42,7 @@ public:
     /**
     * \brief Methode virtual qui calcule le voisinage d'une cellue (surchargee dans les classes filles)
      */
-    virtual CELLULE_NP::Cellule * calculerVoisinage(CELLULE_NP::Cellule tab[], AUTOMATE_NP::Automate * a, unsigned int x, unsigned int y) const {}
+    virtual const CELLULE_NP::Cellule * calculerVoisinage(CELLULE_NP::Cellule tab[], AUTOMATE_NP::Automate * a, unsigned int x, unsigned int y) const {}
 };
 
 

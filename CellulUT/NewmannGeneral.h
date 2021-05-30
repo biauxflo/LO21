@@ -30,7 +30,7 @@ public:
      * \param x et y coordonnees de la cellule dont on calcule le voisinage
      * \return tab
      */
-    CELLULE_NP::Cellule * calculerVoisinage(CELLULE_NP::Cellule tab[], AUTOMATE_NP::Automate * a, unsigned int x, unsigned int y) const override;
+    const CELLULE_NP::Cellule * calculerVoisinage(CELLULE_NP::Cellule tab[], AUTOMATE_NP::Automate * a, unsigned int x, unsigned int y) const override;
 };
 
 #endif //CELLULUT_NEWMANNGENERAL_H

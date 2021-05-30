@@ -3,16 +3,21 @@
 //
 
 #include "Cellule.h"
+using namespace CELLULE_NP;
 
-void CELLULE_NP::Cellule::setAbscisse(int x)
+void Cellule::setAbscisse(int x)
 {
     abs = x;
 }
-void CELLULE_NP::Cellule::setOrdonnee(int y)
+void Cellule::setOrdonnee(int y)
 {
     ord = y;
 }
 
-void CELLULE_NP::Cellule::setEtat(ETAT_NP::Etat &e){
+void Cellule::setEtat(ETAT_NP::Etat &e){
     etat = e;
+}
+
+Cellule& Cellule::operator=(const Cellule& c){
+    return *this;
 }
