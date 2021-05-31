@@ -12,7 +12,7 @@ public:
     /**
     * \brief surcharge de la methode calculerVoisinage
      */
-    CELLULE_NP::Cellule * calculerVoisinage(CELLULE_NP::Cellule tab[], AUTOMATE_NP::Automate * a, unsigned int x, unsigned int y) const override;
+    const CELLULE_NP::Cellule * Arbitraire::calculerVoisinage(CELLULE_NP::Cellule tab[], CELLULE_NP::Cellule** reseau, unsigned int x, unsigned int y, unsigned int largeur, unsigned int longueur) const {}
 };
 
 #endif //CELLULUT_ARBITRAIRE_H

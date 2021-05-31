@@ -9,12 +9,12 @@ MooreGeneral::~MooreGeneral() = default;
 
 using namespace std;
 
-const CELLULE_NP::Cellule * MooreGeneral::calculerVoisinage(CELLULE_NP::Cellule tab[], AUTOMATE_NP::Automate * a, unsigned int x, unsigned int y) const {
+const CELLULE_NP::Cellule * MooreGeneral::calculerVoisinage(CELLULE_NP::Cellule tab[], CELLULE_NP::Cellule** reseau, unsigned int x, unsigned int y, unsigned int largeur, unsigned int longueur) const {
     unsigned int k, l, i = 0;
-    for(k=0; k <= a->getReseau().getLargeur(); k++) {
-        for(l=0; l <= a->getReseau().getLongueur(); l++){
+    for(k=0; k <= largeur; k++) {
+        for(l=0; l <= longueur; l++){
             if(abs(int(k-x)) <= rayon && abs(int(l-y)) <= rayon){
-                tab[i] = a->getReseau().getCellule(k,l);
+                tab[i] = reseau[k][l];
                 i++;
             }
         }

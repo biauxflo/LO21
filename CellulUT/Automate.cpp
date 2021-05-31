@@ -32,13 +32,26 @@ void AUTOMATE_NP::Automate::appliquerConfiguration(QXmlStreamReader xmlReader){
 }
 
 void AUTOMATE_NP::Automate::calculerTransition(){
-    CELLULE_NP::Cellule** reseauCopie;  // faire operateur de recopie
-    //= reseau;
-    for(int i = 0; i < reseau.getLongueur(); i++){
-        for(int j = 0; j < reseau.getLargeur(); j++){
-            CELLULE_NP::Cellule& c = reseauCopie[i][j];
-            ETAT_NP::Etat& e = regleTransition.creerTransition(c.getVoisinage());
-            c.setEtat(e);
+    CELLULE_NP::Cellule** reseauCopie;
+    for(unsigned int i = 0; i < reseau.getLargeur(); i++){ // à revoir ?
+        for(unsigned int j = 0; j < reseau.getLongueur(); j++){
+            reseauCopie[i][j] = reseau.getCellule(i,j);
         }
     }
+
+    for(unsigned int i = 0; i < reseau.getLargeur(); i++){
+        for(unsigned int j = 0; j < reseau.getLongueur(); j++){
+            CELLULE_NP::Cellule& c = reseauCopie[i][j];
+            CELLULE_NP::Cellule voisines[voisinage.getNbCellulesVoisines()];
+            ETAT_NP::Etat& e = regleTransition.creerTransition(voisinage.calculerVoisinage(voisines, reseau.getCellules(), i, j, reseau.getLargeur(), reseau.getLongueur()));
+            delete[] voisines;
+            reseau.getCellule(i,j).setEtat(e);
+        }
+    }
+
+    for(unsigned int i = 0; i < reseau.getLargeur(); i++){
+        delete[] reseauCopie[i];
+    }
+    delete[] reseauCopie;
+
 }

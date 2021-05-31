@@ -25,7 +25,7 @@ namespace AUTOMATE_NP{
         const RESEAU_NP::Reseau getReseau() const { return reseau; }
         const ETAT_NP::Etat* getEtats() const { return etats; }
         const ETAT_NP::Etat& getEtat(unsigned int i) const { return etats[i]; }
-        Voisinage getVoisinage() { return voisinage; }
+      //  Voisinage getVoisinage() { return voisinage; }
         unsigned int getNbEtatsMax() { return nbEtatsMax; }
         //Transition getRegleTransition() { return regleTransition; }
 
