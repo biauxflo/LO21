@@ -6,6 +6,7 @@
 #include "Reseau.h"
 #include "Etat.h"
 #include "Voisinage.h"
+#include "Transition.h"
 
 #define MAX_ETATS 8
 
@@ -15,7 +16,7 @@ namespace AUTOMATE_NP{
         ETAT_NP::Etat etats[MAX_ETATS];
         Voisinage voisinage;
         unsigned int nbEtatsMax;
-        //Transition regleTransition;
+        Transition regleTransition;
 
     public:
         Automate(RESEAU_NP::Reseau r, unsigned int n): reseau(r), nbEtatsMax(n) {} //, Etat[] e): reseau(r), etats(e) {}//, voisinage(v), regleTransition(rt) {} Voisinage v, Transition rt
@@ -27,7 +28,7 @@ namespace AUTOMATE_NP{
         const ETAT_NP::Etat& getEtat(unsigned int i) const { return etats[i]; }
       //  Voisinage getVoisinage() { return voisinage; }
         unsigned int getNbEtatsMax() { return nbEtatsMax; }
-        //Transition getRegleTransition() { return regleTransition; }
+       // Transition getRegleTransition() { return regleTransition; }
 
         void appliquerConfiguration(QXmlStreamReader xmlReader);
         void calculerTransition();

@@ -1,8 +1,8 @@
 debug/Automate.o
 debug/Cellule.o
 debug/Etat.o
+debug/GameLifeTransition.o
 debug/Reseau.o
-debug/Arbitraire.o
 debug/Moore.o
 debug/MooreGeneral.o
 debug/Neumann.o

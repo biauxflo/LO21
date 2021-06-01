@@ -43,7 +43,7 @@ void AUTOMATE_NP::Automate::calculerTransition(){
         for(unsigned int j = 0; j < reseau.getLongueur(); j++){
             CELLULE_NP::Cellule& c = reseauCopie[i][j];
             CELLULE_NP::Cellule voisines[voisinage.getNbCellulesVoisines()];
-            ETAT_NP::Etat& e = regleTransition.creerTransition(voisinage.calculerVoisinage(voisines, reseau.getCellules(), i, j, reseau.getLargeur(), reseau.getLongueur()));
+            ETAT_NP::Etat& e = regleTransition.creerTransition(getEtats(), c.getEtat(), voisinage.calculerVoisinage(voisines, reseauCopie, i, j, reseau.getLargeur(), reseau.getLongueur()), voisinage.getNbCellulesVoisines());
             delete[] voisines;
             reseau.getCellule(i,j).setEtat(e);
         }

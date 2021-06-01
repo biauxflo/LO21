@@ -23,6 +23,7 @@ namespace ETAT_NP{
         void setIndice (int ind);
         void setLabel (int lab);
         //void setColor (int couleur);
+        // operator==
     };
 }
 
