@@ -3,7 +3,11 @@
 #include <string>
 #include "Automate.h"
 
-/* A CONTINUER AVEC LES METHODES DES AUTRES CLASSES */
+void setEtats(unsigned int n, ETAT_NP::Etat *e){
+    nbEtatsMax = n;
+    delete[] etats;
+
+}
 void AUTOMATE_NP::Automate::appliquerConfiguration(QXmlStreamReader xmlReader){
 
     xmlReader.readNext();

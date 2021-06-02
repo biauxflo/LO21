@@ -2,6 +2,7 @@
 <automate>
     <name lang="en">Game's Life</name>
     <etats>
+		<nombre>2</nombre>
         <etat>
             <label lang="en">dead</label>
             <color lang="en">black</color>

@@ -2,6 +2,7 @@
 <automate>
     <name lang="en">Brian's Brain</name>
     <etats>
+		<nombre>3</nombre>
         <etat>
             <label lang="en">resting</label>
             <color lang="en">green</color>
