@@ -1,4 +1,4 @@
-#ifndef ETATFACTORY_H
+ifndef ETATFACTORY_H
 #define ETATFACTORY_H
 
 #include "GenericEtatFactory.h"

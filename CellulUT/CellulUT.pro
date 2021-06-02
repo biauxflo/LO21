@@ -6,10 +6,7 @@ HEADERS += \
     BrianBrainTransition.h \
     Cellule.h \
     Etat.h \
-    EtatFactory.h \
     GameLifeTransition.h \
-    GenericEtat.h \
-    GenericEtatFactory.h \
     Reseau.h \
     Moore.h \
     MooreGeneral.h \
