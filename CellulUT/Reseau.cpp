@@ -11,13 +11,13 @@ RESEAU_NP::Reseau::Reseau(int la, int lo, int hor, int t) {
     horloge = hor;
     taille = t;
 
-   // allocArray();
+    //allocArray();
     for(unsigned int i = 0; i < taille; i++)
-    {/*
+    {
         for(unsigned int j = 0; j < taille; j++)
         {
-            cellule[i][j] = CELLULE_NP::Cellule(i,j, automate.getEtat(0), this);     //Cellule(i,j, automate.getEtat(0),this);
-        }*/
+            cellules[i][j] = CELLULE_NP::Cellule(i,j, automate.getEtat(0), this);
+        }
     }
 }
 

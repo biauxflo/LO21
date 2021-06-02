@@ -14,18 +14,17 @@ namespace RESEAU_NP{
         unsigned int longueur;
         unsigned int horloge;
         unsigned int taille;
-        //AUTOMATE_NP::Automate& automate;
+        AUTOMATE_NP::Automate& automate;
         CELLULE_NP::Cellule** cellules;
-        /*
-        void allocArray()
+        /*void allocArray() Erreur au niveau de "Cellule ** que j'ai pas réussi à régler"
         {
-            cellule = reinterpret_cast<Cellule **>(new int *[taille]);
+            cellules = CELLULE_NP::Cellule** (new *int[taille]);
             for(int i = 0; i < taille; i++)
             {
-                cellule[i] = reinterpret_cast<Cellule *>(new int[taille]);
+                cellules[i] = CELLULE_NP::Cellule* (new int[taille]);
             }
-        }*/
-
+        }
+        */
     public:
         Reseau(int la, int lo, int hor, int t);
         ~Reseau()

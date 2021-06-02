@@ -14,14 +14,14 @@ namespace CELLULE_NP{
     private:
         unsigned int abs;
         unsigned int ord;
-        ETAT_NP::Etat& etat;
+        ETAT_NP::Etat* etat;
 
     public:
-        Cellule(unsigned int abs = 0, unsigned int ord = 0, ETAT_NP::Etat& etat = nullptr) : abs(abs), ord(ord), etat(etat) {}
+        Cellule(unsigned int abs = 0, unsigned int ord = 0, ETAT_NP::Etat* etat = nullptr) : abs(abs), ord(ord), etat(etat) {}
         Cellule& operator=(const Cellule& c);
         int getAbscisse () const {return abs;}
         int getOrdonnee () const {return ord;}
-        ETAT_NP::Etat& getEtat() const {return etat;}
+        ETAT_NP::Etat* getEtat() const {return etat;}
         void setAbscisse (int x);
         void setOrdonnee (int y);
         void setEtat (ETAT_NP::Etat& e);

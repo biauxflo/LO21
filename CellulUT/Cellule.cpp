@@ -15,7 +15,7 @@ void Cellule::setOrdonnee(int y)
 }
 
 void Cellule::setEtat(ETAT_NP::Etat &e){
-    etat = e;
+    etat = &e;
 }
 
 Cellule& Cellule::operator=(const Cellule& c){
