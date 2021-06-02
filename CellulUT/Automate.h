@@ -14,9 +14,9 @@ namespace AUTOMATE_NP{
     class Automate{
         RESEAU_NP::Reseau reseau;
         ETAT_NP::Etat etats[MAX_ETATS];
-        Voisinage voisinage;
+        Voisinage& voisinage;
         unsigned int nbEtatsMax;
-        Transition regleTransition;
+        Transition& regleTransition;
 
     public:
         Automate(RESEAU_NP::Reseau r, unsigned int n): reseau(r), nbEtatsMax(n) {} //, Etat[] e): reseau(r), etats(e) {}//, voisinage(v), regleTransition(rt) {} Voisinage v, Transition rt
