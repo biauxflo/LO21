@@ -10,15 +10,10 @@ RESEAU_NP::Reseau::Reseau(int la, int lo, int hor, int t) {
     longueur = lo;
     horloge = hor;
     taille = t;
-
-    //allocArray();
-    for(unsigned int i = 0; i < taille; i++)
-    {
-        for(unsigned int j = 0; j < taille; j++)
-        {
-            cellules[i][j] = CELLULE_NP::Cellule(i,j, automate.getEtat(0), this);
-        }
+    for (unsigned int i = 0; i != taille; ++i) {
+        cellules[i] = new CELLULE_NP::Cellule();
     }
+
 }
 
 void RESEAU_NP::Reseau::setHorloge(int hor)
