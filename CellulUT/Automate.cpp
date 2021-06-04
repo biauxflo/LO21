@@ -23,7 +23,8 @@ void AUTOMATE_NP::Automate::appliquerConfiguration(QXmlStreamReader xmlReader){
                     QString name = xmlReader.readElementText();
                     automateName = name.toStdString();
                 } else if(xmlReader.name() == "etats"){
-
+                    xmlReader.readNextStartElement();
+                    // creer classe exception
                 } else if(xmlReader.name() == "voisinage"){
 
                 } else if(xmlReader.name() == "regles"){

@@ -15,4 +15,5 @@ int main(int argc, char *argv[])
 
     AUTOMATE_NP::Automate* automate = new AUTOMATE_NP::Automate(r, 2, v, rt);
    // return a.exec();
+    return 0;
 }
