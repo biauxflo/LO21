@@ -3,9 +3,12 @@
 #include <string>
 #include "Automate.h"
 
-void setEtats(unsigned int n, ETAT_NP::Etat *e){
-    nbEtatsMax = n;
-    delete[] etats;
+void AUTOMATE_NP::Automate::setEtats(size_t n, ETAT_NP::Etat** e){
+    setNbEtats(n);
+    for(unsigned int i = 0; i < MAX_ETATS; i++){
+        if(i > n) etats[i] = nullptr;
+        else etats[i] = e[i];
+    }
 
 }
 void AUTOMATE_NP::Automate::appliquerConfiguration(QXmlStreamReader xmlReader){
@@ -46,8 +49,8 @@ void AUTOMATE_NP::Automate::calculerTransition(){
     for(unsigned int i = 0; i < reseau.getLargeur(); i++){
         for(unsigned int j = 0; j < reseau.getLongueur(); j++){
             CELLULE_NP::Cellule& c = reseauCopie[i][j];
-            CELLULE_NP::Cellule voisines[voisinage.getNbCellulesVoisines()];
-            ETAT_NP::Etat& e = regleTransition.creerTransition(getEtats(), c.getEtat(), voisinage.calculerVoisinage(voisines, reseauCopie, i, j, reseau.getLargeur(), reseau.getLongueur()), voisinage.getNbCellulesVoisines());
+            CELLULE_NP::Cellule* voisines = new CELLULE_NP::Cellule[voisinage->getNbCellulesVoisines()];
+            ETAT_NP::Etat& e = regleTransition->creerTransition(getEtats(), c.getEtat(), voisinage->calculerVoisinage(voisines, reseauCopie, i, j, reseau.getLargeur(), reseau.getLongueur()), voisinage->getNbCellulesVoisines());
             delete[] voisines;
             reseau.getCellule(i,j).setEtat(e);
         }

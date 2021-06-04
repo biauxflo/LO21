@@ -14,7 +14,6 @@ namespace RESEAU_NP{
         unsigned int longueur;
         unsigned int horloge;
         unsigned int taille;
-        AUTOMATE_NP::Automate& automate;
         CELLULE_NP::Cellule** cellules = new CELLULE_NP::Cellule *[taille];
 
     public:

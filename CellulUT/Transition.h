@@ -6,7 +6,7 @@
 class Transition{
 
 public:
-    virtual ETAT_NP::Etat& creerTransition(ETAT_NP::Etat* etats, ETAT_NP::Etat& etat, CELLULE_NP::Cellule* voisines, unsigned int nbVoisines) = 0;
+    virtual ETAT_NP::Etat& creerTransition(ETAT_NP::Etat** etats, ETAT_NP::Etat& etat, const CELLULE_NP::Cellule* voisines, const unsigned int nbVoisines) = 0;
 };
 
 #endif //CELLULUT_TRANSITION_H
