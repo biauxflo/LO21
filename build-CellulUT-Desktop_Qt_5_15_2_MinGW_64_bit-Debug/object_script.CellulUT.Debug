@@ -9,3 +9,4 @@ debug/Neumann.o
 debug/NeumannGeneral.o
 debug/Voisinage.o
 debug/VoisinageARayon.o
+debug/main.o

@@ -9,3 +9,4 @@ release/Neumann.o
 release/NeumannGeneral.o
 release/Voisinage.o
 release/VoisinageARayon.o
+release/main.o

@@ -1,6 +1,6 @@
 #include "GameLifeTransition.h"
 
-ETAT_NP::Etat& creerTransition(ETAT_NP::Etat** etats, ETAT_NP::Etat& etat, const CELLULE_NP::Cellule* voisines, const unsigned int nbVoisines){
+ETAT_NP::Etat& GameLifeTransition::creerTransition(ETAT_NP::Etat** etats, ETAT_NP::Etat& etat, const CELLULE_NP::Cellule* voisines, const unsigned int nbVoisines){
     unsigned int vivantes = 0;
     unsigned int mortes = 0;
 

@@ -13,19 +13,11 @@ namespace RESEAU_NP{
         unsigned int largeur;
         unsigned int longueur;
         unsigned int horloge;
-        unsigned int taille;
-        CELLULE_NP::Cellule** cellules = new CELLULE_NP::Cellule *[taille];
+        CELLULE_NP::Cellule** cellules;
 
     public:
-        Reseau(int la, int lo, int hor, int t);
-        ~Reseau()
-        {
-            for(unsigned int i = 0; i < taille ; i++)
-            {
-                delete [] cellules[i];
-            }
-            delete [] cellules;
-        }
+        Reseau(int la, int lo, int hor);
+        ~Reseau();
 
         unsigned int getLargeur () const {return largeur;}
         unsigned int getLongueur () const {return longueur;}

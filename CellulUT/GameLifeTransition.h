@@ -3,11 +3,11 @@
 #include <iostream>
 #include "Transition.h"
 
-class TransitionGameLife : public Transition {
+class GameLifeTransition : public Transition {
 
 public:
     ETAT_NP::Etat& creerTransition(ETAT_NP::Etat** etats, ETAT_NP::Etat& etat, const CELLULE_NP::Cellule* voisines, const unsigned int nbVoisines) override;
-
+    GameLifeTransition() = default;
 };
 
 #endif

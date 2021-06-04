@@ -28,4 +28,5 @@ SOURCES += \
     Neumann.cpp \
     NeumannGeneral.cpp \
     Voisinage.cpp \
-    VoisinageARayon.cpp
+    VoisinageARayon.cpp \
+    main.cpp

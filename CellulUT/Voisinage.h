@@ -14,8 +14,6 @@
 * \brief Classe mere abstraite
 */
 
-class Automate;
-
 class Voisinage{
 private :
     /**

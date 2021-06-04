@@ -1,3 +1,4 @@
+/*
 #ifndef CELLULUT_TRANSITION_H
 #define CELLULUT_TRANSITION_H
 #include <iostream>
@@ -10,4 +11,4 @@ int resting = 0;
 int exciting = 0;
 int refractory = 0;
 
-}
+}*/
