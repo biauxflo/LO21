@@ -5,6 +5,12 @@
     const Etat* depart;
     size_t nbMaxEtats;
     size_t rang;
+    boolean modeAutomatique=false;
+    size_t pasDeTemps=0;
+    string titre;
+    string description;
+    size_t annee;
+    string auteur;
 
     Simulateur(const Automate& a,size_t buffer=2){
         automate(a);
@@ -77,3 +83,45 @@
     delete[] etats;
     }
 
+    void play(){
+        if (modeAutomatique){
+            if (pasDeTemps!=0){
+                run(pasDeTemps);
+            }else{
+                while (modeAutomatique){
+                    next();
+                }
+            }
+        }else{
+            next();
+        }
+    }
+void setStepByStep(){
+        modeAutomatique=false;
+    }
+void setAuto(){
+        modeAutomatique=true;
+    }
+
+void setAuto(size_t temps){
+        modeAutomatique=true;
+        pasDeTemps=temps;
+    }
+
+void pause(){
+        if (modeAutomatique){
+            setStepByStep();
+            setAuto();
+        }
+    }
+
+void stop(){
+    if (modeAutomatique){
+        setStepByStep();
+        setAuto();
+        pasDeTemps=0;
+    }
+}
+
+void chargerConfiguration(string save);
+void parametrer();
