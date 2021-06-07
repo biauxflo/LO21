@@ -1,0 +1,13 @@
+release/Automate.o
+release/Cellule.o
+release/Etat.o
+release/GameLifeTransition.o
+release/Reseau.o
+release/Moore.o
+release/MooreGeneral.o
+release/Neumann.o
+release/NeumannGeneral.o
+release/Voisinage.o
+release/VoisinageARayon.o
+release/AutomateException.o
+release/main.o

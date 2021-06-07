@@ -14,7 +14,8 @@ HEADERS += \
     NewmannGeneral.h \
     Transition.h \
     Voisinage.h \
-    VoisinageARayon.h
+    VoisinageARayon.h \
+    AutomateException.h
 
 
 SOURCES += \
@@ -29,4 +30,5 @@ SOURCES += \
     NeumannGeneral.cpp \
     Voisinage.cpp \
     VoisinageARayon.cpp \
+    AutomateException.cpp \
     main.cpp

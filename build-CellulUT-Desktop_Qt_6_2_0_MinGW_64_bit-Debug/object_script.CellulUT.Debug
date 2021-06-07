@@ -1,0 +1,13 @@
+debug/Automate.o
+debug/Cellule.o
+debug/Etat.o
+debug/GameLifeTransition.o
+debug/Reseau.o
+debug/Moore.o
+debug/MooreGeneral.o
+debug/Neumann.o
+debug/NeumannGeneral.o
+debug/Voisinage.o
+debug/VoisinageARayon.o
+debug/AutomateException.o
+debug/main.o
