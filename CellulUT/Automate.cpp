@@ -3,6 +3,8 @@
 #include <string>
 #include "Automate.h"
 
+AUTOMATE_NP::Automate* AUTOMATE_NP::Automate::automate_Instance = nullptr;
+
 void AUTOMATE_NP::Automate::setEtats(size_t n, ETAT_NP::Etat** e){
     setNbEtats(n);
     for(unsigned int i = 0; i < MAX_ETATS; i++){
@@ -18,11 +20,10 @@ AUTOMATE_NP::Automate& AUTOMATE_NP::Automate::getAutomate() {
     return *automate_Instance;
 }
 
-AUTOMATE_NP::Automate& AUTOMATE_NP::Automate::getAutomate(RESEAU_NP::Reseau* r, unsigned int n, Voisinage* v, Transition* t) {
+void AUTOMATE_NP::Automate::setAutomate(RESEAU_NP::Reseau* r, unsigned int n, Voisinage* v, Transition* t) {
     if (automate_Instance == nullptr) {
         automate_Instance = new Automate(r,n,v,t);
     }
-    return *automate_Instance;
 }
 
 void AUTOMATE_NP::Automate::libererAutomate() {

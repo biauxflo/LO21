@@ -12,8 +12,8 @@ int main(int argc, char *argv[])
     GameLifeTransition* rt = new GameLifeTransition;
     Neumann* v = new Neumann;
     // DEBUG, ON NE DEVRA PAS FAIRE COMME CA =>
-
-    AUTOMATE_NP::Automate* automate = new AUTOMATE_NP::Automate(r, 2, v, rt);
+    AUTOMATE_NP::Automate::setAutomate(r,2,v,rt);
+    auto& automate = AUTOMATE_NP::Automate::getAutomate();
    // return a.exec();
     return 0;
 }

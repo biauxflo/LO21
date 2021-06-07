@@ -1,6 +1,5 @@
 #ifndef AUTOMATE_H
 #define AUTOMATE_H
-
 #include <QtXml>
 #include "Cellule.h"
 #include "Reseau.h"
@@ -24,8 +23,8 @@ namespace AUTOMATE_NP{
     public:
         Automate(const Automate&) = delete; // Suppression du constructeur de recopie
         void operator=(const Automate &) = delete; // Suppression de l'opérateur "="
-        static Automate& getAutomate () {} // Fonction get instance d'automate dans le cas où l'instance existe
-        static Automate& getAutomate (RESEAU_NP::Reseau r, unsigned int n) {} // Fonction get instance d'automate avec arguments dans le cas où l'instance aura besoin d'être créée
+        static Automate& getAutomate (); // Fonction get instance d'automate dans le cas où l'instance existe
+        static void setAutomate (RESEAU_NP::Reseau* r, unsigned int n, Voisinage* v, Transition* t); // Fonction get instance d'automate avec arguments dans le cas où l'instance aura besoin d'être créée
         static void libererAutomate();
 
         // GETTERS
