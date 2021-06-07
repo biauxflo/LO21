@@ -7,7 +7,7 @@ namespace AUTOMATE_EXCEPTION_NP {
 class AutomateException : public std::exception {
     std::string info;
 public:
-    AutomateException(const char* s) throw() : info(s) {}
+    AutomateException(const char* s) noexcept: info(s) {}
     const char* what() const noexcept { return info.c_str();}
 };
 }

@@ -15,14 +15,14 @@ RESEAU_NP::Reseau::Reseau(int la, int lo, int hor) {
     }
 
 }
-/*
+
 RESEAU_NP::Reseau::~Reseau(){
     for(unsigned int i = 0; i < largeur ; i++)
     {
         delete[] cellules[i];
     }
     delete [] cellules;
-}*/
+}
 
 void RESEAU_NP::Reseau::setHorloge(int hor)
 {
