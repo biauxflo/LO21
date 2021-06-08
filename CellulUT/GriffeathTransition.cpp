@@ -22,19 +22,19 @@ ETAT_NP::Etat& GriffeathTransition::creerTransition(ETAT_NP::Etat** etats, ETAT_
     }
 
     if(etat.getLabel() == "zero"){
-        if(one == 3) return *etats[1]; // on retourne l etat i+1 des que 3 voisines sont dans l etat i+1
+        if(one >= 3) return *etats[1]; // on retourne l etat i+1 des que 3 voisines sont dans l etat i+1
         else return etat;
     }
     else if(etat.getLabel() == "one"){
-        if(two == 3) return *etats[2];
+        if(two >= 3) return *etats[2];
         else return etat;
     }
     else if(etat.getLabel() == "two"){
-        if(three == 3) return *etats[3];
+        if(three >= 3) return *etats[3];
         else return etat;
     }
     else if(etat.getLabel() == "three"){
-        if(zero == 3) return *etats[0];
+        if(zero >= 3) return *etats[0];
         else return etat;
     }
     else return etat;
