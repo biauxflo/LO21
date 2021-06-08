@@ -9,4 +9,8 @@ debug/Neumann.o
 debug/NeumannGeneral.o
 debug/Voisinage.o
 debug/VoisinageARayon.o
+debug/AutomateException.o
 debug/main.o
+debug/Arbitraire.o
+debug/BrianBrainTransition.o
+debug/GriffeathTransition.o

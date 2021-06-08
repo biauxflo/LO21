@@ -28,7 +28,7 @@ namespace AUTOMATE_NP{
         static void libererAutomate();
 
         // GETTERS
-        const RESEAU_NP::Reseau getReseau() const { return *reseau; }
+        RESEAU_NP::Reseau& getReseau() const { return *reseau; }
         ETAT_NP::Etat** getEtats() const { return etats; }
         ETAT_NP::Etat* getEtat(unsigned int i) const { return etats[i]; }
         size_t getNbEtats() { return nbEtats; }

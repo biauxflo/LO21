@@ -9,4 +9,8 @@ release/Neumann.o
 release/NeumannGeneral.o
 release/Voisinage.o
 release/VoisinageARayon.o
+release/AutomateException.o
 release/main.o
+release/Arbitraire.o
+release/BrianBrainTransition.o
+release/GriffeathTransition.o

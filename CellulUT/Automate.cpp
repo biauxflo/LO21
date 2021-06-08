@@ -21,9 +21,8 @@ AUTOMATE_NP::Automate& AUTOMATE_NP::Automate::getAutomate() {
 }
 
 void AUTOMATE_NP::Automate::setAutomate(RESEAU_NP::Reseau* r, unsigned int n, Voisinage* v, Transition* t) {
-    if (automate_Instance == nullptr) {
-        automate_Instance = new Automate(r,n,v,t);
-    }
+    if (automate_Instance != nullptr) delete automate_Instance;
+    automate_Instance = new Automate(r,n,v,t);
 }
 
 void AUTOMATE_NP::Automate::libererAutomate() {

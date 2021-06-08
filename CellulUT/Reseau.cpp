@@ -9,16 +9,18 @@ RESEAU_NP::Reseau::Reseau(int la, int lo, int hor) {
     largeur = la;
     longueur = lo;
     horloge = hor;
-    cellules = new CELLULE_NP::Cellule*[largeur];
     unsigned int abs, ord;
     /*
     for (unsigned int i = 0; i < longueur; ++i) {
         cellules[i] = new CELLULE_NP::Cellule();
     }*/
     for (abs = 0; abs < largeur; abs++){
+        std::vector<CELLULE_NP::Cellule*> v;
         for(ord = 0; ord < longueur; ord++) {
-            cellules[abs] = new CELLULE_NP::Cellule(abs, ord, nullptr);
+            CELLULE_NP::Cellule* c = new CELLULE_NP::Cellule(abs, ord, new ETAT_NP::Etat);
+            v.push_back(c);
         }
+        cellules.push_back(v);
     }
 
 }
@@ -26,9 +28,10 @@ RESEAU_NP::Reseau::Reseau(int la, int lo, int hor) {
 RESEAU_NP::Reseau::~Reseau(){
     for(unsigned int i = 0; i < largeur ; i++)
     {
-        delete[] cellules[i];
+        for(unsigned int j = 0; j < longueur; j++){
+            delete cellules[i][j];
+        }
     }
-    delete [] cellules;
 }
 
 void RESEAU_NP::Reseau::setHorloge(int hor)
