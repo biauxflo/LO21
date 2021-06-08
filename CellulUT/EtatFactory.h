@@ -1,4 +1,4 @@
-ifndef ETATFACTORY_H
+#ifndef ETATFACTORY_H
 #define ETATFACTORY_H
 
 #include "GenericEtatFactory.h"
@@ -6,7 +6,7 @@ ifndef ETATFACTORY_H
 class EtatFactory : public GenericEtatFactory{
 
 public:
-    Etat makeEtat() override();
+    ETAT_NP::Etat makeEtat() override();
 };
 
 #endif // ETATFACTORY_H
