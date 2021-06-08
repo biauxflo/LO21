@@ -28,6 +28,11 @@ public:
     * \brief Destructeur de la classe Neumann
      */
     ~Neumann() override;
+    /**
+     * \brief setter
+     * @param nb inutilise (le nombre de voisins est de 4)
+     */
+    void setNbCellulesVoisines(unsigned int nb) override {nbCellulesVoisines = 4;}
 };
 
 #endif //CELLULUT_NEWMANN_H

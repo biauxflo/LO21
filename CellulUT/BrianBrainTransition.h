@@ -21,7 +21,7 @@ public:
      * \param nbVoisines nombre de voisines de la cellule (taille du tableau voisines)
      * \return nouvel etat de la cellule
      */
-    ETAT_NP::Etat& creerTransition(ETAT_NP::Etat** etats, ETAT_NP::Etat& etat, CELLULE_NP::Cellule* voisines, unsigned int nbVoisines) override;
+    ETAT_NP::Etat& creerTransition(ETAT_NP::Etat** etats, ETAT_NP::Etat& etat, const CELLULE_NP::Cellule* voisines, unsigned int nbVoisines) override;
     /**
     * \brief Constructeur de la classe BrianBrainTransition
      * sans parametre

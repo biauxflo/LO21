@@ -12,8 +12,8 @@
 * \brief Herite de la classe VoisinageARayon, gere les voisinages de von Neumann de rayon r entier positif
 */
 class NeumannGeneral : public VoisinageARayon {
-private:
-    const unsigned int nbCellulesVoisines = 4;
+protected:
+    unsigned int nbCellulesVoisines = 4; /*!< nombre de voisins*/
 public:
     /**
     * \brief Constructeur de la classe NeumannGeneral
@@ -33,8 +33,17 @@ public:
      * \return tab
      */
     const CELLULE_NP::Cellule * calculerVoisinage(CELLULE_NP::Cellule tab[], CELLULE_NP::Cellule** reseau, unsigned int x, unsigned int y, unsigned int largeur, unsigned int longueur) const override;
-
+    /**
+     * \brief getter
+     * @return nombre de cellules du voisinage
+     */
     unsigned int getNbCellulesVoisines() const override{ return nbCellulesVoisines; }
+    /**
+     * \brief setter
+     * \param nb nombre de cellules voisines
+     * set l'attribut nbCellulesVoisines
+     */
+    virtual void setNbCellulesVoisines(unsigned int nb) {nbCellulesVoisines = nb;}
 };
 
 #endif //CELLULUT_NEWMANNGENERAL_H

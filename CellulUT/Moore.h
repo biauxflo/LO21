@@ -27,6 +27,11 @@ public:
     * \brief Destructeur de la classe Moore
      */
     ~Moore() override;
+    /**
+     * \brief setter
+     * @param nb inutilise (le nombre de voisins est de 8)
+     */
+    void setNbCellulesVoisines(unsigned int nb) override {nbCellulesVoisines = 8;}
 };
 
 #endif //CELLULUT_MOORE_H

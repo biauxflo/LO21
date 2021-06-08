@@ -4,7 +4,7 @@
 
 #include "BrianBrainTransition.h"
 
-ETAT_NP::Etat& creerTransition(ETAT_NP::Etat** etats, ETAT_NP::Etat& etat, CELLULE_NP::Cellule* voisines, unsigned int nbVoisines) {
+ETAT_NP::Etat& BrianBrainTransition::creerTransition(ETAT_NP::Etat** etats, ETAT_NP::Etat& etat, const CELLULE_NP::Cellule* voisines, unsigned int nbVoisines) {
     unsigned int resting = 0;
     unsigned int excited = 0;
     unsigned int refractory = 0;

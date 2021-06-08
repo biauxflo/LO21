@@ -15,20 +15,18 @@
 */
 
 class Voisinage{
-private :
-    /**
-    * \brief Constructeur de recopie de la classe Voisinage
-    * \param v Voisinage à recopier
-    */
-    Voisinage(const Voisinage& v)= delete;
-
+public:
     /**
     * \brief Surcharge de l'opérateur d'affectation
      * \param v Voisinage à affecter
      * \return Voisinage
      */
-    Voisinage& operator=(const Voisinage& v)= delete;
-public:
+    Voisinage& operator=(const Voisinage& v) = delete;
+    /**
+    * \brief Constructeur de recopie de la classe Voisinage (delete)
+    * \param v Voisinage à recopier
+    */
+    Voisinage(const Voisinage& v) = delete;
     /**
     * \brief Constructeur (par defaut) de la classe Voisinage
      */
@@ -42,6 +40,10 @@ public:
     * \brief Methode virtual qui calcule le voisinage d'une cellue (surchargee dans les classes filles)
      */
     virtual const CELLULE_NP::Cellule * calculerVoisinage(CELLULE_NP::Cellule tab[], CELLULE_NP::Cellule** reseau, unsigned int x, unsigned int y, unsigned int largeur, unsigned int longueur) const = 0;
+    /**
+     * \brief getter
+     * @return nombre de cellules du voisinage
+     */
     virtual unsigned int getNbCellulesVoisines() const = 0;
 };
 
