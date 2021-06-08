@@ -4,11 +4,24 @@
 #include "GameLifeTransition.h"
 #include "Newmann.h"
 
+
+
 int main(int argc, char *argv[])
 {
     //QApplication a(argc, argv);
     std::cout << "test";
-    RESEAU_NP::Reseau* r = new RESEAU_NP::Reseau(10,10,0);
+    RESEAU_NP::Reseau* r = new RESEAU_NP::Reseau(3,3,0);
+
+    for (unsigned int i = 0; i < r->getLongueur(); i++) {
+        std::cout<<"|";
+        for (unsigned int j = 0; i< r->getLargeur(); j++) {
+            int randomnb = 1;
+            r->getCellule(i,j).getEtat().setIndice(randomnb);
+            std::cout<<r->getCellule(i,j).getEtat().getIndice()<<"|";
+        }
+        std::cout<<"\n";
+    }
+
     GameLifeTransition* rt = new GameLifeTransition;
     Neumann* v = new Neumann;
     // DEBUG, ON NE DEVRA PAS FAIRE COMME CA =>

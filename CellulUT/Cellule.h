@@ -17,6 +17,8 @@ namespace CELLULE_NP{
         ETAT_NP::Etat* etat;
 
     public:
+        Cellule(unsigned int abscisse, unsigned int ordonnee, ETAT_NP::Etat* e = nullptr): abs(abscisse), ord(ordonnee), etat(e) {};
+
         Cellule& operator=(const Cellule& c);
         int getAbscisse () const {return abs;}
         int getOrdonnee () const {return ord;}

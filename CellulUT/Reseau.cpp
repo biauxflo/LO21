@@ -9,9 +9,16 @@ RESEAU_NP::Reseau::Reseau(int la, int lo, int hor) {
     largeur = la;
     longueur = lo;
     horloge = hor;
-    cellules = new CELLULE_NP::Cellule *[largeur];
+    cellules = new CELLULE_NP::Cellule*[largeur];
+    unsigned int abs, ord;
+    /*
     for (unsigned int i = 0; i < longueur; ++i) {
         cellules[i] = new CELLULE_NP::Cellule();
+    }*/
+    for (abs = 0; abs < largeur; abs++){
+        for(ord = 0; ord < longueur; ord++) {
+            cellules[abs] = new CELLULE_NP::Cellule(abs, ord, nullptr);
+        }
     }
 
 }

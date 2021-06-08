@@ -17,8 +17,7 @@ HEADERS += \
     VoisinageARayon.h \
     AutomateException.h \
     Arbitraire.h \
-    GriffeathTransition.h \
-    simulateur.h
+    GriffeathTransition.h
 
 
 
@@ -38,5 +37,4 @@ SOURCES += \
     main.cpp \
     Arbitraire.cpp \
     BrianBrainTransition.cpp \
-    GriffeathTransition.cpp \
-    simulateur.cpp
+    GriffeathTransition.cpp
