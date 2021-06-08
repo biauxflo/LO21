@@ -1,127 +1,91 @@
 #include "simulateur.h"
 
-    const Automate& automate=nullptr;
-    Etat** etats;
-    const Etat* depart;
-    size_t nbMaxEtats;
-    size_t rang;
-    boolean modeAutomatique=false;
-    size_t pasDeTemps=0;
-    string titre;
-    string description;
-    size_t annee;
-    string auteur;
+time_t tmm = time(0);
+char* dt = ctime(&tmm);
+tm *g = gmtime(&tmm);
 
-    Simulateur(const Automate& a,size_t buffer=2){
-        automate(a);
-        nbMaxEtats(buffer);
-        etats(nullptr);
-        depart(nullptr);
-        rang(0);
-        etats=new Etat*[nbMaxEtats];
-        for(size_t i =0; i<nbMaxEtats; i++) {
-            etats[i] = nullptr;
-        }
-    }
+SIMULATEUR_NP::Simulateur(const AUTOMATE_NP::Automate &a){
+     automate(&a);
+     date(asctime(g));
+}
 
-    Simulateur(const Automate& a, const Etat& start, size_t buffer=2){
-        automate(a);
-        nbMaxEtats(buffer);
-        etats(nullptr);
-        depart(&start);
-        rang(0);
-        etats=new Etat*[nbMaxEtats];
-        for(size_t i =0; i<nbMaxEtats; i++) {
-            etats[i] = nullptr;
-        }
-        etats[0]=new Etat(depart);
-    }
+SIMULATEUR_NP::Simulateur(const AUTOMATE_NP::Automate &a, std::string auteur, std::string titre, std::string desc){
+    automate(&a);
+    date(asctime(g));
+    auteur(auteur);
+    titre(titre);
+    description(desc);
+}
 
-    void build(size_t c) {
-        if (c>=nbMaxEtats) throw AutomateException("Erreur taille");
-        if (etats[c] == nullptr) {
-            etats[c] = new Etat();
-        }
-    }
+SIMULATEUR_NP::Simulateur(const AUTOMATE_NP::Automate &a, RESEAU_NP::Reseau &r){
+    automate(&a);
+    date(asctime(g));
+    depart(&r);
+}
 
-    void setEtatDepart(const Etat& e){
-        depart = &e;
-        reset();
-    }
+SIMULATEUR_NP::Simulateur(const AUTOMATE_NP::Automate &a, const RESEAU_NP::Reseau &start, std::string auteur, std::string titre, std::string desc){
+    automate(&a);
+    date(asctime(g));
+    depart(&r);
+    auteur(auteur);
+    titre(titre);
+    description(desc);
+}
 
-    void reset() {
-        if (depart==nullptr) throw AutomateException("Erreur état départ");
-        build(0);
-        *etats[0]=depart;
-        rang=0;
-    }
+void SIMULATEUR_NP::Simulateur::setEtatDepart(RESEAU_NP::Reseau &r) {
+    depart = &r;
+    reset();
+}
 
-    void next(){
-        if (depart==nullptr) throw AutomateException("Erreur état départ");
-        Etat *e = new Etat();
-        automate.appliquerTransition(*etats[rang%nbMaxEtats],*e);
-        rang++;
-        etats[rang%nbMaxEtats]= e;
-    }
+void SIMULATEUR_NP::Simulateur::reset() {
+    automate.setReseau(depart);
+}
 
-    void run(size_t nbSteps){
-        for(size_t j=0; j<nbSteps; j++) {
-            next();
-        }
-    }
 
-    Simulateur::const Etat& last() const{
-        return etats[rang%nbMaxEtats];
-    }
+void SIMULATEUR_NP::Simulateur::setPasDeTemps(size_t t) {
+    pasDeTemps = t;
+}
 
-    size_t getRangDernier() const { return rang; }
+void SIMULATEUR_NP::Simulateur::setMemoire(size_t mem){
+    memoire=mem;
+}
 
-    ~Simulateur(){
-        for (unsigned int i = 0; i < nbMaxEtats; i++) {
-            delete etats[i];
-        }
-    delete[] etats;
-    }
+size_t SIMULATEUR_NP::Simulateur::getPasDeTemps(){
+    return pasDeTemps;
+}
 
-    void play(){
-        if (modeAutomatique){
-            if (pasDeTemps!=0){
-                run(pasDeTemps);
-            }else{
-                while (modeAutomatique){
-                    next();
-                }
-            }
-        }else{
-            next();
-        }
-    }
-void setStepByStep(){
-        modeAutomatique=false;
-    }
-void setAuto(){
-        modeAutomatique=true;
-    }
+size_t SIMULATEUR_NP::Simulateur::getMemoire(){
+    return memoire;
+}
 
-void setAuto(size_t temps){
-        modeAutomatique=true;
-        pasDeTemps=temps;
-    }
+void SIMULATEUR_NP::Simulateur::setAuto() {
+    modeAutomatique=true;
+}
 
-void pause(){
-        if (modeAutomatique){
-            setStepByStep();
-            setAuto();
-        }
-    }
+void SIMULATEUR_NP::Simulateur::setStepByStep() {
+    modeAutomatique=false;
+}
 
-void stop(){
+/*void SIMULATEUR_NP::Simulateur::saveReseau(){
+    if (!save){
+        save=new RESEAU_NP::Reseau[this->getMemoire()];
+    }
+    rangSave++
+    if (rangSave==memoire){
+        rangSave=0;
+    }
+    save[rang]=automate.getReseau();
+}
+*/
+void SIMULATEUR_NP::Simulateur::run() {
     if (modeAutomatique){
-        setStepByStep();
-        setAuto();
-        pasDeTemps=0;
+
+    }else{
+        saveReseau();
+        automate.calculerTransition();
     }
 }
 
-void chargerConfiguration(string save);
-void parametrer();
+void stop(){
+    
+}
