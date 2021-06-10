@@ -16,12 +16,14 @@ namespace ETAT_NP{
         // QColor couleur;
 
     public:
+        Etat() = default;
+        Etat(int ind, std::string lab): indice(ind), label(lab) {}
         int getIndice () {return indice;}
         std::string getLabel () {return label;}
         //int getColor () {return couleur;}
 
         void setIndice (int ind);
-        void setLabel (int lab);
+        void setLabel (std::string lab);
         //void setColor (int couleur);
         // operator==
     };

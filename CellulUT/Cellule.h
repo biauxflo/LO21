@@ -22,7 +22,7 @@ namespace CELLULE_NP{
         Cellule& operator=(const Cellule& c);
         int getAbscisse () const {return abs;}
         int getOrdonnee () const {return ord;}
-        ETAT_NP::Etat& getEtat() const {return *etat;}
+        ETAT_NP::Etat& getEtat() {return *etat;}
         void setAbscisse (int x);
         void setOrdonnee (int y);
         void setEtat (ETAT_NP::Etat& e);

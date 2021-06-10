@@ -3,20 +3,20 @@
 //
 #include "GriffeathTransition.h"
 
-ETAT_NP::Etat& GriffeathTransition::creerTransition(ETAT_NP::Etat** etats, ETAT_NP::Etat& etat, const CELLULE_NP::Cellule* voisines, unsigned int nbVoisines){
+ETAT_NP::Etat& GriffeathTransition::creerTransition(std::vector<ETAT_NP::Etat*> etats, ETAT_NP::Etat& etat, std::vector<CELLULE_NP::Cellule*> voisines, unsigned int nbVoisines){
     unsigned int zero = 0;
     unsigned int one = 0;
     unsigned int two = 0;
     unsigned int three = 0;
 
     for(unsigned int i = 0; i < nbVoisines; i++){
-        if(voisines[i].getEtat().getLabel() == "zero"){
+        if(voisines[i]->getEtat().getLabel() == "zero"){
             zero++;
-        } else if(voisines[i].getEtat().getLabel() == "one"){
+        } else if(voisines[i]->getEtat().getLabel() == "one"){
             one++;
-        } else if(voisines[i].getEtat().getLabel() == "two"){
+        } else if(voisines[i]->getEtat().getLabel() == "two"){
             two++;
-        } else if(voisines[i].getEtat().getLabel() == "three"){
+        } else if(voisines[i]->getEtat().getLabel() == "three"){
             three++;
         }
     }

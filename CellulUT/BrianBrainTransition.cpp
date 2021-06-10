@@ -4,17 +4,17 @@
 
 #include "BrianBrainTransition.h"
 
-ETAT_NP::Etat& BrianBrainTransition::creerTransition(ETAT_NP::Etat** etats, ETAT_NP::Etat& etat, const CELLULE_NP::Cellule* voisines, unsigned int nbVoisines) {
+ETAT_NP::Etat& BrianBrainTransition::creerTransition(std::vector<ETAT_NP::Etat*> etats, ETAT_NP::Etat& etat, std::vector<CELLULE_NP::Cellule*> voisines, unsigned int nbVoisines) {
     unsigned int resting = 0;
     unsigned int excited = 0;
     unsigned int refractory = 0;
 
     for(unsigned int i = 0; i < nbVoisines; i++){
-        if(voisines[i].getEtat().getLabel() == "resting"){
+        if(voisines[i]->getEtat().getLabel() == "resting"){
             resting++;
-        } else if(voisines[i].getEtat().getLabel() == "excited"){
+        } else if(voisines[i]->getEtat().getLabel() == "excited"){
             excited++;
-        } else if(voisines[i].getEtat().getLabel() == "refractory"){
+        } else if(voisines[i]->getEtat().getLabel() == "refractory"){
             refractory++;
         }
     }

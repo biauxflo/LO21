@@ -1,13 +1,13 @@
 #include "GameLifeTransition.h"
 
-ETAT_NP::Etat& GameLifeTransition::creerTransition(ETAT_NP::Etat** etats, ETAT_NP::Etat& etat, const CELLULE_NP::Cellule* voisines, unsigned int nbVoisines){
+ETAT_NP::Etat& GameLifeTransition::creerTransition(std::vector<ETAT_NP::Etat*> etats, ETAT_NP::Etat& etat, std::vector<CELLULE_NP::Cellule*> voisines, unsigned int nbVoisines){
     unsigned int vivantes = 0;
     unsigned int mortes = 0;
 
     for(unsigned int i = 0; i < nbVoisines; i++){
-        if(voisines[i].getEtat().getLabel() == "alive"){ // A MODIFIER avec operator== et fabrique etat
+        if(voisines[i]->getEtat().getLabel() == "alive"){ // A MODIFIER avec operator== et fabrique etat
             vivantes++;
-        } else if(voisines[i].getEtat().getLabel() == "dead"){
+        } else if(voisines[i]->getEtat().getLabel() == "dead"){
             mortes++;
         }
     }
