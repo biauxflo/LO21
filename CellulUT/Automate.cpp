@@ -35,11 +35,15 @@ void AUTOMATE_NP::Automate::libererAutomate() {
 AUTOMATE_NP::Automate::~Automate() {
     libererAutomate();
 }
-/*
+
 void AUTOMATE_NP::Automate::appliquerConfiguration(QXmlStreamReader xmlReader){
 
     xmlReader.readNext();
     std::string automateName; // ou QString ???
+    unsigned int nombre = 0;
+    std::vector<ETAT_NP::Etat*> _etats;
+    Voisinage* _voisinage;
+    Transition* transition;
 
     if(xmlReader.readNextStartElement()){
         if(xmlReader.name() == "automate"){
@@ -49,12 +53,37 @@ void AUTOMATE_NP::Automate::appliquerConfiguration(QXmlStreamReader xmlReader){
                     automateName = name.toStdString();
                 } else if(xmlReader.name() == "etats"){
                     xmlReader.readNextStartElement();
-                    // creer classe exception
+                    if(xmlReader.name() != "nombre")
+                        throw AUTOMATE_EXCEPTION_NP::AutomateException("Modèle XML incorrect");
+                    nombre = std::stoi(xmlReader.readElementText().toStdString());
+                    for(unsigned int i = 0; i < nombre; i++){
+                        xmlReader.readNextStartElement();
+                        std::string label;
+                        QColor couleur;
+                        unsigned int indice;
+                        if(xmlReader.name() != "etat")
+                            throw AUTOMATE_EXCEPTION_NP::AutomateException("Modèle XML incorrect");
+                        for(unsigned int j = 0; j < 3; j++){
+                            xmlReader.readNextStartElement();
+                            if (xmlReader.name() == "label"){
+                                label = xmlReader.readElementText().toStdString();
+                            } else if(xmlReader.name() == "color"){
+                                couleur = QColor(xmlReader.readElementText());
+                            } else if(xmlReader.name() == "indice") {
+                                indice = std::stoi(xmlReader.readElementText().toStdString());
+                            }
+                        }
+                        ETAT_NP::Etat* _etat = new ETAT_NP::Etat(indice, label, couleur);
+                        _etats.push_back(_etat);
+                    }
 
                 } else if(xmlReader.name() == "voisinage"){
-
+                    if(xmlReader.readElementText() == "neumann") _voisinage = new Neumann();
+                    else if(xmlReader.readElementText() == "moore") _voisinage = new Moore();
                 } else if(xmlReader.name() == "regles"){
-
+                    if(xmlReader.readElementText() == "gamelife") transition = new GameLifeTransition();
+                    else if(xmlReader.readElementText() == "brianbrain") transition = new BrianBrainTransition();
+                    else if(xmlReader.readElementText() == "griffeath") transition = new GriffeathTransition();
                 }
 
                 else{
@@ -63,8 +92,12 @@ void AUTOMATE_NP::Automate::appliquerConfiguration(QXmlStreamReader xmlReader){
             }
         }
     }
+
+    RESEAU_NP::Reseau* r = new RESEAU_NP::Reseau(10,10,0);
+    setAutomate(r, nombre, _voisinage, transition);
+    setEtats(nombre, _etats);
 }
-*/
+
 
 void AUTOMATE_NP::Automate::calculerTransition(){
     std::vector<std::vector<CELLULE_NP::Cellule*>> reseauCopie;

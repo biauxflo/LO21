@@ -6,6 +6,7 @@
 #define LO21_ETAT_H
 
 #include <string>
+#include <QColor>
 
 namespace ETAT_NP{
     class Etat
@@ -13,18 +14,18 @@ namespace ETAT_NP{
     private:
         unsigned int indice;
         std::string label;
-        // QColor couleur;
+        QColor couleur;
 
     public:
         Etat() = default;
-        Etat(int ind, std::string lab): indice(ind), label(lab) {}
+        Etat(int ind, std::string lab, QColor c): indice(ind), label(lab), couleur(c) {}
         int getIndice () {return indice;}
         std::string getLabel () {return label;}
-        //int getColor () {return couleur;}
+        QColor getColor () {return couleur;}
 
         void setIndice (int ind);
         void setLabel (std::string lab);
-        //void setColor (int couleur);
+        void setColor (int couleur);
         // operator==
     };
 }

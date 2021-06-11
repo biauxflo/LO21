@@ -1,5 +1,6 @@
 QT += widgets
 QT += xml
+QT += gui
 
 HEADERS += \
     Automate.h \

@@ -7,6 +7,11 @@
 #include "Voisinage.h"
 #include "Transition.h"
 #include "AutomateException.h"
+#include <Newmann.h>
+#include <Moore.h>
+#include <BrianBrainTransition.h>
+#include <GameLifeTransition.h>
+#include <GriffeathTransition.h>
 
 #define MAX_ETATS 8
 
