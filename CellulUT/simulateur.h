@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include <QtCore>
 #include "etat.h"
 #include "automate.h"
 /**
@@ -10,35 +11,30 @@
 * \brief Gestion de la simulation globale (etats, transitions)
 */
 namespace SIMULATEUR_NP {
-    class Simulateur {
+    class Simulateur : public QObject {
+        Q_OBJECT;
         AUTOMATE_NP::Automate &automate; /*!< Automate de la simulation*/
         RESEAU_NP::Reseau *depart; /*!< Reseau de départ de la simulation*/
+        RESEAU_NP::Reseau* save= nullptr;/*!< Sauvegarde des x derniers etats*/
         Voisinage &voisinage;/*!< Voisinage de la simulation*/
         Transition &transition;/*!Fonction de transition de la simulation*/
+
         bool modeAutomatique=false;/*!< Booleen de selection (mode automatique ou pas à pas)*/
+        bool boucleActive=false;
+        size_t indexMem;
         size_t memoire;/*!< Nombre d'étape de la simulation à garder en mémoire*/
         size_t pasDeTemps;/*!< Pas pour l'execution du mode automatique*/
         std::string titre;/*!< Titre de la simulation*/
-        std::string description;/*!< Description de la simulation*/
-        size_t annee;/*!< Année de la simulation*/
-        std::string auteur;/*!< Auteur de la simulation*/
-        RESEAU_NP::Reseau* save= nullptr;/*!< Sauvegarde des x derniers etats*/
+
+        QTimer *timer;
+
+    public slots :
+        void mySlots();
+
 
     public:
-        /**
-        * \brief Constructeur de la classe Simulateur
-        * \param a Automate
-        */
-        Simulateur(AUTOMATE_NP::Automate &a);
 
-        Simulateur(AUTOMATE_NP::Automate &a, std::string auteur, std::string titre, std::string desc);
-        /**
-        * \brief Constructeur de la classe Simulateur avec état de départ
-        * \param a Automate
-        * \param start Reseau de départ
-        */
-        Simulateur(AUTOMATE_NP::Automate &a, RESEAU_NP::Reseau &start);
-        Simulateur(AUTOMATE_NP::Automate &a, RESEAU_NP::Reseau &start, std::string auteur, std::string titre, std::string desc);
+        Simulateur(AUTOMATE_NP::Automate &a, RESEAU_NP::Reseau &start, std::string titre);
         /**
         * \brief Initialisation de l'état de départ du simulateur
         */
@@ -48,6 +44,10 @@ namespace SIMULATEUR_NP {
         * \brief Lance la simulation.
         */
         void run();
+
+        void next();
+
+        void back();
 
         /**
         * \brief Revenir à l'état de départ
@@ -60,9 +60,24 @@ namespace SIMULATEUR_NP {
         ~Simulateur();
 
         /**
-        * \brief Parametre la simulation
+        * \brief Parametre les Etats de la simulation
         */
-        void parametrer();
+        void parametrerEtat();
+
+        /**
+        * \brief Parametre les Etats de la simulation
+        */
+        void parametrerDimensions();
+
+        /**
+        * \brief Parametre les Etats de la simulation
+        */
+        void parametrerVoisinage();
+
+        /**
+        * \brief Parametre les Etats de la simulation
+        */
+        void parametrerTransition();
 
         /**
         * \brief Arrête la simulation
@@ -73,6 +88,10 @@ namespace SIMULATEUR_NP {
         * \brief Met la simulation en mode automatique sans limite de temps
         */
         void setAuto();
+        /**
+        * \brief Met la simulation en pause
+        */
+        void pause();
 
         /**
         * \brief Met la simulation en mode pas à pas

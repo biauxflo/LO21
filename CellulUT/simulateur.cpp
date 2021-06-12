@@ -1,27 +1,9 @@
 #include "simulateur.h"
+#include <QtDebug>
 
 time_t tmm = time(0);
 char* dt = ctime(&tmm);
 tm *g = gmtime(&tmm);
-
-SIMULATEUR_NP::Simulateur(const AUTOMATE_NP::Automate &a){
-     automate(&a);
-     date(asctime(g));
-}
-
-SIMULATEUR_NP::Simulateur(const AUTOMATE_NP::Automate &a, std::string auteur, std::string titre, std::string desc){
-    automate(&a);
-    date(asctime(g));
-    auteur(auteur);
-    titre(titre);
-    description(desc);
-}
-
-SIMULATEUR_NP::Simulateur(const AUTOMATE_NP::Automate &a, RESEAU_NP::Reseau &r){
-    automate(&a);
-    date(asctime(g));
-    depart(&r);
-}
 
 SIMULATEUR_NP::Simulateur(const AUTOMATE_NP::Automate &a, const RESEAU_NP::Reseau &start, std::string auteur, std::string titre, std::string desc){
     automate(&a);
@@ -41,6 +23,19 @@ void SIMULATEUR_NP::Simulateur::reset() {
     automate.setReseau(depart);
 }
 
+void SIMULATEUR_NP::Simulateur::next(){
+    saveReseau();
+    automate.calculerTransition();
+}
+
+void SIMULATEUR_NP::Simulateur::back(){
+    if (indexMem>0){
+        indexMem-=1;
+    }else if (indexMem==0){
+        indexMem=memoire-1;
+    }
+    automate.setReseau(&save[indexMem]);
+}
 
 void SIMULATEUR_NP::Simulateur::setPasDeTemps(size_t t) {
     pasDeTemps = t;
@@ -66,26 +61,40 @@ void SIMULATEUR_NP::Simulateur::setStepByStep() {
     modeAutomatique=false;
 }
 
-/*void SIMULATEUR_NP::Simulateur::saveReseau(){
+void SIMULATEUR_NP::Simulateur::saveReseau(){
     if (!save){
-        save=new RESEAU_NP::Reseau[this->getMemoire()];
+        save=new RESEAU_NP::Reseau[getMemoire()];
     }
-    rangSave++
-    if (rangSave==memoire){
-        rangSave=0;
+    indexMem++;
+    if (indexMem==memoire){
+        indexMem=0;
     }
-    save[rang]=automate.getReseau();
+    save[indexMem]=automate.getReseau();
 }
-*/
+
 void SIMULATEUR_NP::Simulateur::run() {
     if (modeAutomatique){
-
+        boucleActive=true;
+        while (boucleActive){
+            if (pasDeTemps!=0){
+                timer->start();
+                automate.calculerTransition();
+                //sleep(pasDeTemps);
+            }else{
+                timer->start();
+                automate.calculerTransition();
+            }
+        }
     }else{
-        saveReseau();
-        automate.calculerTransition();
+        next();
     }
 }
 
-void stop(){
-    
+void SIMULATEUR_NP::Simulateur::pause(){
+    boucleActive=!boucleActive;
+}
+
+void SIMULATEUR_NP::Simulateur::stop(){
+    timer->stop();
+    boucleActive=false;
 }
