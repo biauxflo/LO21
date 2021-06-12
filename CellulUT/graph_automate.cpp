@@ -8,20 +8,22 @@ using namespace std;
 extern MainWindow * mainWin;
 
 
-GA_NP::Graph_Automate(QMainWindow *parent){
-    resolution = 0;
-}
+GA_NP::Graph_Automate(QMainWindow){
+    resolutionLarg = 0;
+    resolutionLong = 0;
+};
 
-GA_NP::Graph_Automate(QGraphicsItem *parent)
+GA_NP::Graph_Automate(QGraphicsItem)
 {
-    resolution = 0;
-}
+    resolutionLarg = 0;
+    resolutionLong = 0;
+};
 
 /*!
  * overrides a member function fo QGraphicsScene and uses it to inform main window and game window about clicks on the scenes
  */
-void GA_NP::clickDeSouris(QGraphicsSceneMouseEvent *event){
-    mainWin->toggleCells(event->scenePos().x(), event->scenePos().y(), this);
+void clickDeSouris(QGraphicsSceneMouseEvent *event){
+    //mainWin->toggleCells(event->scenePos().x(), event->scenePos().y(), this);
 }
 
 /*!
@@ -29,46 +31,38 @@ void GA_NP::clickDeSouris(QGraphicsSceneMouseEvent *event){
  * \param cellField is the vector describing the cells status
  * \param len is the length of one side of the field, aka: how many cells per line
  */
-void GA_NP::peindreReseau(RESEAU_NP::Reseau &r)
+void peindreReseau(RESEAU_NP::Reseau &r)
 {
     // the cell is painted top left... therefore there could be an unused border bottom right...
     // if you change it, remember to change the function to toggle cells to account for it!
 
     // dimension in pixel of the View
-    int viewDim = 500; // if I use "mainWin->get_ViewResolution()" then it crashes by the first setting... unknown reason
-    if(resolution != 0) viewDim = resolution; // override the dimension of the view, if it has been set (used in two player game)
-
+    size_t viewDimLarg = 900; //A FIXER AVEC l'UI
+    size_t viewDimLong = 600;
     // calculate the dimension of a cell
-    int cellDim = viewDim/len;
+    size_t cellLarg = viewDimLarg/r.getLargeur();
+    size_t cellLong = viewDimLong/r.getLongueur();
 
     // create a new image of the necessary dimension
-    QImage image(viewDim, viewDim, QImage::Format_RGB32);
+    QImage image(viewDimLarg, viewDimLong, QImage::Format_RGB32);
 
-    QRgb value; // this will be the color of the cell - switching between live and grey value
+    QRgb value;
 
-    QRgb livevalue = qRgb(50, 205, 50); // THE COLOR OF LIVING CELLS - actual: green
-    QRgb greyvalue = qRgb(220, 220, 220); // the color of the field - actual: grey
-
-    for(int i = 0; i < len; i++){
-        for(int e = 0; e < len; e++){
-
-            if(cellField[(i*len) + e]){ // check if true or false to determine the color
-                 value = livevalue;
-            } else {
-                 value = greyvalue;
-            }
+    for(size_t i = 0; i < r.getLargeur(); i++){
+        for(size_t e = 0; e < r.getLongueur(); e++){
+            value=r.getCellule(i,e).getEtat().getColor(); // GET COLOR QRGB (pls)
 
              // paint a whole cell (a square of cellDim pixels)
-            for(int x = 0; x < cellDim; x++){
-                for(int y = 0; y < cellDim; y++){
-                    image.setPixel(e*cellDim + x, i*cellDim + y, value);
+            for(size_t x = 0; x < cellLarg; x++){
+                for(size_t y = 0; y < cellLong; y++){
+                    image.setPixel(e*cellLarg + x, i*cellLong + y, value);
                 }
             }
         }
     }
 
     // set the dimension of the scene
-    setSceneRect(0,0,viewDim,viewDim);
+    setSceneRect(0,0,viewDimLarg,viewDimLong);
     // add the generated image to the scene (after trasforming it in a Pixmap)
     addPixmap(QPixmap::fromImage(image));
 }

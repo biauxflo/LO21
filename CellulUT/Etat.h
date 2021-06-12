@@ -14,14 +14,14 @@ namespace ETAT_NP{
     private:
         unsigned int indice;
         std::string label;
-        QColor couleur;
+        QRgb couleur;
 
     public:
         Etat() = default;
-        Etat(int ind, std::string lab, QColor c): indice(ind), label(lab), couleur(c) {}
+        Etat(int ind, std::string lab, QRgb c): indice(ind), label(lab), couleur(c) {}
         int getIndice () {return indice;}
         std::string getLabel () {return label;}
-        QColor getColor () {return couleur;}
+        QRgb getColor () {return couleur;}
 
         void setIndice (int ind);
         void setLabel (std::string lab);

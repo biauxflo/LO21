@@ -18,7 +18,7 @@ namespace SIMULATEUR_NP {
         RESEAU_NP::Reseau *depart; /*!< Reseau de départ de la simulation*/
         RESEAU_NP::Reseau* save= nullptr;/*!< Sauvegarde des x derniers etats*/
         Voisinage &voisinage;/*!< Voisinage de la simulation*/
-        Transition &transition;/*!<Fonction de transition de la simulation*/
+        Transition &transition;/*!< Fonction de transition de la simulation*/
 
         bool modeAutomatique=false;/*!< Booleen de selection (mode automatique ou pas à pas)*/
         bool boucleActive=false;/*!< Booleen d'activation de la boucle d'execution*/

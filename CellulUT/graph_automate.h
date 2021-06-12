@@ -20,12 +20,15 @@ namespace GA_NP{
         Graph_Automate(QMainWindow * parent = 0);
         Graph_Automate(QGraphicsItem * parent = 0);
 
+        // variables
+        size_t resolutionLong; //<! the pixel resolution of one side of this scene (it is a square)
+        size_t resolutionLarg;
+
         // member fucntions
         void clickDeSouris(QGraphicsSceneMouseEvent *event);
         void peindreReseau(RESEAU_NP::Reseau &r);
 
-        // variables
-        int resolution; //<! the pixel resolution of one side of this scene (it is a square)
+
     };
 }
 
