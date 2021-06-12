@@ -3,6 +3,7 @@
 #include "Automate.h"
 #include "GameLifeTransition.h"
 #include "Newmann.h"
+#include "Arbitraire.h"
 #include <windows.h>
 
     void sleep(unsigned milliseconds)
@@ -19,7 +20,7 @@ int main(int argc, char *argv[])
     for (unsigned int i = 0; i < r->getLongueur(); i++) {
         std::cout<<"|";
         for (unsigned int j = 0; j < r->getLargeur(); j++) {
-            int randomnb = rand()%3;
+            int randomnb = rand()%2;
             r->getCellule(i,j).getEtat().setIndice(randomnb);
             if(randomnb == 0) r->getCellule(i,j).getEtat().setLabel("dead");
            // if(randomnb == 1) r->getCellule(i,j).getEtat().setLabel("excited");
@@ -31,7 +32,15 @@ int main(int argc, char *argv[])
 
     GameLifeTransition* rt = new GameLifeTransition;
    // BrianBrainTransition* rt = new BrianBrainTransition;
-    Neumann* v = new Neumann;
+
+    std::vector<CELLULE_NP::Cellule*> voisins;
+    voisins.push_back(&r->getCellule(10,27));
+    voisins.push_back(&r->getCellule(22,27));
+    voisins.push_back(&r->getCellule(33,44));
+    voisins.push_back(&r->getCellule(42,11));
+    voisins.push_back(&r->getCellule(22,0));
+    voisins.push_back(&r->getCellule(1,47));
+    Arbitraire* v = new Arbitraire(6, r->getCellule(11,27), voisins);
     //Moore* v = new Moore;
     // DEBUG, ON NE DEVRA PAS FAIRE COMME CA =>
     AUTOMATE_NP::Automate::setAutomate(r,2,v,rt);
@@ -59,7 +68,7 @@ int main(int argc, char *argv[])
         }
     }*/
 
-    for(int cpt = 0; cpt < 10; cpt++){
+    for(int cpt = 0; cpt < 100; cpt++){
        // std::cout << "\nITERATION " << cpt << "\n\n";
         automate.calculerTransition();
         //Boucle qui print le label de l'etat de chaque cellule dans une matrice sous la forme "|0|1|1|0|0|..."

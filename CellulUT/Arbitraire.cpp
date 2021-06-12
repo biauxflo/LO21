@@ -5,15 +5,19 @@
 #include "Arbitraire.h"
 
 const std::vector<CELLULE_NP::Cellule*> Arbitraire::calculerVoisinage(std::vector<CELLULE_NP::Cellule*> tab, std::vector<std::vector<CELLULE_NP::Cellule*>> reseau, unsigned int x, unsigned int y, unsigned int largeur, unsigned int longueur) const {
-    unsigned int * distAbs = calculerDistanceAbscisse();
-    unsigned int * distOrd = calculerDistanceOrdonnee();
-    for(unsigned int i = 0; i <= nbvoisins; i++){
-        if(x + distAbs[i] > largeur) distAbs[i] = x + distAbs[i] - largeur;
-        if(y + distOrd[i] > longueur) distOrd[i] = y + distOrd[i] - longueur;
-        tab[i] = reseau[x + distAbs[i]][y + distOrd[i]];
+    std::vector<int> distAbs = calculerDistanceAbscisse();
+    std::vector<int> distOrd = calculerDistanceOrdonnee();
+    for(unsigned int i = 0; i < nbvoisins; i++){
+        int absCalcule = x + distAbs[i];
+        int ordCalcule = y + distOrd[i];
+        int larg = largeur - 1;
+        int longu = longueur - 1;
+        if(absCalcule > larg) absCalcule = absCalcule - (larg+1);
+        else if(absCalcule < 0) absCalcule = absCalcule + larg;
+        if(ordCalcule < 0) ordCalcule = ordCalcule + longu;
+        else if(ordCalcule > longu) ordCalcule = ordCalcule - (longu+1);
+        tab[i] = reseau[absCalcule][ordCalcule];
     }
 
-    delete distAbs;
-    delete distOrd;
     return tab;
 }

@@ -5,14 +5,14 @@ time_t tmm = time(0);
 char* dt = ctime(&tmm);
 tm *g = gmtime(&tmm);
 
-/*SIMULATEUR_NP::Simulateur(const AUTOMATE_NP::Automate &a, const RESEAU_NP::Reseau &start, std::string auteur, std::string titre, std::string desc){
+SIMULATEUR_NP::Simulateur(const AUTOMATE_NP::Automate &a, const RESEAU_NP::Reseau &start, std::string auteur, std::string titre, std::string desc){
     automate(&a);
     date(asctime(g));
     depart(&r);
     auteur(auteur);
     titre(titre);
     description(desc);
-}*/
+}
 
 void SIMULATEUR_NP::Simulateur::setEtatDepart(RESEAU_NP::Reseau &r) {
     depart = &r;
@@ -61,7 +61,7 @@ void SIMULATEUR_NP::Simulateur::setStepByStep() {
     modeAutomatique=false;
 }
 
-/*void SIMULATEUR_NP::Simulateur::saveReseau(){
+void SIMULATEUR_NP::Simulateur::saveReseau(){
     if (!save){
         save=new RESEAU_NP::Reseau[getMemoire()];
     }
@@ -70,7 +70,7 @@ void SIMULATEUR_NP::Simulateur::setStepByStep() {
         indexMem=0;
     }
     save[indexMem]=automate.getReseau();
-}*/
+}
 
 void SIMULATEUR_NP::Simulateur::run() {
     if (modeAutomatique){
@@ -98,3 +98,4 @@ void SIMULATEUR_NP::Simulateur::stop(){
     timer->stop();
     boucleActive=false;
 }
+

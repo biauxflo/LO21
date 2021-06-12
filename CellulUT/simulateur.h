@@ -4,8 +4,8 @@
 #include <string>
 #include <iostream>
 #include <QtCore>
-#include "etat.h"
-#include "automate.h"
+#include "Etat.h"
+#include "Automate.h"
 /**
 * \class Simulateur
 * \brief Gestion de la simulation globale (etats, transitions)
