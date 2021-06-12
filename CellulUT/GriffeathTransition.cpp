@@ -23,19 +23,19 @@ ETAT_NP::Etat& GriffeathTransition::creerTransition(std::vector<ETAT_NP::Etat*> 
 
     if(etat.getLabel() == "zero"){
         if(one >= 3) return *etats[1]; // on retourne l etat i+1 des que 3 voisines sont dans l etat i+1
-        else return etat;
+        else return *etats[0];
     }
     else if(etat.getLabel() == "one"){
         if(two >= 3) return *etats[2];
-        else return etat;
+        else return *etats[1];
     }
     else if(etat.getLabel() == "two"){
         if(three >= 3) return *etats[3];
-        else return etat;
+        else return *etats[2];
     }
     else if(etat.getLabel() == "three"){
         if(zero >= 3) return *etats[0];
-        else return etat;
+        else return *etats[3];
     }
     else return etat;
 }

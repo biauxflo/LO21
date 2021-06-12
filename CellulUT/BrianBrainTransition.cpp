@@ -21,7 +21,7 @@ ETAT_NP::Etat& BrianBrainTransition::creerTransition(std::vector<ETAT_NP::Etat*>
 
     if(etat.getLabel() == "resting"){
         if(excited == 2) return *etats[1]; // on retourne l'etat excite si il y a 2 des 8 voisines dans l etat excite
-        else return etat;
+        else return *etats[0];
     }
     else if(etat.getLabel() == "excited"){
         return *etats[2]; // les cellules excitees deviennent toujours refractaires au pas de temps suivant

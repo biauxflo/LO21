@@ -48,10 +48,10 @@ void AUTOMATE_NP::Automate::appliquerConfiguration(QXmlStreamReader xmlReader){
     if(xmlReader.readNextStartElement()){
         if(xmlReader.name() == "automate"){
             while(xmlReader.readNextStartElement()){
-                if(xmlReader.name() == "name"){
+                if(xmlReader.name().toString() == "name"){
                     QString name = xmlReader.readElementText();
                     automateName = name.toStdString();
-                } else if(xmlReader.name() == "etats"){
+                } else if(xmlReader.name().toString() == "etats"){
                     xmlReader.readNextStartElement();
                     if(xmlReader.name() != "nombre")
                         throw AUTOMATE_EXCEPTION_NP::AutomateException("Modèle XML incorrect");
@@ -61,15 +61,15 @@ void AUTOMATE_NP::Automate::appliquerConfiguration(QXmlStreamReader xmlReader){
                         std::string label;
                         QColor couleur;
                         unsigned int indice;
-                        if(xmlReader.name() != "etat")
+                        if(xmlReader.name().toString() != "etat")
                             throw AUTOMATE_EXCEPTION_NP::AutomateException("Modèle XML incorrect");
                         for(unsigned int j = 0; j < 3; j++){
                             xmlReader.readNextStartElement();
-                            if (xmlReader.name() == "label"){
+                            if (xmlReader.name().toString() == "label"){
                                 label = xmlReader.readElementText().toStdString();
-                            } else if(xmlReader.name() == "color"){
+                            } else if(xmlReader.name().toString() == "color"){
                                 couleur = QColor(xmlReader.readElementText());
-                            } else if(xmlReader.name() == "indice") {
+                            } else if(xmlReader.name().toString() == "indice") {
                                 indice = std::stoi(xmlReader.readElementText().toStdString());
                             }
                         }
@@ -77,10 +77,10 @@ void AUTOMATE_NP::Automate::appliquerConfiguration(QXmlStreamReader xmlReader){
                         _etats.push_back(_etat);
                     }
 
-                } else if(xmlReader.name() == "voisinage"){
+                } else if(xmlReader.name().toString() == "voisinage"){
                     if(xmlReader.readElementText() == "neumann") _voisinage = new Neumann();
                     else if(xmlReader.readElementText() == "moore") _voisinage = new Moore();
-                } else if(xmlReader.name() == "regles"){
+                } else if(xmlReader.name().toString() == "regles"){
                     if(xmlReader.readElementText() == "gamelife") transition = new GameLifeTransition();
                     else if(xmlReader.readElementText() == "brianbrain") transition = new BrianBrainTransition();
                     else if(xmlReader.readElementText() == "griffeath") transition = new GriffeathTransition();

@@ -1,6 +1,7 @@
 #ifndef AUTOMATE_H
 #define AUTOMATE_H
 #include <QtXml>
+#include <QString>
 #include "Cellule.h"
 #include "Reseau.h"
 #include "Etat.h"

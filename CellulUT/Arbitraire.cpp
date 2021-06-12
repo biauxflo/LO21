@@ -10,7 +10,10 @@ const std::vector<CELLULE_NP::Cellule*> Arbitraire::calculerVoisinage(std::vecto
     for(unsigned int i = 0; i <= nbvoisins; i++){
         if(x + distAbs[i] > largeur) distAbs[i] = x + distAbs[i] - largeur;
         if(y + distOrd[i] > longueur) distOrd[i] = y + distOrd[i] - longueur;
-        *tab[i] = *reseau[x + distAbs[i]][y + distOrd[i]];
+        tab[i] = reseau[x + distAbs[i]][y + distOrd[i]];
     }
+
+    delete distAbs;
+    delete distOrd;
     return tab;
 }

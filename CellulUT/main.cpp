@@ -3,20 +3,26 @@
 #include "Automate.h"
 #include "GameLifeTransition.h"
 #include "Newmann.h"
+#include <windows.h>
 
+    void sleep(unsigned milliseconds)
+    {
+        Sleep(milliseconds);
+    }
 
 
 int main(int argc, char *argv[])
 {
     //QApplication a(argc, argv);
-    RESEAU_NP::Reseau* r = new RESEAU_NP::Reseau(10,10,0);
+    RESEAU_NP::Reseau* r = new RESEAU_NP::Reseau(50,50,0);
 
     for (unsigned int i = 0; i < r->getLongueur(); i++) {
         std::cout<<"|";
         for (unsigned int j = 0; j < r->getLargeur(); j++) {
-            int randomnb = rand()%2;
+            int randomnb = rand()%3;
             r->getCellule(i,j).getEtat().setIndice(randomnb);
             if(randomnb == 0) r->getCellule(i,j).getEtat().setLabel("dead");
+           // if(randomnb == 1) r->getCellule(i,j).getEtat().setLabel("excited");
             else r->getCellule(i,j).getEtat().setLabel("alive");
             std::cout<<r->getCellule(i,j).getEtat().getIndice()<<"|";
         }
@@ -24,20 +30,26 @@ int main(int argc, char *argv[])
     }
 
     GameLifeTransition* rt = new GameLifeTransition;
+   // BrianBrainTransition* rt = new BrianBrainTransition;
     Neumann* v = new Neumann;
+    //Moore* v = new Moore;
     // DEBUG, ON NE DEVRA PAS FAIRE COMME CA =>
     AUTOMATE_NP::Automate::setAutomate(r,2,v,rt);
 
-    ETAT_NP::Etat* e1 = new ETAT_NP::Etat(0, "dead");
-    ETAT_NP::Etat* e2 = new ETAT_NP::Etat(1, "alive");
+    ETAT_NP::Etat* e1 = new ETAT_NP::Etat(0, "dead", QColor("black"));
+    ETAT_NP::Etat* e2 = new ETAT_NP::Etat(1, "alive", QColor("white"));
+    /*ETAT_NP::Etat* e1 = new ETAT_NP::Etat(0, "resting", QColor("green"));
+    ETAT_NP::Etat* e2 = new ETAT_NP::Etat(1, "excited", QColor("red"));
+    ETAT_NP::Etat* e3 = new ETAT_NP::Etat(2, "refractory", QColor("yellow"));*/
     std::vector<ETAT_NP::Etat*> es;
     es.push_back(e1);
     es.push_back(e2);
+   // es.push_back(e3);
     AUTOMATE_NP::Automate& automate = AUTOMATE_NP::Automate::getAutomate();
     automate.setEtats(2, es);
 
     //Boucle qui print le label de l'etat de chaque cellule dans une matrice sous la forme "|0|1|1|0|0|..."
-    for(int k = 0; k < 10; k++){
+   /* for(int k = 0; k < 10; k++){
         for (unsigned int i = 0; i <automate.getReseau().getLongueur(); i++) {
             std::cout<<"|";
             for (unsigned int j = 0; j <automate.getReseau().getLargeur(); j++) {
@@ -45,20 +57,22 @@ int main(int argc, char *argv[])
             }
             std::cout<<"\n";
         }
-    }
+    }*/
 
     for(int cpt = 0; cpt < 10; cpt++){
-        std::cout << "\nITERATION " << cpt << "\n\n";
+       // std::cout << "\nITERATION " << cpt << "\n\n";
         automate.calculerTransition();
         //Boucle qui print le label de l'etat de chaque cellule dans une matrice sous la forme "|0|1|1|0|0|..."
             for (unsigned int i = 0; i <automate.getReseau().getLongueur(); i++) {
                 std::cout<<"|";
                 for (unsigned int j = 0; j <automate.getReseau().getLargeur(); j++) {
-                    std::cout << automate.getReseau().getCellule(i,j).getEtat().getIndice() << "|";
+                    if(automate.getReseau().getCellule(i,j).getEtat().getIndice() == 1) std::cout << "*|";
+                    else std::cout << " |";
                 }
                 std::cout<<"\n";
             }
-        std::cout << "\n\n\n\n";
+        sleep(300);
+        std::cout << "\n\n\n\n\n\n";
     }
 
    // return a.exec();
