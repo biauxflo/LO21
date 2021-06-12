@@ -49,6 +49,43 @@ const std::vector<CELLULE_NP::Cellule*> NeumannGeneral::calculerVoisinage(std::v
         }
 
     }*/
+    
+    /*
+    unsigned int k, l;
+    unsigned int i = 0;
+    for(k=0; k < largeur; k++) {
+        for(l=0; l < longueur; l++){
+            
+            
+            if(abs((int)(k-x)) + abs((int)(l-y)) <= (int)rayon){
+                if(k != x && l != y) {
+                    tab[i] = reseau[k][l];
+                }
+                
+            }
+            else if(abs((int)(k-(largeur-1)+rayon)) + abs((int)(l-y)) <= (int)rayon) {
+                if(k != x && l != y) {
+                    tab[i] = reseau[k][l];
+                }
+            }
+            
+            else if(abs((int)(k-x)) + abs((int)(k-(longueur-1)+rayon)) <= (int)rayon) {
+                if(k != x && l != y) {
+                    tab[i] = reseau[k][l];
+                }
+            }
+            
+            else if(abs((int)(k-(largeur-1)+rayon)) + abs((int)(k-(longueur-1)+rayon)) <= (int)rayon) {
+                if(k != x && l != y) {
+                    tab[i] = reseau[k][l];
+                }
+            }
+            
+            i++;
+        }
+        
+    }*/
+    
     return tab;
 }
 

@@ -40,6 +40,7 @@ int main(int argc, char *argv[])
     voisins.push_back(&r->getCellule(42,11));
     voisins.push_back(&r->getCellule(22,0));
     voisins.push_back(&r->getCellule(1,47));
+    //Neumann* v= new Neumann;
     Arbitraire* v = new Arbitraire(6, r->getCellule(11,27), voisins);
     //Moore* v = new Moore;
     // DEBUG, ON NE DEVRA PAS FAIRE COMME CA =>
