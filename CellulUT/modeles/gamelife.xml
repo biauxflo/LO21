@@ -14,6 +14,6 @@
             <indice>1</indice>
         </etat>
     </etats>
-    <voisinage lang="en">neumann</voisinage>
+    <voisinage lang="en">moore</voisinage>
     <regle>gamelife</regle>
 </automate>
