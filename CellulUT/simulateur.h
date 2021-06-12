@@ -13,15 +13,18 @@
 namespace SIMULATEUR_NP {
     class Simulateur : public QObject {
         Q_OBJECT;
+
         AUTOMATE_NP::Automate &automate; /*!< Automate de la simulation*/
         RESEAU_NP::Reseau *depart; /*!< Reseau de départ de la simulation*/
         RESEAU_NP::Reseau* save= nullptr;/*!< Sauvegarde des x derniers etats*/
         Voisinage &voisinage;/*!< Voisinage de la simulation*/
-        Transition &transition;/*!Fonction de transition de la simulation*/
+        Transition &transition;/*!<Fonction de transition de la simulation*/
 
         bool modeAutomatique=false;/*!< Booleen de selection (mode automatique ou pas à pas)*/
-        bool boucleActive=false;
-        size_t indexMem;
+        bool boucleActive=false;/*!< Booleen d'activation de la boucle d'execution*/
+        bool bouclePause=false;/*!< Booleen de pause de la boucle d'execution*/
+
+        size_t indexMem;/*!< Index actuel de la mise en mémoire du reseau*/
         size_t memoire;/*!< Nombre d'étape de la simulation à garder en mémoire*/
         size_t pasDeTemps;/*!< Pas pour l'execution du mode automatique*/
         std::string titre;/*!< Titre de la simulation*/
@@ -29,35 +32,13 @@ namespace SIMULATEUR_NP {
         QTimer *timer;
 
     public slots :
-        void mySlots();
-
-
-    public:
-
-        Simulateur(AUTOMATE_NP::Automate &a, RESEAU_NP::Reseau &start, std::string titre);
-        /**
-        * \brief Initialisation de l'état de départ du simulateur
-        */
-        void setEtatDepart(RESEAU_NP::Reseau &e);
-
-        /**
-        * \brief Lance la simulation.
-        */
         void run();
-
+        void execute();
+        void stop();
+        void pause();
         void next();
-
         void back();
-
-        /**
-        * \brief Revenir à l'état de départ
-        */
         void reset();
-
-        /**
-        * \brief Destructeur de la classe Simulateur
-        */
-        ~Simulateur();
 
         /**
         * \brief Parametre les Etats de la simulation
@@ -80,23 +61,28 @@ namespace SIMULATEUR_NP {
         void parametrerTransition();
 
         /**
-        * \brief Arrête la simulation
-        */
-        void stop();
-
-        /**
         * \brief Met la simulation en mode automatique sans limite de temps
         */
         void setAuto();
-        /**
-        * \brief Met la simulation en pause
-        */
-        void pause();
 
         /**
         * \brief Met la simulation en mode pas à pas
         */
         void setStepByStep();
+
+
+    public:
+
+        Simulateur(AUTOMATE_NP::Automate &a, RESEAU_NP::Reseau &start, std::string titre);
+        /**
+        * \brief Initialisation de l'état de départ du simulateur
+        */
+        void setEtatDepart(RESEAU_NP::Reseau &e);
+
+        /**
+        * \brief Destructeur de la classe Simulateur
+        */
+        ~Simulateur();
 
         void setPasDeTemps(size_t t);
 
