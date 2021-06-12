@@ -19,7 +19,9 @@ HEADERS += \
     AutomateException.h \
     Arbitraire.h \
     GriffeathTransition.h \
-    Simulateur.h
+    Simulateur.h \
+    graph_automate.h \
+    mainwindow.h
 
 
 
@@ -36,8 +38,13 @@ SOURCES += \
     Voisinage.cpp \
     VoisinageARayon.cpp \
     AutomateException.cpp \
+    graph_automate.cpp \
     main.cpp \
     Arbitraire.cpp \
     BrianBrainTransition.cpp \
     GriffeathTransition.cpp \
-    Simulateur.cpp
+    Simulateur.cpp \
+    mainwindow.cpp
+
+FORMS += \
+    mainwindow.ui
