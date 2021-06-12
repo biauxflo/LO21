@@ -36,65 +36,73 @@ AUTOMATE_NP::Automate::~Automate() {
     libererAutomate();
 }
 
-void AUTOMATE_NP::Automate::appliquerConfiguration(QXmlStreamReader xmlReader){
+void AUTOMATE_NP::Automate::appliquerConfiguration(QXmlStreamReader *xmlReader){
 
-    xmlReader.readNext();
+    xmlReader->readNext();
     std::string automateName; // ou QString ???
     unsigned int nombre = 0;
     std::vector<ETAT_NP::Etat*> _etats;
     Voisinage* _voisinage;
     Transition* transition;
 
-    if(xmlReader.readNextStartElement()){
-        if(xmlReader.name() == "automate"){
-            while(xmlReader.readNextStartElement()){
-                if(xmlReader.name().toString() == "name"){
-                    QString name = xmlReader.readElementText();
+    if(xmlReader->readNextStartElement()){
+        if(xmlReader->name() == "automate"){
+            while(xmlReader->readNextStartElement()){
+
+                QString elementName = xmlReader->name().toString();
+                if(elementName == "name"){
+                    QString name = xmlReader->readElementText();
                     automateName = name.toStdString();
-                } else if(xmlReader.name().toString() == "etats"){
-                    xmlReader.readNextStartElement();
-                    if(xmlReader.name() != "nombre")
+                } else if(elementName == "etats"){
+                    xmlReader->readNextStartElement();
+                    if(xmlReader->name() != "nombre")
                         throw AUTOMATE_EXCEPTION_NP::AutomateException("Modèle XML incorrect");
-                    nombre = std::stoi(xmlReader.readElementText().toStdString());
-                    for(unsigned int i = 0; i < nombre; i++){
-                        xmlReader.readNextStartElement();
+                    nombre = std::stoi(xmlReader->readElementText().toStdString());
+                    while(xmlReader->readNextStartElement()){
+                        //xmlReader->readNextStartElement();
+                        QString test = xmlReader->name().toString(); // TEST
                         std::string label;
                         QColor couleur;
                         unsigned int indice;
-                        if(xmlReader.name().toString() != "etat")
+                        if(xmlReader->name().toString() != "etat")
                             throw AUTOMATE_EXCEPTION_NP::AutomateException("Modèle XML incorrect");
-                        for(unsigned int j = 0; j < 3; j++){
-                            xmlReader.readNextStartElement();
-                            if (xmlReader.name().toString() == "label"){
-                                label = xmlReader.readElementText().toStdString();
-                            } else if(xmlReader.name().toString() == "color"){
-                                couleur = QColor(xmlReader.readElementText());
-                            } else if(xmlReader.name().toString() == "indice") {
-                                indice = std::stoi(xmlReader.readElementText().toStdString());
+                        while(xmlReader->readNextStartElement()){
+                            if (xmlReader->name().toString() == "etat") xmlReader->readNextStartElement();
+                            QString test2 = xmlReader->name().toString(); // TEST
+                            if (xmlReader->name().toString() == "label"){
+                                label = xmlReader->readElementText().toStdString();
+                            } else if(xmlReader->name().toString() == "color"){
+                                couleur = QColor(xmlReader->readElementText());
+                            } else if(xmlReader->name().toString() == "indice") {
+                                indice = std::stoi(xmlReader->readElementText().toStdString());
                             }
                         }
                         ETAT_NP::Etat* _etat = new ETAT_NP::Etat(indice, label, couleur);
                         _etats.push_back(_etat);
                     }
 
-                } else if(xmlReader.name().toString() == "voisinage"){
-                    if(xmlReader.readElementText() == "neumann") _voisinage = new Neumann();
-                    else if(xmlReader.readElementText() == "moore") _voisinage = new Moore();
-                } else if(xmlReader.name().toString() == "regles"){
-                    if(xmlReader.readElementText() == "gamelife") transition = new GameLifeTransition();
-                    else if(xmlReader.readElementText() == "brianbrain") transition = new BrianBrainTransition();
-                    else if(xmlReader.readElementText() == "griffeath") transition = new GriffeathTransition();
+                } else if(elementName == "voisinage"){
+                    if(xmlReader->readElementText() == "neumann") _voisinage = new Neumann();
+                    else if(xmlReader->readElementText() == "moore") _voisinage = new Moore();
+                } else if(elementName == "regle"){
+                    if(xmlReader->readElementText() == "gamelife") transition = new GameLifeTransition();
+                    else if(xmlReader->readElementText() == "brianbrain") transition = new BrianBrainTransition();
+                    else if(xmlReader->readElementText() == "griffeath") transition = new GriffeathTransition();
                 }
 
                 else{
-                    xmlReader.skipCurrentElement();
+                    xmlReader->skipCurrentElement();
                 }
             }
         }
     }
 
     RESEAU_NP::Reseau* r = new RESEAU_NP::Reseau(10,10,0);
-    setAutomate(r, nombre, _voisinage, transition);
+    //setAutomate(r, nombre, _voisinage, transition);
+    automate_Instance->setReseau(r);
+    automate_Instance->setNbEtats(nombre);
+    automate_Instance->setVoisinage(_voisinage);
+    automate_Instance->setTransition(transition);
     setEtats(nombre, _etats);
 }
 

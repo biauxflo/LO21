@@ -45,7 +45,7 @@ namespace AUTOMATE_NP{
         void setEtats(size_t n, std::vector<ETAT_NP::Etat*> e);
         void setVoisinage(Voisinage* v) {voisinage = v;}
         void setTransition(Transition* t) {regleTransition = t;}
-        void appliquerConfiguration(QXmlStreamReader xmlReader);
+        void appliquerConfiguration(QXmlStreamReader * xmlReader);
         void calculerTransition();
 
     };
