@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QStringList>
 #include <QAbstractButton>
+#include "Automate.h"
 
 namespace Ui {
 class popUpLoadModele;
@@ -26,14 +27,12 @@ private slots:
     void brianChecked();
     void griffeathChecked();
 
-<<<<<<< HEAD
     void on_buttonBox_accepted();
-=======
     void on_buttonBox_clicked(QAbstractButton *button);
->>>>>>> abdda4e1396e030cc87e3d4d128cc444a1af91cf
 
 private:
     int choixModele = 0;
+    QString filename;
     Ui::popUpLoadModele *ui;
 };
 

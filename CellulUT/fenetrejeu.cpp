@@ -128,7 +128,7 @@ void FenetreJeu::config(){
             //Lecture de la sauvegarde
         }else if (menu->getChoixMenu()==2){
             QString filename;
-            if (menu->getChoixModele()==1){
+            if (menu->getChoixModele()==1){/*
 <<<<<<< HEAD
                 RESEAU_NP::Reseau* r = new RESEAU_NP::Reseau(10,10,0);
                 GameLifeTransition* rt = new GameLifeTransition;
@@ -157,13 +157,12 @@ void FenetreJeu::config(){
                 es.push_back(e3);
                 AUTOMATE_NP::Automate& automate = AUTOMATE_NP::Automate::getAutomate();
                 automate.setEtats(3,es);
-=======
+=======*/
                 filename = "modeles\\gamelife.xml";
             }else if(menu->getChoixModele()==2){
                 //filename("modeles\\griffeath.xml";
             }else if(menu->getChoixModele()==3){
                 filename = "modeles\\brianbrain.xml";
->>>>>>> abdda4e1396e030cc87e3d4d128cc444a1af91cf
             }else if(menu->getChoixModele()==4){
                 filename = "modeles\\griffeath.xml";
             }
