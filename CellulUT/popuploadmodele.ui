@@ -6,46 +6,37 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>640</width>
-    <height>480</height>
+    <width>309</width>
+    <height>186</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QListView" name="listView">
-   <property name="geometry">
-    <rect>
-     <x>190</x>
-     <y>120</y>
-     <width>256</width>
-     <height>192</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>10</y>
-     <width>621</width>
-     <height>121</height>
+     <y>0</y>
+     <width>561</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>42</pointsize>
+     <family>Arial</family>
+     <pointsize>21</pointsize>
     </font>
    </property>
    <property name="text">
-    <string>choisi ton modele chakal</string>
+    <string>Modèles préconfigurés</string>
    </property>
   </widget>
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>230</x>
-     <y>440</y>
+     <x>70</x>
+     <y>150</y>
      <width>166</width>
      <height>21</height>
     </rect>
@@ -53,6 +44,39 @@
    <property name="standardButtons">
     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
    </property>
+  </widget>
+  <widget class="QSplitter" name="splitter">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>60</y>
+     <width>102</width>
+     <height>76</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+   <widget class="QRadioButton" name="golChecked">
+    <property name="text">
+     <string>Game Of Life</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="langstonChecked">
+    <property name="text">
+     <string>Langston's Loop</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="brainChecked">
+    <property name="text">
+     <string>Brian's Brain</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="griffithChecked">
+    <property name="text">
+     <string>Griffeath</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

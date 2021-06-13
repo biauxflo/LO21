@@ -53,16 +53,12 @@ void FenetreJeu::activerCellule(size_t x, size_t y)
 }
 void FenetreJeu::playButton_clicked()
 {
-    if (auto_checked()){
         loopActive = true;
         if (loopPause){loopPause=false;}
         else{
             execute();
             timer->start(ui->pasbox->value());
         }
-    }else{
-            execute();
-    }
 }
 
 void FenetreJeu::pauseButton_clicked()
@@ -78,6 +74,7 @@ void FenetreJeu::stopButton_clicked(){
     loopPause=false;
     loopActive=false;
     timer->stop();
+    resetButton_clicked();
 }
 void FenetreJeu::backButton_clicked()
 {
@@ -88,9 +85,8 @@ void FenetreJeu::backButton_clicked()
 void FenetreJeu::nextButton_clicked()
 {
     execute();
-}
-bool FenetreJeu::auto_checked(){
-    return ui->autoRadio->isChecked();
+    simulation->next();
+    scene->printAutomate(&simulation->getAutomate()->getReseau());
 }
 
 void FenetreJeu::spinbox_textchanged(){

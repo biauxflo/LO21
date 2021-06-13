@@ -43,8 +43,6 @@ private slots:
 
     void spinbox_textchanged();
 
-    bool auto_checked();
-
     void execute();
 
 

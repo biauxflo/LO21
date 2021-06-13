@@ -34,14 +34,12 @@ void GraphAutomate::printAutomate(RESEAU_NP::Reseau* r)
     QImage image(viewLargeur, viewLongueur, QImage::Format_RGB32);
     QRgb value;
 
-    value = qRgb(240, 100, 2); // THE COLOR OF LIVING CELLS
-
     for(size_t i = 0; i < r->getLargeur(); i++){
         for(size_t e = 0; e < r->getLongueur(); e++){
             value=r->getCellule(i,e).getEtat().getColor();
             for(size_t x = 0; x < cellLarg; x++){
                 for(size_t y = 0; y < cellLong; y++){
-                    image.setPixel(e*cellLarg + x, i*cellLong + y, value);
+                    image.setPixel(i*cellLarg + x, e*cellLong + y, value);
                 }
             }
         }

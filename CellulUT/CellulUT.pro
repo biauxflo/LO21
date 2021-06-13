@@ -22,8 +22,11 @@ HEADERS += \
     Arbitraire.h \
     GriffeathTransition.h \
     GraphAutomate.h \
+    chargesim.h \
+    createsim.h \
     menucreation.h \
     popuploadmodele.h \
+    simload.h \
     simulateur.h \
     fenetrejeu.h
 
@@ -40,8 +43,11 @@ SOURCES += \
     MooreGeneral.cpp \
     Neumann.cpp \
     NeumannGeneral.cpp \
+    chargesim.cpp \
+    createsim.cpp \
     menucreation.cpp \
     popuploadmodele.cpp \
+    simload.cpp \
     simulateur.cpp \
     Voisinage.cpp \
     VoisinageARayon.cpp \
@@ -55,7 +61,10 @@ SOURCES += \
 
 
 FORMS += \
+    chargesim.ui \
+    createsim.ui \
     fenetrejeu.ui \
     menucreation.ui \
-    popuploadmodele.ui
+    popuploadmodele.ui \
+    simload.ui
 

@@ -5,6 +5,7 @@
 #include "Newmann.h"
 #include "Arbitraire.h"
 #include "fenetrejeu.h"
+#include "menucreation.h"
 
     void sleep(unsigned milliseconds)
     {
@@ -30,7 +31,7 @@ int main(int argc, char *argv[])
 
     QApplication a(argc, argv);
 
-    FenetreJeu menu;
+    MenuCreation menu;
     menu.show();
 
     for (unsigned int i = 0; i < r->getLongueur(); i++) {

@@ -21,7 +21,7 @@ private:
 private slots:
     void loadSim();
 
-    void createSim();
+    void creerSim();
 
     void loadModele();
 };
