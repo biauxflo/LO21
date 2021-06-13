@@ -22,6 +22,8 @@ HEADERS += \
     Arbitraire.h \
     GriffeathTransition.h \
     GraphAutomate.h \
+    menucreation.h \
+    popuploadmodele.h \
     simulateur.h \
     fenetrejeu.h
 
@@ -38,6 +40,8 @@ SOURCES += \
     MooreGeneral.cpp \
     Neumann.cpp \
     NeumannGeneral.cpp \
+    menucreation.cpp \
+    popuploadmodele.cpp \
     simulateur.cpp \
     Voisinage.cpp \
     VoisinageARayon.cpp \
@@ -51,5 +55,7 @@ SOURCES += \
 
 
 FORMS += \
-    fenetrejeu.ui
+    fenetrejeu.ui \
+    menucreation.ui \
+    popuploadmodele.ui
 

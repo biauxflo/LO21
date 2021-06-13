@@ -39,20 +39,20 @@ private slots:
 
     void nextButton_clicked();
 
-    void saveButton_clicked();
-
-    void loadButton_clicked();
-
     void stopButton_clicked();
 
-    //bool auto_checked();
+    void spinbox_textchanged();
+
+    bool auto_checked();
+
+    void execute();
 
 
 private:
     Ui::FenetreJeu *ui;
     GraphAutomate *scene;
     QPixmap image;
-    size_t timer;
+    QTimer *timer;
     size_t viewResolutionLargeur;
     size_t viewResolutionLongueur;
     bool loopActive = false;
