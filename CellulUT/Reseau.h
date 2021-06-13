@@ -18,6 +18,7 @@ namespace RESEAU_NP{
 
     public:
         Reseau(int la, int lo, int hor);
+        Reseau();
         ~Reseau();
 
         unsigned int getLargeur () const {return largeur;}

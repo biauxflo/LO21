@@ -1,12 +1,12 @@
-#include "graph_automate.h"
+#include "GraphAutomate.h"
 #include <QGraphicsSceneMouseEvent>
 #include <QtDebug>
-#include "gamewindow.h"
+#include "fenetrejeu.h"
 
 using namespace std;
 #include <vector>
 
-extern GameWindow * gameWin;
+extern FenetreJeu * gameWin;
 
 GraphAutomate::GraphAutomate(QMainWindow *parent){}
 

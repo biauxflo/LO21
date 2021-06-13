@@ -6,6 +6,9 @@
 #include <QtCore>
 #include "Etat.h"
 #include "Automate.h"
+#include "Reseau.h"
+#include "Voisinage.h"
+#include "Transition.h"
 /**
 * \class Simulateur
 * \brief Gestion de la simulation globale (etats, transitions)
@@ -27,7 +30,7 @@ namespace SIMULATEUR_NP {
         size_t indexMem;/*!< Index actuel de la mise en mémoire du reseau*/
         size_t memoire;/*!< Nombre d'étape de la simulation à garder en mémoire*/
         size_t pasDeTemps;/*!< Pas pour l'execution du mode automatique*/
-        std::string titre;/*!< Titre de la simulation*/
+        std::string nom;/*!< Titre de la simulation*/
 
         QTimer *timer;
 
@@ -77,7 +80,7 @@ namespace SIMULATEUR_NP {
 
     public:
 
-        Simulateur(AUTOMATE_NP::Automate &a, RESEAU_NP::Reseau &start, std::string titre);
+        Simulateur(AUTOMATE_NP::Automate &a, RESEAU_NP::Reseau &start, std::string nom);
         /**
         * \brief Initialisation de l'état de départ du simulateur
         */

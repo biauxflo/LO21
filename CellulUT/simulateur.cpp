@@ -1,18 +1,13 @@
 #include "simulateur.h"
+#include "Automate.h"
+#include "Reseau.h"
 #include <QtDebug>
 
-time_t tmm = time(0);
-char* dt = ctime(&tmm);
-tm *g = gmtime(&tmm);
-
-SIMULATEUR_NP::Simulateur(const AUTOMATE_NP::Automate &a, const RESEAU_NP::Reseau &start, std::string auteur, std::string titre, std::string desc){
+/*SIMULATEUR_NP::Simulateur(AUTOMATE_NP::Automate *a, RESEAU_NP::Reseau &start, std::string nom){
     automate(&a);
-    date(asctime(g));
     depart(&r);
-    auteur(auteur);
-    titre(titre);
-    description(desc);
-}
+    nom(titre);
+};*/
 
 void SIMULATEUR_NP::Simulateur::setEtatDepart(RESEAU_NP::Reseau &r) {
     depart = &r;

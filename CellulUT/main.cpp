@@ -46,8 +46,8 @@ int main(int argc, char *argv[])
     // DEBUG, ON NE DEVRA PAS FAIRE COMME CA =>
     AUTOMATE_NP::Automate::setAutomate(r,2,v,rt);
 
-    ETAT_NP::Etat* e1 = new ETAT_NP::Etat(0, "dead", QColor("black"));
-    ETAT_NP::Etat* e2 = new ETAT_NP::Etat(1, "alive", QColor("white"));
+    ETAT_NP::Etat* e1 = new ETAT_NP::Etat(0, "dead", QColor("black").rgb());
+    ETAT_NP::Etat* e2 = new ETAT_NP::Etat(1, "alive", QColor("white").rgb());
     /*ETAT_NP::Etat* e1 = new ETAT_NP::Etat(0, "resting", QColor("green"));
     ETAT_NP::Etat* e2 = new ETAT_NP::Etat(1, "excited", QColor("red"));
     ETAT_NP::Etat* e3 = new ETAT_NP::Etat(2, "refractory", QColor("yellow"));*/

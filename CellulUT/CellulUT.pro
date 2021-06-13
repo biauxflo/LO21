@@ -21,8 +21,10 @@ HEADERS += \
     AutomateException.h \
     Arbitraire.h \
     GriffeathTransition.h \
-    fenetredejeu.h \
-    gamewindow.h
+    GraphAutomate.h \
+    Simulateur.h \
+    fenetrejeu.h
+
 
 
 
@@ -36,17 +38,18 @@ SOURCES += \
     MooreGeneral.cpp \
     Neumann.cpp \
     NeumannGeneral.cpp \
+    Simulateur.cpp \
     Voisinage.cpp \
     VoisinageARayon.cpp \
     AutomateException.cpp \
-    fenetredejeu.cpp \
+    fenetrejeu.cpp \
     main.cpp \
     Arbitraire.cpp \
     BrianBrainTransition.cpp \
     GriffeathTransition.cpp \
-    gamewindow.cpp
+    GraphAutomate.cpp \
+
 
 FORMS += \
-    fenetredejeu.ui \
-    gamewindow.ui \
-    mainwindow.ui \
+    fenetrejeu.ui
+

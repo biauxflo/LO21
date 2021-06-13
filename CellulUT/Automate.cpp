@@ -45,7 +45,7 @@ void AUTOMATE_NP::Automate::appliquerConfiguration(QXmlStreamReader *xmlReader){
     Voisinage* _voisinage;
     Transition* transition;
 
-    if(xmlReader->readNextStartElement()){
+    /*if(xmlReader->readNextStartElement()){
         if(xmlReader->name() == "automate"){
             while(xmlReader->readNextStartElement()){
 
@@ -103,7 +103,7 @@ void AUTOMATE_NP::Automate::appliquerConfiguration(QXmlStreamReader *xmlReader){
     automate_Instance->setNbEtats(nombre);
     automate_Instance->setVoisinage(_voisinage);
     automate_Instance->setTransition(transition);
-    setEtats(nombre, _etats);
+    setEtats(nombre, _etats);*/
 }
 
 
