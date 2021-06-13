@@ -137,9 +137,9 @@ void AUTOMATE_NP::Automate::calculerTransition(){
         for(unsigned int j = 0; j < reseau->getLongueur(); j++){
             CELLULE_NP::Cellule& c = *reseauCopie[i][j];
             ETAT_NP::Etat etmp = c.getEtat();
-            std::vector<CELLULE_NP::Cellule*> voisines(voisinage->getNbCellulesVoisines());
+            std::vector<CELLULE_NP::Cellule*> voisines; //voisinage->getNbCellulesVoisines()
             voisines = voisinage->calculerVoisinage(voisines, reseauCopie, i, j, reseau->getLargeur(), reseau->getLongueur());
-            ETAT_NP::Etat& e = regleTransition->creerTransition(getEtats(), etmp, voisines, voisinage->getNbCellulesVoisines());
+            ETAT_NP::Etat& e = regleTransition->creerTransition(getEtats(), etmp, voisines, voisines.size());
             reseau->getCellule(i,j).setEtat(e);
 
             for(unsigned int i = 0; i < voisines.size(); i++){
