@@ -120,6 +120,7 @@ void FenetreJeu::randomize(){
     scene->printAutomate(AUTOMATE_NP::Automate::getAutomate().getReseau());
 }
 
+
 void FenetreJeu::config(){
         MenuCreation *menu = new MenuCreation();
         menu->show();
