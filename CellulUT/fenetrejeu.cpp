@@ -74,6 +74,7 @@ void FenetreJeu::pauseButton_clicked()
 
 void FenetreJeu::resetButton_clicked(){
     simulation->reset();
+    scene->printAutomate(&simulation->getAutomate()->getReseau());
 }
 
 void FenetreJeu::stopButton_clicked(){
@@ -102,7 +103,6 @@ void FenetreJeu::spinbox_textchanged(){
 
 void FenetreJeu::execute(){
     if (loopActive && !loopPause){
-        printf("je me suis execute\n");
         simulation->next();
         scene->printAutomate(&simulation->getAutomate()->getReseau());
     }
@@ -116,6 +116,7 @@ void FenetreJeu::randomize(){
             r.getCellule(i,j).setEtat(*automate.getEtat(randomnb));
         }
     }
+    simulation->setEtatDepart(automate.getReseau());
     scene->printAutomate(&simulation->getAutomate()->getReseau());
 }
 

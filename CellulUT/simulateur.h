@@ -17,7 +17,7 @@ namespace SIMULATEUR_NP {
     class Simulateur{
 
         AUTOMATE_NP::Automate &automate; /*!< Automate de la simulation*/
-        RESEAU_NP::Reseau *depart; /*!< Reseau de départ de la simulation*/
+        RESEAU_NP::Reseau depart; /*!< Reseau de départ de la simulation*/
         RESEAU_NP::Reseau* save= nullptr;/*!< Sauvegarde des x derniers etats*/
         Voisinage &voisinage;/*!< Voisinage de la simulation*/
         Transition &transition;/*!< Fonction de transition de la simulation*/
@@ -65,7 +65,7 @@ namespace SIMULATEUR_NP {
         /**
         * \brief Initialisation de l'état de départ du simulateur
         */
-        void setEtatDepart(RESEAU_NP::Reseau &e);
+        void setEtatDepart(RESEAU_NP::Reseau e);
 
         /**
         * \brief Destructeur de la classe Simulateur

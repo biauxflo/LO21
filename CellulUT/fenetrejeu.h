@@ -25,7 +25,6 @@ public:
     size_t get_Resolution();
     void commencerBoucle();
     void updateGUI();
-
     SIMULATEUR_NP::Simulateur *simulation;
 
 private slots:

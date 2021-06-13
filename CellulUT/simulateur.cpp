@@ -9,17 +9,16 @@
     nom(titre);
 };*/
 
-void SIMULATEUR_NP::Simulateur::setEtatDepart(RESEAU_NP::Reseau &r) {
-    depart = &r;
-    reset();
+void SIMULATEUR_NP::Simulateur::setEtatDepart(RESEAU_NP::Reseau r) {
+    depart = r;
 }
 
 void SIMULATEUR_NP::Simulateur::reset() {
-    automate.setReseau(depart);
+    automate.setReseau(&depart);
 }
 
 void SIMULATEUR_NP::Simulateur::next(){
-    saveReseau();
+    //saveReseau();
     automate.calculerTransition();
 }
 
