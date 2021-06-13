@@ -20,7 +20,6 @@ public:
 
 private slots:
     void openfile();
-    void opensimu();
 
 private:
     QString filename;

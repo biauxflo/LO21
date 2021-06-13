@@ -128,11 +128,33 @@ void FenetreJeu::config(){
             //Lecture de la sauvegarde
         }else if (menu->getChoixMenu()==2){
             if (menu->getChoixModele()==1){
-
+                RESEAU_NP::Reseau* r = new RESEAU_NP::Reseau(10,10,0);
+                GameLifeTransition* rt = new GameLifeTransition;
+                Moore* v = new Moore;
+                AUTOMATE_NP::Automate::setAutomate(r,2,v,rt);
+                ETAT_NP::Etat* e1 = new ETAT_NP::Etat(0, "dead", QColor("black").rgb());
+                ETAT_NP::Etat* e2 = new ETAT_NP::Etat(1, "alive", QColor("white").rgb());
+                std::vector<ETAT_NP::Etat*> es;
+                es.push_back(e1);
+                es.push_back(e2);
+                AUTOMATE_NP::Automate& automate = AUTOMATE_NP::Automate::getAutomate();
+                automate.setEtats(2, es);
             }else if(menu->getChoixModele()==2){
-
+                //Pas encore implémenté
             }else if(menu->getChoixModele()==3){
-
+                RESEAU_NP::Reseau* r = new RESEAU_NP::Reseau(10,10,0);
+                BrianBrainTransition* bt = new BrianBrainTransition;
+                Moore* v = new Moore;
+                AUTOMATE_NP::Automate::setAutomate(r,3,v,bt);
+                ETAT_NP::Etat* e1 = new ETAT_NP::Etat(0, "resting", QColor("green").rgb());
+                ETAT_NP::Etat* e2 = new ETAT_NP::Etat(1, "excited", QColor("red").rgb());
+                ETAT_NP::Etat* e3 = new ETAT_NP::Etat(2, "refractory", QColor("jaune").rgb());
+                std::vector<ETAT_NP::Etat*> es;
+                es.push_back(e1);
+                es.push_back(e2);
+                es.push_back(e3);
+                AUTOMATE_NP::Automate& automate = AUTOMATE_NP::Automate::getAutomate();
+                automate.setEtats(3,es);
             }else if(menu->getChoixModele()==4){
 
             }

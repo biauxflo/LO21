@@ -15,7 +15,6 @@ int main(int argc, char *argv[])
     GameLifeTransition* rt = new GameLifeTransition;
     Moore* v = new Moore;
     AUTOMATE_NP::Automate::setAutomate(r,2,v,rt);
-
     ETAT_NP::Etat* e1 = new ETAT_NP::Etat(0, "dead", QColor("black").rgb());
     ETAT_NP::Etat* e2 = new ETAT_NP::Etat(1, "alive", QColor("white").rgb());
     std::vector<ETAT_NP::Etat*> es;

@@ -19,8 +19,3 @@ void simLoad::openfile(){
     filename = QFileDialog::getOpenFileName(this, "Choisir une simulation","C://" );
     ui->textBrowser->setText(filename);
 }
-
-void simLoad::opensimu() {
-    FENETREJEU_H::FenetreJeu gamewin;
-    gamewin.show();
-}

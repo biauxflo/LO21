@@ -66,6 +66,9 @@
     <property name="text">
      <string>Langston's Loop</string>
     </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
    </widget>
    <widget class="QRadioButton" name="brainChecked">
     <property name="text">

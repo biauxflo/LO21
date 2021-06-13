@@ -24,6 +24,7 @@ void MenuCreation::creerSim(){
     createSim simcreate;
     simcreate.exec();
     choixMenu=3;
+    this->close();
 }
 
 void MenuCreation::loadModele(){
@@ -31,6 +32,7 @@ void MenuCreation::loadModele(){
     popup.exec();
     choixModele = popup.getchoixModele();
     choixMenu=2;
+    this->close();
 }
 
 void MenuCreation::loadSim(){
@@ -38,4 +40,5 @@ void MenuCreation::loadSim(){
     simload.exec();
     filename=simload.getFilename();
     choixMenu=1;
+    this->close();
 }

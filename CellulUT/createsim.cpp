@@ -113,3 +113,5 @@ void createSim::autoTransition(){
         choixTransition=3;
     }
 }
+
+

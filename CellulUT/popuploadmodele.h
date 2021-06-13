@@ -23,6 +23,8 @@ private slots:
     void brianChecked();
     void griffeathChecked();
 
+    void on_buttonBox_accepted();
+
 private:
     int choixModele = 0;
     Ui::popUpLoadModele *ui;

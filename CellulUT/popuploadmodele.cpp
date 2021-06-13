@@ -6,6 +6,7 @@ popUpLoadModele::popUpLoadModele(QWidget *parent) :
     ui(new Ui::popUpLoadModele)
 {
     ui->setupUi(this);
+    connect(ui->buttonBox,SIGNAL(accepted()),this,SLOT(on_buttonBox_accepted()));
 }
 
 popUpLoadModele::~popUpLoadModele()
@@ -33,3 +34,9 @@ void popUpLoadModele::griffeathChecked(){
             choixModele = 4;
     }
 }
+
+void popUpLoadModele::on_buttonBox_accepted()
+{
+    this->close();
+}
+

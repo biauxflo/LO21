@@ -1,7 +1,7 @@
 #include "langtonslooptransition.h"
 #include <map>
 using namespace std;
-ETAT_NP::Etat &LangtonsLoopTransition::creerTransition(std::vector<ETAT_NP::Etat *> etats, ETAT_NP::Etat &etat, std::vector<CELLULE_NP::Cellule *> voisines, const unsigned int nbVoisines)
+/*ETAT_NP::Etat &LangtonsLoopTransition::creerTransition(std::vector<ETAT_NP::Etat *> etats, ETAT_NP::Etat &etat, std::vector<CELLULE_NP::Cellule *> voisines, const unsigned int nbVoisines)
 {
     CELLULE_NP::Cellule* v= voisines[3];
     voisines[3] = voisines[2];
@@ -25,4 +25,4 @@ ETAT_NP::Etat &LangtonsLoopTransition::creerTransition(std::vector<ETAT_NP::Etat
         it++;
     }
     return etat;
-}
+}*/
