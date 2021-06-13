@@ -4,6 +4,7 @@
 #include "GameLifeTransition.h"
 #include "Newmann.h"
 #include "Arbitraire.h"
+#include "fenetrejeu.h"
 
     void sleep(unsigned milliseconds)
     {
@@ -13,7 +14,10 @@
 
 int main(int argc, char *argv[])
 {
-    //QApplication a(argc, argv);
+    QApplication a(argc, argv);
+
+    FenetreJeu GameWin;
+    GameWin.show();
     RESEAU_NP::Reseau* r = new RESEAU_NP::Reseau(50,50,0);
 
     for (unsigned int i = 0; i < r->getLongueur(); i++) {
@@ -84,6 +88,6 @@ int main(int argc, char *argv[])
         std::cout << "\n\n\n\n\n\n";
     }
 
-   // return a.exec();
+   return a.exec();
     return 0;
 }
