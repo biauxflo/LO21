@@ -27,6 +27,7 @@ namespace SIMULATEUR_NP {
         std::string nom;/*!< Titre de la simulation*/
 
     public :
+        Simulateur(AUTOMATE_NP::Automate& a, Voisinage& v, Transition& t): automate(a), voisinage(v), transition(t) {}
         void next();
         void back();
         void reset();
@@ -59,9 +60,6 @@ namespace SIMULATEUR_NP {
         size_t getMemoire();
 
         void setMemoire(size_t i);
-
-
-    public:
 
         Simulateur(AUTOMATE_NP::Automate &a, RESEAU_NP::Reseau &start, std::string nom);
         /**

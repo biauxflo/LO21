@@ -19,6 +19,8 @@ FenetreJeu::FenetreJeu(QWidget *parent) :
     viewResolutionLongueur = 600;
     scene = new GraphAutomate(this);
     ui->graphicsView->setScene(scene);
+    AUTOMATE_NP::Automate& automate = AUTOMATE_NP::Automate::getAutomate();
+    simulation = new SIMULATEUR_NP::Simulateur(automate, *automate.getVoisinage(), *automate.getTransition());
     simulation->creerSimulation();
     scene->printAutomate(&simulation->getAutomate()->getReseau());
     connect(ui->playButton,SIGNAL(clicked()),this,SLOT(playButton_clicked()));
@@ -27,7 +29,7 @@ FenetreJeu::FenetreJeu(QWidget *parent) :
     connect(ui->nextButton,SIGNAL(clicked()),this,SLOT(nextButton_clicked()));
     connect(ui->backButton,SIGNAL(clicked()),this,SLOT(backButton_clicked()));
     connect(ui->resetButton,SIGNAL(clicked()),this,SLOT(resetButton_clicked()));
-    connect(ui->pasbox,SIGNAL(valueChanged()),this,SLOT(spinbox_textchanged()));
+    connect(ui->pasbox,SIGNAL(valueChanged(int i)),this,SLOT(spinbox_textchanged()));
     connect(timer,SIGNAL(timeout()),this,SLOT(execute()));
 }
 

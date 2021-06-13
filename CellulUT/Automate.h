@@ -37,6 +37,8 @@ namespace AUTOMATE_NP{
         RESEAU_NP::Reseau& getReseau() const { return *reseau; }
         std::vector<ETAT_NP::Etat*> getEtats() const { return etats; }
         ETAT_NP::Etat* getEtat(unsigned int i) const { return etats[i]; }
+        Voisinage* getVoisinage() const {return voisinage;}
+        Transition* getTransition() const {return regleTransition;}
         size_t getNbEtats() { return nbEtats; }
 
         // SETTERS
