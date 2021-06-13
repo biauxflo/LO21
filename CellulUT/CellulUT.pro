@@ -24,6 +24,7 @@ HEADERS += \
     GraphAutomate.h \
     chargesim.h \
     createsim.h \
+    langtonslooptransition.h \
     menucreation.h \
     popuploadmodele.h \
     simload.h \
@@ -43,6 +44,7 @@ SOURCES += \
     NeumannGeneral.cpp \
     chargesim.cpp \
     createsim.cpp \
+    langtonslooptransition.cpp \
     menucreation.cpp \
     popuploadmodele.cpp \
     simload.cpp \

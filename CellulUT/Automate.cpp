@@ -52,7 +52,7 @@ void AUTOMATE_NP::Automate::appliquerConfiguration(QXmlStreamReader *xmlReader){
     Transition* transition;
 
     if(xmlReader->readNextStartElement()){
-        if(xmlReader->name() == "automate"){
+        if(xmlReader->name().toString() == "automate"){
             while(xmlReader->readNextStartElement()){
 
                 QString elementName = xmlReader->name().toString();
@@ -61,7 +61,7 @@ void AUTOMATE_NP::Automate::appliquerConfiguration(QXmlStreamReader *xmlReader){
                     automateName = name.toStdString();
                 } else if(elementName == "etats"){
                     xmlReader->readNextStartElement();
-                    if(xmlReader->name() != "nombre")
+                    if(xmlReader->name().toString() != "nombre")
                         throw AUTOMATE_EXCEPTION_NP::AutomateException("Modèle XML incorrect");
                     nombre = std::stoi(xmlReader->readElementText().toStdString());
                     while(xmlReader->readNextStartElement()){

@@ -8,6 +8,11 @@
 #include <string>
 #include <QColor>
 
+/**
+* \class Etat
+* \brief Les attributs de cette classe sont un indice, un label et une couleur. C'est grâce à cette classe que nous allons pouvoir afficher les différents états des cellules de notre réseau.
+*/
+
 namespace ETAT_NP{
     class Etat
     {

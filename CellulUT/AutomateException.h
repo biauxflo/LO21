@@ -2,6 +2,10 @@
 #define LO21_AUTOMATEEXCEPTION_H
 #include <exception>
 #include <string>
+/**
+* \class AutomateException
+* \brief Classe gérant le déclenchement des différentes exceptions.
+*/
 
 namespace AUTOMATE_EXCEPTION_NP {
 class AutomateException : public std::exception {

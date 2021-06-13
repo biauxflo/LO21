@@ -1,12 +1,14 @@
-//
-// Created by Reda on 25/05/2021.
-//
 
 #ifndef LO21_RESEAU_H
 #define LO21_RESEAU_H
 
 #include "Cellule.h"
 #include <vector>
+
+/**
+* \class Reseau
+* \brief Classe ayant quatres attributs, largeur, longueur, horloge et une matrice de cellules. C'est grâce à cette classe que nous allons gérer le reseau de cellule de l'automate.
+*/
 
 namespace RESEAU_NP{
     class Reseau {
