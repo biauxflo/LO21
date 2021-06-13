@@ -6,7 +6,7 @@
 #include <QGraphicsSceneMouseEvent>
 #include "GraphAutomate.h"
 #include "Automate.h"
-#include "Simulateur.h"
+#include "simulateur.h"
 #include "Reseau.h"
 
 FenetreJeu::FenetreJeu(QWidget *parent) :

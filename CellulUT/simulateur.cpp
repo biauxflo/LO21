@@ -94,3 +94,15 @@ void SIMULATEUR_NP::Simulateur::stop(){
     boucleActive=false;
 }
 
+AUTOMATE_NP::Automate *SIMULATEUR_NP::Simulateur::getAutomate()
+{
+    return &automate;
+}
+
+void SIMULATEUR_NP::Simulateur::creerSimulation(){
+
+}
+
+SIMULATEUR_NP::Simulateur::~Simulateur(){
+
+}

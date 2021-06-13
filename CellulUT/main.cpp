@@ -4,11 +4,10 @@
 #include "GameLifeTransition.h"
 #include "Newmann.h"
 #include "Arbitraire.h"
-#include <windows.h>
 
     void sleep(unsigned milliseconds)
     {
-        Sleep(milliseconds);
+        //Sleep(milliseconds);
     }
 
 

@@ -22,7 +22,7 @@ HEADERS += \
     Arbitraire.h \
     GriffeathTransition.h \
     GraphAutomate.h \
-    Simulateur.h \
+    simulateur.h \
     fenetrejeu.h
 
 
@@ -38,7 +38,7 @@ SOURCES += \
     MooreGeneral.cpp \
     Neumann.cpp \
     NeumannGeneral.cpp \
-    Simulateur.cpp \
+    simulateur.cpp \
     Voisinage.cpp \
     VoisinageARayon.cpp \
     AutomateException.cpp \

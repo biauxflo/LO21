@@ -34,6 +34,10 @@ RESEAU_NP::Reseau::~Reseau(){
     }
 }
 
+RESEAU_NP::Reseau::Reseau(){
+
+}
+
 void RESEAU_NP::Reseau::setHorloge(int hor)
 {
     horloge = hor;

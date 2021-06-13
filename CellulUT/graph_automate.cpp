@@ -51,7 +51,6 @@ void GraphAutomate::printAutomate(RESEAU_NP::Reseau* r)
                 }
              }
         }
-    }
 
     // Print it
     setSceneRect(0,0,viewDim,viewDim);
