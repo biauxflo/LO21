@@ -2,8 +2,10 @@
 #define LANGTONSLOOPTRANSITION_H
 #include <map>
 #include <vector>
+#include <iterator>
+#include "Transition.h"
 
-class LangtonsLoopTransition
+class LangtonsLoopTransition : public Transition
 {
     std::map <std::vector <int>, int> regleLangton = {
         {{0,0,0,0,0},0},{{0,2,5,2,7},1},{{1,1,3,2,2},1},{{2,0,2,4,2},2},{{3,0,1,0,2},1
@@ -50,10 +52,11 @@ class LangtonsLoopTransition
         },{{0,1,7,5,2},1},{{1,1,2,4,2},4},{{2,0,2,2,2},2},{{3,0,0,1,2},3},{{7,0,2,5,2},5
         },{{0,1,7,6,2},1},{{1,1,2,6,2},1},{{2,0,2,2,7},2},{{3,0,0,4,2},1},{{7,0,2,7,2},0
         },{{0,1,7,7,2},1},{{1,1,2,7,2},7},{{2,0,2,3,2},1},{{3,0,0,6,2},2}
-};
-
+    };
+    
 public:
-    LangtonsLoopTransition();
+    ETAT_NP::Etat& creerTransition(std::vector<ETAT_NP::Etat*> etats, ETAT_NP::Etat& etat, std::vector<CELLULE_NP::Cellule*> voisines, const unsigned int nbVoisines) override;
+    LangtonsLoopTransition() = default;
 };
 
 #endif // LANGTONSLOOPTRANSITION_H
