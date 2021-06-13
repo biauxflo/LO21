@@ -18,7 +18,7 @@ class FenetreJeu : public QMainWindow
 
 public:
     explicit FenetreJeu(QWidget *parent = nullptr);
-    ~FenetreJeu() = default;
+    ~FenetreJeu();
     void activerCellule(size_t x, size_t y);
     size_t get_celluleParLigne();
     size_t get_Resolution();
