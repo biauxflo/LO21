@@ -63,7 +63,7 @@ namespace AUTOMATE_NP{
         /**
         * \brief Récupérer une référence au réseau de cellules.
          */
-        RESEAU_NP::Reseau& getReseau() const { return *reseau; }
+        RESEAU_NP::Reseau* getReseau() { return reseau; }
 
         /**
         * \brief Récupérer la liste totale des états de l'automate.

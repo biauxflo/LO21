@@ -33,7 +33,9 @@ namespace RESEAU_NP{
         void setLargeur (int lar);
         void setLongeur (int lon);
         void setHorloge (int hor);
+
     };
+
 
 }
 

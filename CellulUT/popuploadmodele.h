@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QStringList>
+#include <QAbstractButton>
 
 namespace Ui {
 class popUpLoadModele;
@@ -17,13 +18,19 @@ public:
     explicit popUpLoadModele(QWidget *parent = nullptr);
     ~popUpLoadModele();
     int getchoixModele(){return choixModele;};
+
+
 private slots:
     void golChecked();
     void langstonChecked();
     void brianChecked();
     void griffeathChecked();
 
+<<<<<<< HEAD
     void on_buttonBox_accepted();
+=======
+    void on_buttonBox_clicked(QAbstractButton *button);
+>>>>>>> abdda4e1396e030cc87e3d4d128cc444a1af91cf
 
 private:
     int choixModele = 0;

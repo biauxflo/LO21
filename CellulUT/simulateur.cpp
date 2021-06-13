@@ -9,19 +9,24 @@
     nom(titre);
 };*/
 
-void SIMULATEUR_NP::Simulateur::setEtatDepart(RESEAU_NP::Reseau r) {
-    depart = r;
+void SIMULATEUR_NP::Simulateur::setEtatDepart(RESEAU_NP::Reseau* r) {
+    depart = new RESEAU_NP::Reseau(r->getLargeur(), r->getLongueur(), r->getHorloge());
+    for(unsigned int i = 0; i < r->getLargeur(); i++){
+        for(unsigned j = 0; j < r->getLongueur(); j++){
+            depart->getCellule(i,j).setEtat(r->getCellule(i,j).getEtat());
+        }
+    }
 }
 
 void SIMULATEUR_NP::Simulateur::reset() {
-    automate.setReseau(&depart);
+    automate.setReseau(depart);
 }
 
 void SIMULATEUR_NP::Simulateur::next(){
     //saveReseau();
     automate.calculerTransition();
 }
-
+/*
 void SIMULATEUR_NP::Simulateur::back(){
     if (indexMem>0){
         indexMem=indexMem-1;
@@ -29,7 +34,7 @@ void SIMULATEUR_NP::Simulateur::back(){
         indexMem=memoire-1;
     }
     automate.setReseau(&save[indexMem]);
-}
+}*/
 
 void SIMULATEUR_NP::Simulateur::setMemoire(size_t mem){
     memoire=mem;
@@ -38,20 +43,20 @@ void SIMULATEUR_NP::Simulateur::setMemoire(size_t mem){
 size_t SIMULATEUR_NP::Simulateur::getMemoire(){
     return memoire;
 }
-
+/*
 void SIMULATEUR_NP::Simulateur::saveReseau(){
     if (!save){
-        save=new RESEAU_NP::Reseau[getMemoire()];
+        save = new RESEAU_NP::Reseau[getMemoire()];
         indexMem=0;
-        save[indexMem]=automate.getReseau();
+        save[indexMem]= *automate.getReseau();
     }else{
     indexMem++;
         if (indexMem==memoire-1){
             indexMem=0;
         }
-    save[indexMem]=automate.getReseau();
+    save[indexMem]= *automate.getReseau();
     }
-}
+}*/
 
 AUTOMATE_NP::Automate *SIMULATEUR_NP::Simulateur::getAutomate()
 {
