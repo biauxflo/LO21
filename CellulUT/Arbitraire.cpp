@@ -9,7 +9,7 @@
 
 #include "Arbitraire.h"
 
-const std::vector<CELLULE_NP::Cellule*> Arbitraire::calculerVoisinage(std::vector<CELLULE_NP::Cellule*> tab, std::vector<std::vector<CELLULE_NP::Cellule*>> reseau, unsigned int x, unsigned int y, unsigned int largeur, unsigned int longueur) const {
+const std::vector<CELLULE_NP::Cellule*> Arbitraire::calculerVoisinage(std::vector<CELLULE_NP::Cellule*> tab, std::vector<std::vector<CELLULE_NP::Cellule>>& reseau, unsigned int x, unsigned int y, unsigned int largeur, unsigned int longueur) const {
     std::vector<int> distAbs = calculerDistanceAbscisse();
     std::vector<int> distOrd = calculerDistanceOrdonnee();
     for(unsigned int i = 0; i < nbvoisins; i++){
@@ -21,7 +21,7 @@ const std::vector<CELLULE_NP::Cellule*> Arbitraire::calculerVoisinage(std::vecto
         else if(absCalcule < 0) absCalcule = absCalcule + larg;
         if(ordCalcule < 0) ordCalcule = ordCalcule + longu;
         else if(ordCalcule > longu) ordCalcule = ordCalcule - (longu+1);
-        tab[i] = reseau[absCalcule][ordCalcule];
+        tab[i] = &reseau[absCalcule][ordCalcule];
     }
 
     return tab;

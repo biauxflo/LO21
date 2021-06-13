@@ -11,23 +11,22 @@
 
 using namespace std;
 
-const std::vector<CELLULE_NP::Cellule*> MooreGeneral::calculerVoisinage(std::vector<CELLULE_NP::Cellule*> tab, std::vector<std::vector<CELLULE_NP::Cellule*>> reseau, unsigned int x, unsigned int y, unsigned int largeur, unsigned int longueur) const {
-   //int k, l, i = 0;
+const std::vector<CELLULE_NP::Cellule*> MooreGeneral::calculerVoisinage(std::vector<CELLULE_NP::Cellule*> tab, std::vector<std::vector<CELLULE_NP::Cellule>>& reseau, unsigned int x, unsigned int y, unsigned int largeur, unsigned int longueur) const {
+   int k, l;
 
-   /* for(k=0; k <= (int)largeur; k++) {
-        for(l=0; l <= (int)longueur; l++){
+    for(k=0; k < (int)largeur; k++) {
+        for(l=0; l < (int)longueur; l++){
             int abscisseDelta = std::abs(k-(int)x);
             int ordonneeDelta = std::abs(l-(int)y);
             if(abscisseDelta <= (int)rayon && ordonneeDelta <= (int)rayon && !((k == (int)x) && (l == (int)y))){
-                tab[i] = reseau[k][l];
-                i++;
+                tab.push_back(&reseau[k][l]);
             }
         }
     //ne fonctionne pas... :'(
-    }*/
+    }
 
     // abs(k−i)≤1 et abs(l−j)≤1
-
+/*
     int k, l;
     for(k=0; k < (int)largeur; k++) {
         for(l=0; l < (int)longueur; l++){

@@ -45,7 +45,7 @@ public:
     /**
     * \brief Methode virtual qui calcule le voisinage d'une cellue (surchargee dans les classes filles)
      */
-    virtual const std::vector<CELLULE_NP::Cellule*> calculerVoisinage(std::vector<CELLULE_NP::Cellule*> tab, std::vector<std::vector<CELLULE_NP::Cellule*>> reseau, unsigned int x, unsigned int y, unsigned int largeur, unsigned int longueur) const = 0;
+    virtual const std::vector<CELLULE_NP::Cellule*> calculerVoisinage(std::vector<CELLULE_NP::Cellule*> tab, std::vector<std::vector<CELLULE_NP::Cellule>>& reseau, unsigned int x, unsigned int y, unsigned int largeur, unsigned int longueur) const = 0;
     /**
      * \brief getter
      * @return nombre de cellules du voisinage

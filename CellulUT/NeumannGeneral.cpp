@@ -11,10 +11,10 @@
 
 using namespace std;
 
-const std::vector<CELLULE_NP::Cellule*> NeumannGeneral::calculerVoisinage(std::vector<CELLULE_NP::Cellule*> tab, std::vector<std::vector<CELLULE_NP::Cellule*>> reseau, unsigned int x, unsigned int y, unsigned int largeur, unsigned int longueur) const {
+const std::vector<CELLULE_NP::Cellule*> NeumannGeneral::calculerVoisinage(std::vector<CELLULE_NP::Cellule*> tab, std::vector<std::vector<CELLULE_NP::Cellule>>& reseau, unsigned int x, unsigned int y, unsigned int largeur, unsigned int longueur) const {
     //int k, l, i = 0;
 
-
+/*
     if(x == 0){
         tab[0] = reseau[longueur-1][y];
     } else {
@@ -37,7 +37,7 @@ const std::vector<CELLULE_NP::Cellule*> NeumannGeneral::calculerVoisinage(std::v
         tab[3] = reseau[x][0];
     } else {
         tab[3] = reseau[x][y+1];
-    }
+    }*/
 
     /*
     for(k=0; k < largeur; k++) {

@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 {
     /* AUTOMATE PAR DEFAUT */
 
-    RESEAU_NP::Reseau* r = new RESEAU_NP::Reseau(4,4,0);
+    RESEAU_NP::Reseau* r = new RESEAU_NP::Reseau(10,10,0);
     GameLifeTransition* rt = new GameLifeTransition;
     Moore* v = new Moore;
     AUTOMATE_NP::Automate::setAutomate(r,2,v,rt);

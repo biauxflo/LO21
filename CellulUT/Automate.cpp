@@ -122,38 +122,39 @@ void AUTOMATE_NP::Automate::appliquerConfiguration(QXmlStreamReader *xmlReader){
 
 
 void AUTOMATE_NP::Automate::calculerTransition(){
-    std::vector<std::vector<CELLULE_NP::Cellule*>> reseauCopie;
+    std::vector<std::vector<CELLULE_NP::Cellule>> reseauCopie;
     for(unsigned int i = 0; i < reseau->getLargeur(); i++){
-        std::vector<CELLULE_NP::Cellule*> v;
+        std::vector<CELLULE_NP::Cellule> v;
         for(unsigned int j = 0; j < reseau->getLongueur(); j++){
             CELLULE_NP::Cellule& tmp = reseau->getCellule(i,j);
             CELLULE_NP::Cellule* c = new CELLULE_NP::Cellule(tmp.getAbscisse(), tmp.getOrdonnee(), &(tmp.getEtat()));
-            v.push_back(c);
+            v.push_back(*c);
         }
         reseauCopie.push_back(v);
     }
 
     for(unsigned int i = 0; i < reseau->getLargeur(); i++){
         for(unsigned int j = 0; j < reseau->getLongueur(); j++){
-            CELLULE_NP::Cellule& c = *reseauCopie[i][j];
+            CELLULE_NP::Cellule& c = reseauCopie[i][j];
             ETAT_NP::Etat etmp = c.getEtat();
             std::vector<CELLULE_NP::Cellule*> voisines; //voisinage->getNbCellulesVoisines()
             voisines = voisinage->calculerVoisinage(voisines, reseauCopie, i, j, reseau->getLargeur(), reseau->getLongueur());
             ETAT_NP::Etat& e = regleTransition->creerTransition(getEtats(), etmp, voisines, voisines.size());
             reseau->getCellule(i,j).setEtat(e);
 
+            /*
             for(unsigned int i = 0; i < voisines.size(); i++){
                 delete voisines[i];
-            }
+            }*/
         }
     }
-
+/*
     for(unsigned int i = 0; i < reseau->getLargeur() ; i++)
     {
         for(unsigned int j = 0; j < reseau->getLongueur(); j++){
             delete reseauCopie[i][j];
         }
-    }
+    }*/
 
 }
 
