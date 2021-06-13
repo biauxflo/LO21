@@ -5,12 +5,13 @@
 #include "Cellule.h"
 #include <vector>
 
+
+namespace RESEAU_NP{
+	
 /**
 * \class Reseau
 * \brief Classe ayant quatres attributs, largeur, longueur, horloge et une matrice de cellules. C'est grâce à cette classe que nous allons gérer le reseau de cellule de l'automate.
 */
-
-namespace RESEAU_NP{
     class Reseau {
     private:
         unsigned int largeur;

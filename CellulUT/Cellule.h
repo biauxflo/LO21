@@ -7,11 +7,12 @@
 
 #include "Etat.h"
 //#include "Reseau.h"
+namespace CELLULE_NP{
+	
 /**
 * \class Cellule
 * \brief Classe possèdant trois attributs, abscisse, ordonnée et un pointeur vers un état
 */
-namespace CELLULE_NP{
     class Cellule
     {
     private:
