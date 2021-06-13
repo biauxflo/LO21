@@ -10,7 +10,7 @@ MooreGeneral::~MooreGeneral() = default;
 using namespace std;
 
 const std::vector<CELLULE_NP::Cellule*> MooreGeneral::calculerVoisinage(std::vector<CELLULE_NP::Cellule*> tab, std::vector<std::vector<CELLULE_NP::Cellule*>> reseau, unsigned int x, unsigned int y, unsigned int largeur, unsigned int longueur) const {
-    int k, l, i = 0;
+   // int k, l, i = 0;
 /*
     for(k=0; k <= largeur; k++) {
         for(l=0; l <= longueur; l++){
@@ -20,6 +20,42 @@ const std::vector<CELLULE_NP::Cellule*> MooreGeneral::calculerVoisinage(std::vec
             }
         }
     ne fonctionne pas... :'(
+    }*/
+
+    /*
+    unsigned int k, l;
+    unsigned int i = 0;
+    for(k=0; k < largeur; k++) {
+        for(l=0; l < longueur; l++){
+
+
+            if(abs((int)(k-x)) <= (int)rayon && abs((int)(l-y)) <= (int)rayon){
+                if(k != x && l != y) {
+                    tab[i] = reseau[k][l];
+                }
+
+            }
+            else if(abs((int)(k-(largeur-1)+rayon)) (int)rayon && abs((int)(l-y)) <= (int)rayon) {
+                if(k != x && l != y) {
+                    tab[i] = reseau[k][l];
+                }
+            }
+
+            else if(abs((int)(k-x)) <= (int)rayon && abs((int)(k-(longueur-1)+rayon)) <= (int)rayon) {
+                if(k != x && l != y) {
+                    tab[i] = reseau[k][l];
+                }
+            }
+
+            else if(abs((int)(k-(largeur-1)+rayon)) <= (int)rayon && abs((int)(k-(longueur-1)+rayon)) <= (int)rayon) {
+                if(k != x && l != y) {
+                    tab[i] = reseau[k][l];
+                }
+            }
+
+            i++;
+        }
+
     }*/
 
 
