@@ -20,8 +20,8 @@ public:
     /**
     * \brief Constructeur de la classe Arbitraire
      * \param nbvois nombre de voisins de la cellule
-     * \param cellule cellule dont on a choisit arbitrairement le voisinage
-     * \param voisinage tableau contenant les cellules du voisinage
+     * \param cellule : cellule dont on a choisit arbitrairement le voisinage
+     * \param voisinage : vecteur contenant les cellules du voisinage
      */
     explicit Arbitraire(unsigned int nbvois, CELLULE_NP::Cellule& cellule, std::vector<CELLULE_NP::Cellule*> voisinage) : nbvoisins(nbvois), cell(cellule) {
         voisins = voisinage;

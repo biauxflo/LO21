@@ -27,9 +27,10 @@ public:
 
     /**
     * \brief surcharge de la fonction calculerVoisinage pour le voisinage de von Neumann
-     * \param tab tableau de cellules faisant partie du voisinage
-     * \param a Automate a partir duquel on calcule le voisinage
+     * \param tab vecteur de cellules faisant partie du voisinage
+     * \param reseau : reseau a partir duquel on accede aux cellules
      * \param x et y coordonnees de la cellule dont on calcule le voisinage
+     * \param longueur et largeur : dimensions du reseau
      * \return tab
      */
     const std::vector<CELLULE_NP::Cellule*> calculerVoisinage(std::vector<CELLULE_NP::Cellule*> tab, std::vector<std::vector<CELLULE_NP::Cellule*>> reseau, unsigned int x, unsigned int y, unsigned int largeur, unsigned int longueur) const override;

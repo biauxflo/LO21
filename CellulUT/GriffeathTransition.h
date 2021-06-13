@@ -17,9 +17,9 @@ class GriffeathTransition : public Transition {
 public:
     /**
     * \brief surcharge de la fonction creerTransition pour le transition de Griffeath
-     * \param etats tableau d'etats possibles pour l automate
+     * \param etats vecteur d'etats possibles pour l automate
      * \param etat : etat de la cellule sur laquelle on effectue la transition
-     * \param voisines tableau contenant les cellules voisines
+     * \param voisines vecteur contenant les cellules voisines
      * \param nbVoisines nombre de voisines de la cellule (taille du tableau voisines)
      * \return nouvel etat de la cellule
      */
