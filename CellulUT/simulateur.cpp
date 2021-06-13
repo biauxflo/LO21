@@ -96,7 +96,7 @@ void SIMULATEUR_NP::Simulateur::stop(){
 
 AUTOMATE_NP::Automate *SIMULATEUR_NP::Simulateur::getAutomate()
 {
-    return &automate;
+    return &AUTOMATE_NP::Automate::getAutomate();
 }
 
 void SIMULATEUR_NP::Simulateur::creerSimulation(){
