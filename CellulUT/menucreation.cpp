@@ -12,6 +12,7 @@ MenuCreation::MenuCreation(QWidget *parent) :
     connect(ui->createSim,SIGNAL(clicked()),this,SLOT(creerSim()));
     connect(ui->loadSim,SIGNAL(clicked()),this,SLOT(loadSim()));
     connect(ui->loadModele,SIGNAL(clicked()),this,SLOT(loadModele()));
+    choixMenu=0;
 }
 
 MenuCreation::~MenuCreation()
@@ -22,16 +23,19 @@ MenuCreation::~MenuCreation()
 void MenuCreation::creerSim(){
     createSim simcreate;
     simcreate.exec();
+    choixMenu=3;
 }
 
 void MenuCreation::loadModele(){
     popUpLoadModele popup;
     popup.exec();
-    int choixModele = popup.getchoixModele();
+    choixModele = popup.getchoixModele();
+    choixMenu=2;
 }
 
 void MenuCreation::loadSim(){
     simLoad simload;
     simload.exec();
-    QString filename=simload.getFilename();
+    filename=simload.getFilename();
+    choixMenu=1;
 }

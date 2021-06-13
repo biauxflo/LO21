@@ -28,8 +28,12 @@ FenetreJeu::FenetreJeu(QWidget *parent) :
     connect(ui->nextButton,SIGNAL(clicked()),this,SLOT(nextButton_clicked()));
     connect(ui->backButton,SIGNAL(clicked()),this,SLOT(backButton_clicked()));
     connect(ui->resetButton,SIGNAL(clicked()),this,SLOT(resetButton_clicked()));
-    connect(ui->pasbox,SIGNAL(valueChanged(int i)),this,SLOT(spinbox_textchanged()));
     connect(timer,SIGNAL(timeout()),this,SLOT(execute()));
+    connect(ui->randomButton,SIGNAL(clicked()),this,SLOT(randomize()));
+    connect(ui->config,SIGNAL(clicked()),this,SLOT(config()));
+    connect(ui->pasbox, QOverload<int>::of(&QSpinBox::valueChanged),
+        [=](int i){ timer->stop();timer->start(i);});
+
 }
 
 FenetreJeu::~FenetreJeu()
@@ -37,20 +41,20 @@ FenetreJeu::~FenetreJeu()
     delete ui;
 }
 
-void FenetreJeu::activerCellule(int x, int y)
+void FenetreJeu::activerCellule(size_t x, size_t y)
 {
-    if(x > simulation->getAutomate()->getReseau().getLargeur() * (viewResolutionLargeur / simulation->getAutomate()->getReseau().getLargeur())
-            || y > simulation->getAutomate()->getReseau().getLargeur() * (viewResolutionLongueur / simulation->getAutomate()->getReseau().getLargeur())) return;
+    if(x > automate.getReseau().getLargeur() * (viewResolutionLargeur /automate.getReseau().getLargeur())
+            || y > automate.getReseau().getLargeur() * (viewResolutionLongueur / automate.getReseau().getLargeur())) return;
 
-    size_t cellLargeur = viewResolutionLargeur / simulation->getAutomate()->getReseau().getLargeur();
-    size_t cellLongueur = viewResolutionLongueur /  simulation->getAutomate()->getReseau().getLongueur();
-    size_t index = (y/cellLargeur) * simulation->getAutomate()->getReseau().getLargeur() + (x/cellLongueur);
-    if(index < simulation->getAutomate()->getReseau().getLargeur() * simulation->getAutomate()->getReseau().getLargeur()){
-        size_t indice=simulation->getAutomate()->getReseau().getCellule(x/cellLargeur,y/cellLongueur).getEtat().getIndice();
+    size_t cellLargeur = viewResolutionLargeur / automate.getReseau().getLargeur();
+    size_t cellLongueur = viewResolutionLongueur /  automate.getReseau().getLongueur();
+    size_t index = (y/cellLargeur) * automate.getReseau().getLargeur() + (x/cellLongueur);
+    if(index < automate.getReseau().getLargeur() * automate.getReseau().getLargeur()){
+        size_t indice=automate.getReseau().getCellule(x/cellLargeur,y/cellLongueur).getEtat().getIndice();
         if (indice==automate.getNbEtats())
         {indice=0;}
-        simulation->getAutomate()->getReseau().getCellule(x/cellLargeur,y/cellLongueur).setEtat(*automate.getEtat(indice));//augmente l'indice au click
-        scene->printAutomate(&simulation->getAutomate()->getReseau());
+        automate.getReseau().getCellule(x/cellLargeur,y/cellLongueur).setEtat(*automate.getEtat(indice));//augmente l'indice au click
+        scene->printAutomate(&automate.getReseau());
     }
 }
 void FenetreJeu::playButton_clicked()
@@ -102,4 +106,36 @@ void FenetreJeu::execute(){
         simulation->next();
         scene->printAutomate(&simulation->getAutomate()->getReseau());
     }
+}
+
+void FenetreJeu::randomize(){
+    RESEAU_NP::Reseau &r = automate.getReseau();
+    for (unsigned int i = 0; i < r.getLongueur(); i++) {
+        for (unsigned int j = 0; j < r.getLargeur(); j++) {
+            int randomnb = rand()%automate.getNbEtats();
+            r.getCellule(i,j).setEtat(*automate.getEtat(randomnb));
+        }
+    }
+    scene->printAutomate(&simulation->getAutomate()->getReseau());
+}
+
+void FenetreJeu::config(){
+        MenuCreation *menu = new MenuCreation();
+        menu->show();
+        if (menu->getChoixMenu()==1){
+            QString file = menu->getFilename();
+            //Lecture de la sauvegarde
+        }else if (menu->getChoixMenu()==2){
+            if (menu->getChoixModele()==1){
+
+            }else if(menu->getChoixModele()==2){
+
+            }else if(menu->getChoixModele()==3){
+
+            }else if(menu->getChoixModele()==4){
+
+            }
+        }else if (menu->getChoixMenu()==3){
+
+        }
 }

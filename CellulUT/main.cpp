@@ -26,17 +26,8 @@ int main(int argc, char *argv[])
 
     QApplication a(argc, argv);
 
-    FenetreJeu menu;
-    menu.show();
-
-    for (unsigned int i = 0; i < r->getLongueur(); i++) {
-        for (unsigned int j = 0; j < r->getLargeur(); j++) {
-            int randomnb = rand()%2;
-            r->getCellule(i,j).getEtat().setIndice(randomnb);
-            if(randomnb == 0) r->getCellule(i,j).getEtat().setLabel("dead");
-            else r->getCellule(i,j).getEtat().setLabel("alive");
-        }
-    }
+    FenetreJeu jeu;
+    jeu.show();
 
     /*for(int cpt = 0; cpt < 100; cpt++){
            // std::cout << "\nITERATION " << cpt << "\n\n";

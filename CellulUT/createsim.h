@@ -37,8 +37,6 @@ private:
     void autoEtat();
     void autoVoisinage();
     void autoTransition();
-private slots:
-    void ok_clicked();
 };
 
 #endif // CREATESIM_H

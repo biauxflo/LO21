@@ -7,6 +7,7 @@
 #include "simulateur.h"
 #include "Reseau.h"
 #include "GraphAutomate.h"
+#include "menucreation.h"
 
 namespace Ui {
 class FenetreJeu;
@@ -19,7 +20,7 @@ class FenetreJeu : public QMainWindow
 public:
     explicit FenetreJeu(QWidget *parent = nullptr);
     ~FenetreJeu();
-    void activerCellule(int x, int y);
+    void activerCellule(size_t x, size_t y);
     size_t get_celluleParLigne();
     size_t get_Resolution();
     void commencerBoucle();
@@ -44,6 +45,10 @@ private slots:
     void spinbox_textchanged();
 
     void execute();
+
+    void randomize();
+
+    void config();
 
 
 private:

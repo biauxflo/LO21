@@ -9,16 +9,12 @@ using namespace std;
 FenetreJeu * gameWin;
 
 GraphAutomate::GraphAutomate(QMainWindow *parent){
-    gameWin=new FenetreJeu;
-
 }
 
-GraphAutomate::GraphAutomate(QGraphicsItem *parent){
-    gameWin=new FenetreJeu;
-}
+GraphAutomate::GraphAutomate(QGraphicsItem *parent){}
 
 void GraphAutomate::mousePressEvent(QGraphicsSceneMouseEvent *event){
-    gameWin->activerCellule(event->scenePos().x(), event->scenePos().y());
+    gameWin->activerCellule(size_t(event->scenePos().x()),size_t(event->scenePos().y()));
 }
 
 void GraphAutomate::printAutomate(RESEAU_NP::Reseau* r)

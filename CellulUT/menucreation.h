@@ -2,6 +2,8 @@
 #define MENUCREATION_H
 
 #include <QMainWindow>
+#include "fenetrejeu.h"
+
 
 namespace Ui {
 class MenuCreation;
@@ -14,10 +16,14 @@ class MenuCreation : public QMainWindow
 public:
     explicit MenuCreation(QWidget *parent = nullptr);
     ~MenuCreation();
-
+    int getChoixMenu(){return choixMenu;};
+    QString getFilename(){return filename;};
+    int getChoixModele(){return choixModele;};
 private:
     Ui::MenuCreation *ui;
-
+    int choixMenu;
+    QString filename;
+    int choixModele;
 private slots:
     void loadSim();
 

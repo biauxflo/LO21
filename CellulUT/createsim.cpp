@@ -7,7 +7,8 @@ createSim::createSim(QWidget *parent) :
     ui(new Ui::createSim)
 {
     ui->setupUi(this);
-    connect(ui->buttonBox,SIGNAL(clicked()),this,SLOT(ok_clicked));
+    connect(ui->dimBox, QOverload<int>::of(&QSpinBox::valueChanged),
+        [=](int i){ dimReseau=i; });
 }
 
 createSim::~createSim()
@@ -84,9 +85,6 @@ void createSim::manuelEtat(){
     }
 }
 
-void createSim::ok_clicked(){
-    dimReseau=ui->dimBox->value();
-}
 
 void createSim::autoVoisinage(){
     rayonVoisinage=ui->rayonBox->value();
