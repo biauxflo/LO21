@@ -1,6 +1,12 @@
 //
 // Created by Anne Pelle on 08/06/2021.
 //
+
+/**
+* \file GriffeathTransition.cpp
+* \author Amelie Pelle
+*/
+
 #include "GriffeathTransition.h"
 
 ETAT_NP::Etat& GriffeathTransition::creerTransition(std::vector<ETAT_NP::Etat*> etats, ETAT_NP::Etat& etat, std::vector<CELLULE_NP::Cellule*> voisines, unsigned int nbVoisines){

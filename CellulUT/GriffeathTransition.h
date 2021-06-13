@@ -9,6 +9,11 @@
 #include "Transition.h"
 
 /**
+* \file GriffeathTransition.h
+* \author Amelie Pelle
+*/
+
+/**
 * \class GriffeathTransition
 * \brief Herite de la classe Transition, gere les transitions pour l automate de Griffeath
 */

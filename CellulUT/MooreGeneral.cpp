@@ -2,6 +2,11 @@
 // Created by Amelie Pelle on 29/05/2021.
 //
 
+/**
+* \file MooreGeneral.cpp
+* \author {Amelie Pelle, Lucas Clusman}
+*/
+
 #include "MooreGeneral.h"
 
 

@@ -4,6 +4,11 @@
 #include "Transition.h"
 
 /**
+* \file GameLifeTransition.h
+* \author {Lucas Clusman, Amelie Pelle}
+*/
+
+/**
 * \class GameLifeTransition
 * \brief Herite de la classe Transition, gere les transitions pour l automate du jeu de la vie
 */

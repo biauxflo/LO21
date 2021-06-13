@@ -2,6 +2,11 @@
 // Created by Amelie Pelle on 29/05/2021.
 //
 
+/**
+* \file Arbitraire.cpp
+* \author Amelie Pelle
+*/
+
 #include "Arbitraire.h"
 
 const std::vector<CELLULE_NP::Cellule*> Arbitraire::calculerVoisinage(std::vector<CELLULE_NP::Cellule*> tab, std::vector<std::vector<CELLULE_NP::Cellule*>> reseau, unsigned int x, unsigned int y, unsigned int largeur, unsigned int longueur) const {

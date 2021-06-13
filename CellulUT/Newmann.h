@@ -8,6 +8,11 @@
 #include "NewmannGeneral.h"
 
 /**
+* \file Newmann.h
+* \author Amelie Pelle
+*/
+
+/**
 * \class Neumann
 * \brief Herite de la classe NeumannGeneral, gere les voisinages de von Neumann de rayon 1
 */

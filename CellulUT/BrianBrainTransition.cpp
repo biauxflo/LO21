@@ -1,6 +1,10 @@
 //
 // Created by Anne Pelle on 07/06/2021.
 //
+/**
+* \file BrianBrainTransition.cpp
+* \author Amelie Pelle
+*/
 
 #include "BrianBrainTransition.h"
 

@@ -11,6 +11,11 @@
 #include <vector>
 
 /**
+* \file Voisinage.h
+* \author Amelie Pelle
+*/
+
+/**
 * \class Voisinage
 * \brief Classe mere abstraite
 */

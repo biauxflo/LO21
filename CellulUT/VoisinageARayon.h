@@ -8,6 +8,11 @@
 #include "Voisinage.h"
 
 /**
+* \file VoisinageARayon.h
+* \author Amelie Pelle
+*/
+
+/**
 * \class VoisinageARayon
 * \brief Classe mere abstraite heritant de la classe Voisinage
 */

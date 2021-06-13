@@ -1,3 +1,8 @@
+/**
+* \file GameLifeTransition.cpp
+* \author Lucas Clusman
+*/
+
 #include "GameLifeTransition.h"
 
 ETAT_NP::Etat& GameLifeTransition::creerTransition(std::vector<ETAT_NP::Etat*> etats, ETAT_NP::Etat& etat, std::vector<CELLULE_NP::Cellule*> voisines, unsigned int nbVoisines){

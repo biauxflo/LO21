@@ -1,6 +1,10 @@
 //
 // Created by Amelie Pelle on 07/06/2021.
 //
+/**
+* \file BrianBrainTransition.h
+* \author Amelie Pelle
+*/
 
 #ifndef CELLULUT_BRIAN_TRANSITION_H
 #define CELLULUT_BRIAN_TRANSITION_H

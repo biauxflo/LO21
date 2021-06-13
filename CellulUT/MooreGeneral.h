@@ -8,6 +8,11 @@
 #include "VoisinageARayon.h"
 
 /**
+* \file MooreGeneral.h
+* \author Amelie Pelle
+*/
+
+/**
 * \class MooreGeneral
 * \brief Herite de la classe VoisinageARayon, gere les voisinages de Moore de rayon r entier positif
 */

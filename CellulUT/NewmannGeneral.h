@@ -2,6 +2,11 @@
 // Created by Amelie Pelle on 29/05/2021.
 //
 
+/**
+* \file NewmannGeneral.h
+* \author Amelie Pelle
+*/
+
 #ifndef CELLULUT_NEWMANNGENERAL_H
 #define CELLULUT_NEWMANNGENERAL_H
 

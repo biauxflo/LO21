@@ -8,6 +8,11 @@
 #include "MooreGeneral.h"
 
 /**
+* \file Moore.h
+* \author Amelie Pelle
+*/
+
+/**
 * \class Moore
 * \brief Herite de la classe MooreGeneral, gere les voisinages de Moore de rayon 1
 */

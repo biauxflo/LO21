@@ -1,7 +1,10 @@
 //
 // Created by Amelie Pelle on 29/05/2021.
 //
-
+/**
+* \file Arbitraire.h
+* \author Amelie Pelle
+*/
 #ifndef CELLULUT_ARBITRAIRE_H
 #define CELLULUT_ARBITRAIRE_H
 
