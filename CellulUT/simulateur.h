@@ -70,7 +70,7 @@ namespace SIMULATEUR_NP {
         /**
         * \brief Destructeur de la classe Simulateur
         */
-        ~Simulateur();
+        ~Simulateur() = default;
 
         void saveReseau();
 

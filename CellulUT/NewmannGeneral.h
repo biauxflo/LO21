@@ -23,7 +23,7 @@ public:
     /**
     * \brief Destructeur de la classe NeumannGeneral
      */
-    ~NeumannGeneral() override;
+    ~NeumannGeneral() override = default;
 
     /**
     * \brief surcharge de la fonction calculerVoisinage pour le voisinage de von Neumann

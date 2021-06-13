@@ -7,12 +7,6 @@
 #include "fenetrejeu.h"
 #include "menucreation.h"
 
-    void sleep(unsigned milliseconds)
-    {
-        //Sleep(milliseconds);
-    }
-
-
 int main(int argc, char *argv[])
 {
     /* AUTOMATE PAR DEFAUT */
@@ -35,47 +29,13 @@ int main(int argc, char *argv[])
     menu.show();
 
     for (unsigned int i = 0; i < r->getLongueur(); i++) {
-        std::cout<<"|";
         for (unsigned int j = 0; j < r->getLargeur(); j++) {
             int randomnb = rand()%2;
             r->getCellule(i,j).getEtat().setIndice(randomnb);
             if(randomnb == 0) r->getCellule(i,j).getEtat().setLabel("dead");
-           // if(randomnb == 1) r->getCellule(i,j).getEtat().setLabel("excited");
             else r->getCellule(i,j).getEtat().setLabel("alive");
-            std::cout<<r->getCellule(i,j).getEtat().getIndice()<<"|";
         }
-        std::cout<<"\n";
     }
 
-
-
-    //Boucle qui print le label de l'etat de chaque cellule dans une matrice sous la forme "|0|1|1|0|0|..."
-   /* for(int k = 0; k < 10; k++){
-        for (unsigned int i = 0; i <automate.getReseau().getLongueur(); i++) {
-            std::cout<<"|";
-            for (unsigned int j = 0; j <automate.getReseau().getLargeur(); j++) {
-                std::cout << automate.getReseau().getCellule(i,j).getEtat().getIndice() << "|";
-            }
-            std::cout<<"\n";
-        }
-    }*/
-
-    /*for(int cpt = 0; cpt < 100; cpt++){
-       // std::cout << "\nITERATION " << cpt << "\n\n";
-        automate.calculerTransition();
-        //Boucle qui print le label de l'etat de chaque cellule dans une matrice sous la forme "|0|1|1|0|0|..."
-            for (unsigned int i = 0; i <automate.getReseau().getLongueur(); i++) {
-                std::cout<<"|";
-                for (unsigned int j = 0; j <automate.getReseau().getLargeur(); j++) {
-                    if(automate.getReseau().getCellule(i,j).getEtat().getIndice() == 1) std::cout << "*|";
-                    else std::cout << " |";
-                }
-                std::cout<<"\n";
-            }
-        sleep(300);
-        std::cout << "\n\n\n\n\n\n";
-    }*/
-
    return a.exec();
-   //return 0;
 }
