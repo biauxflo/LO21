@@ -10,10 +10,7 @@ RESEAU_NP::Reseau::Reseau(int la, int lo, int hor) {
     longueur = lo;
     horloge = hor;
     unsigned int abs, ord;
-    /*
-    for (unsigned int i = 0; i < longueur; ++i) {
-        cellules[i] = new CELLULE_NP::Cellule();
-    }*/
+
     for (abs = 0; abs < largeur; abs++){
         std::vector<CELLULE_NP::Cellule*> v;
         for(ord = 0; ord < longueur; ord++) {

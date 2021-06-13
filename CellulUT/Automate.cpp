@@ -33,6 +33,12 @@ void AUTOMATE_NP::Automate::libererAutomate() {
 }
 
 AUTOMATE_NP::Automate::~Automate() {
+    delete reseau;
+    for(unsigned int i = 0; i < nbEtats; i++){
+        delete etats[i];
+    }
+    delete voisinage;
+    delete regleTransition;
     libererAutomate();
 }
 
@@ -45,7 +51,7 @@ void AUTOMATE_NP::Automate::appliquerConfiguration(QXmlStreamReader *xmlReader){
     Voisinage* _voisinage;
     Transition* transition;
 
-    /*if(xmlReader->readNextStartElement()){
+    if(xmlReader->readNextStartElement()){
         if(xmlReader->name() == "automate"){
             while(xmlReader->readNextStartElement()){
 
@@ -77,7 +83,7 @@ void AUTOMATE_NP::Automate::appliquerConfiguration(QXmlStreamReader *xmlReader){
                                 indice = std::stoi(xmlReader->readElementText().toStdString());
                             }
                         }
-                        ETAT_NP::Etat* _etat = new ETAT_NP::Etat(indice, label, couleur);
+                        ETAT_NP::Etat* _etat = new ETAT_NP::Etat(indice, label, couleur.rgb());
                         _etats.push_back(_etat);
                     }
 
@@ -98,12 +104,20 @@ void AUTOMATE_NP::Automate::appliquerConfiguration(QXmlStreamReader *xmlReader){
     }
 
     RESEAU_NP::Reseau* r = new RESEAU_NP::Reseau(10,10,0);
+
+    if(_voisinage == nullptr)
+        throw AUTOMATE_EXCEPTION_NP::AutomateException("Voisinage non initialisé");
+    if(transition == nullptr)
+        throw AUTOMATE_EXCEPTION_NP::AutomateException("Transition non initialisée");
+    if(_etats.size() == 0)
+        throw AUTOMATE_EXCEPTION_NP::AutomateException("Aucun état dans l'automate");
+
     //setAutomate(r, nombre, _voisinage, transition);
     automate_Instance->setReseau(r);
     automate_Instance->setNbEtats(nombre);
     automate_Instance->setVoisinage(_voisinage);
     automate_Instance->setTransition(transition);
-    setEtats(nombre, _etats);*/
+    setEtats(nombre, _etats);
 }
 
 
@@ -126,8 +140,11 @@ void AUTOMATE_NP::Automate::calculerTransition(){
             std::vector<CELLULE_NP::Cellule*> voisines(voisinage->getNbCellulesVoisines());
             voisines = voisinage->calculerVoisinage(voisines, reseauCopie, i, j, reseau->getLargeur(), reseau->getLongueur());
             ETAT_NP::Etat& e = regleTransition->creerTransition(getEtats(), etmp, voisines, voisinage->getNbCellulesVoisines());
-            //delete voisines;
             reseau->getCellule(i,j).setEtat(e);
+
+            for(unsigned int i = 0; i < voisines.size(); i++){
+                delete voisines[i];
+            }
         }
     }
 

@@ -31,7 +31,7 @@ public:
     * \brief Destructeur de la classe VoisinageARayon
     */
 
-    ~VoisinageARayon() override;
+    ~VoisinageARayon() override = default;
 
     /**
     * \brief getter

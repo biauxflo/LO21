@@ -34,10 +34,9 @@ private:
     int* transitionGoL;
 
     void manuelEtat();
-    void griffeathChecked();
-    void brianChecked();
-    void langstonChecked();
-    void golChecked();
+    void autoEtat();
+    void autoVoisinage();
+    void autoTransition();
 private slots:
     void ok_clicked();
 };

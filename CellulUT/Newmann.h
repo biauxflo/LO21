@@ -32,7 +32,7 @@ public:
     /**
     * \brief Destructeur de la classe Neumann
      */
-    ~Neumann() override;
+    ~Neumann() override = default;
     /**
      * \brief setter
      * @param nb inutilise (le nombre de voisins est de 4)

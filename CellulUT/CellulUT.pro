@@ -39,9 +39,7 @@ SOURCES += \
     Etat.cpp \
     GameLifeTransition.cpp \
     Reseau.cpp \
-    Moore.cpp \
     MooreGeneral.cpp \
-    Neumann.cpp \
     NeumannGeneral.cpp \
     chargesim.cpp \
     createsim.cpp \
@@ -49,8 +47,6 @@ SOURCES += \
     popuploadmodele.cpp \
     simload.cpp \
     simulateur.cpp \
-    Voisinage.cpp \
-    VoisinageARayon.cpp \
     AutomateException.cpp \
     fenetrejeu.cpp \
     main.cpp \

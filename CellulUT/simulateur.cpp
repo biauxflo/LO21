@@ -62,7 +62,3 @@ AUTOMATE_NP::Automate *SIMULATEUR_NP::Simulateur::getAutomate()
 void SIMULATEUR_NP::Simulateur::creerSimulation(){
     memoire = 3;
 }
-
-SIMULATEUR_NP::Simulateur::~Simulateur(){
-
-}

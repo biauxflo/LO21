@@ -28,7 +28,7 @@ public:
     /**
     * \brief Destructeur de la classe MooreGeneral
      */
-    ~MooreGeneral() override;
+    ~MooreGeneral() override = default;
     /**
     * \brief surcharge de la fonction calculerVoisinage pour le voisinage de Moore
      * \param tab vecteur de cellules faisant partie du voisinage

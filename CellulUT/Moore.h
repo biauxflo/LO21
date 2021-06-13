@@ -31,7 +31,7 @@ public:
     /**
     * \brief Destructeur de la classe Moore
      */
-    ~Moore() override;
+    ~Moore() override = default;
     /**
      * \brief setter
      * @param nb inutilise (le nombre de voisins est de 8)

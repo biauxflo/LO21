@@ -9,9 +9,6 @@
 
 #include "NewmannGeneral.h"
 
-
-NeumannGeneral::~NeumannGeneral() = default;
-
 using namespace std;
 
 const std::vector<CELLULE_NP::Cellule*> NeumannGeneral::calculerVoisinage(std::vector<CELLULE_NP::Cellule*> tab, std::vector<std::vector<CELLULE_NP::Cellule*>> reseau, unsigned int x, unsigned int y, unsigned int largeur, unsigned int longueur) const {
