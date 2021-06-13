@@ -21,12 +21,12 @@ FenetreJeu::FenetreJeu(QWidget *parent) :
     ui->graphicsView->setScene(scene);
     simulation->creerSimulation();
     scene->printAutomate(&simulation->getAutomate()->getReseau());
-    connect(ui->playButton,SIGNAL(on_click()),this,SLOT(playButton_clicked()));
-    connect(ui->pauseButton,SIGNAL(on_click()),this,SLOT(pauseButton_clicked()));
-    connect(ui->stopButton,SIGNAL(on_click()),this,SLOT(stopButton_clicked()));
-    connect(ui->nextButton,SIGNAL(on_click()),this,SLOT(nextButton_clicked()));
-    connect(ui->backButton,SIGNAL(on_click()),this,SLOT(backButton_clicked()));
-    connect(ui->resetButton,SIGNAL(on_click()),this,SLOT(resetButton_clicked()));
+    connect(ui->playButton,SIGNAL(clicked()),this,SLOT(playButton_clicked()));
+    connect(ui->pauseButton,SIGNAL(clicked()),this,SLOT(pauseButton_clicked()));
+    connect(ui->stopButton,SIGNAL(clicked()),this,SLOT(stopButton_clicked()));
+    connect(ui->nextButton,SIGNAL(clicked()),this,SLOT(nextButton_clicked()));
+    connect(ui->backButton,SIGNAL(clicked()),this,SLOT(backButton_clicked()));
+    connect(ui->resetButton,SIGNAL(clicked()),this,SLOT(resetButton_clicked()));
     connect(ui->pasbox,SIGNAL(valueChanged()),this,SLOT(spinbox_textchanged()));
     connect(timer,SIGNAL(timeout()),this,SLOT(execute()));
 }

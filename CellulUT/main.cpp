@@ -4,7 +4,7 @@
 #include "GameLifeTransition.h"
 #include "Newmann.h"
 #include "Arbitraire.h"
-#include "menucreation.h"
+#include "fenetrejeu.h"
 
     void sleep(unsigned milliseconds)
     {
@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 
     QApplication a(argc, argv);
 
-    MenuCreation menu;
+    FenetreJeu menu;
     menu.show();
 
     for (unsigned int i = 0; i < r->getLongueur(); i++) {
@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
         }
     }*/
 
-    for(int cpt = 0; cpt < 100; cpt++){
+    /*for(int cpt = 0; cpt < 100; cpt++){
        // std::cout << "\nITERATION " << cpt << "\n\n";
         automate.calculerTransition();
         //Boucle qui print le label de l'etat de chaque cellule dans une matrice sous la forme "|0|1|1|0|0|..."
@@ -73,8 +73,8 @@ int main(int argc, char *argv[])
             }
         sleep(300);
         std::cout << "\n\n\n\n\n\n";
-    }
+    }*/
 
    return a.exec();
-    return 0;
+   //return 0;
 }
