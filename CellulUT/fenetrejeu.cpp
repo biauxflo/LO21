@@ -19,7 +19,6 @@ FenetreJeu::FenetreJeu(QWidget *parent) :
     viewResolutionLongueur = 600;
     scene = new GraphAutomate(this);
     ui->graphicsView->setScene(scene);
-    AUTOMATE_NP::Automate& automate = AUTOMATE_NP::Automate::getAutomate();
     simulation = new SIMULATEUR_NP::Simulateur(automate, *automate.getVoisinage(), *automate.getTransition());
     simulation->creerSimulation();
     scene->printAutomate(&simulation->getAutomate()->getReseau());
@@ -38,7 +37,7 @@ FenetreJeu::~FenetreJeu()
     delete ui;
 }
 
-void FenetreJeu::activerCellule(size_t x, size_t y)
+void FenetreJeu::activerCellule(int x, int y)
 {
     if(x > simulation->getAutomate()->getReseau().getLargeur() * (viewResolutionLargeur / simulation->getAutomate()->getReseau().getLargeur())
             || y > simulation->getAutomate()->getReseau().getLargeur() * (viewResolutionLongueur / simulation->getAutomate()->getReseau().getLargeur())) return;
@@ -47,7 +46,10 @@ void FenetreJeu::activerCellule(size_t x, size_t y)
     size_t cellLongueur = viewResolutionLongueur /  simulation->getAutomate()->getReseau().getLongueur();
     size_t index = (y/cellLargeur) * simulation->getAutomate()->getReseau().getLargeur() + (x/cellLongueur);
     if(index < simulation->getAutomate()->getReseau().getLargeur() * simulation->getAutomate()->getReseau().getLargeur()){
-        simulation->getAutomate()->getReseau().getCellule(x/cellLargeur,y/cellLongueur).getEtat().augmenterIndice();//augmente l'indice au click
+        size_t indice=simulation->getAutomate()->getReseau().getCellule(x/cellLargeur,y/cellLongueur).getEtat().getIndice();
+        if (indice==automate.getNbEtats())
+        {indice=0;}
+        simulation->getAutomate()->getReseau().getCellule(x/cellLargeur,y/cellLongueur).setEtat(*automate.getEtat(indice));//augmente l'indice au click
         scene->printAutomate(&simulation->getAutomate()->getReseau());
     }
 }

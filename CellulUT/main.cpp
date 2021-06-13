@@ -24,10 +24,10 @@ int main(int argc, char *argv[])
     AUTOMATE_NP::Automate& automate = AUTOMATE_NP::Automate::getAutomate();
     automate.setEtats(2, es);
 
-    //QApplication a(argc, argv);
+    QApplication a(argc, argv);
 
-    //MenuCreation menu;
-    //menu.show();
+    FenetreJeu menu;
+    menu.show();
 
     for (unsigned int i = 0; i < r->getLongueur(); i++) {
         for (unsigned int j = 0; j < r->getLargeur(); j++) {
@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
         }
     }
 
-    for(int cpt = 0; cpt < 100; cpt++){
+    /*for(int cpt = 0; cpt < 100; cpt++){
            // std::cout << "\nITERATION " << cpt << "\n\n";
             automate.calculerTransition();
             //Boucle qui print le label de l'etat de chaque cellule dans une matrice sous la forme "|0|1|1|0|0|..."
@@ -52,8 +52,8 @@ int main(int argc, char *argv[])
                 }
             //sleep(300);
             std::cout << "\n\n\n\n\n\n";
-    }
+    }*/
 
-    return 0;
-   //return a.exec();
+    //return 0;
+   return a.exec();
 }

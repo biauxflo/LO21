@@ -10,5 +10,5 @@ void ETAT_NP::Etat::setLabel(std::string lab)
 }
 
 void ETAT_NP::Etat::augmenterIndice(){
-    indice++;
+
 }

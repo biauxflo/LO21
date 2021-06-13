@@ -19,7 +19,7 @@ class FenetreJeu : public QMainWindow
 public:
     explicit FenetreJeu(QWidget *parent = nullptr);
     ~FenetreJeu();
-    void activerCellule(size_t x, size_t y);
+    void activerCellule(int x, int y);
     size_t get_celluleParLigne();
     size_t get_Resolution();
     void commencerBoucle();
@@ -47,6 +47,7 @@ private slots:
 
 
 private:
+    AUTOMATE_NP::Automate& automate = AUTOMATE_NP::Automate::getAutomate();
     Ui::FenetreJeu *ui;
     GraphAutomate *scene;
     QPixmap image;

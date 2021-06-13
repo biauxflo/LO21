@@ -13,8 +13,10 @@ class GraphAutomate : public QGraphicsScene
 public:
     GraphAutomate(QMainWindow * parent = 0);
     GraphAutomate(QGraphicsItem * parent = 0);
-    void mouseClick(QGraphicsSceneMouseEvent *event);
     void printAutomate(RESEAU_NP::Reseau* r);
+
+private slots:
+    void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
 };
 
 #endif // MYGRAPHICSCENE_H

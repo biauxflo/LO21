@@ -6,16 +6,19 @@
 using namespace std;
 #include <vector>
 
-extern FenetreJeu * gameWin;
+FenetreJeu * gameWin;
 
-GraphAutomate::GraphAutomate(QMainWindow *parent){}
+GraphAutomate::GraphAutomate(QMainWindow *parent){
+    gameWin=new FenetreJeu;
 
-GraphAutomate::GraphAutomate(QGraphicsItem *parent){}
+}
 
-void GraphAutomate::mouseClick(QGraphicsSceneMouseEvent *event){
-    // qDebug() << event->scenePos().x() << " " << event->scenePos().y();
-    //gameWin->toggleCells(event->scenePos().x(), event->scenePos().y());
+GraphAutomate::GraphAutomate(QGraphicsItem *parent){
+    gameWin=new FenetreJeu;
+}
 
+void GraphAutomate::mousePressEvent(QGraphicsSceneMouseEvent *event){
+    gameWin->activerCellule(event->scenePos().x(), event->scenePos().y());
 }
 
 void GraphAutomate::printAutomate(RESEAU_NP::Reseau* r)
@@ -24,7 +27,7 @@ void GraphAutomate::printAutomate(RESEAU_NP::Reseau* r)
     // if you change it, remember to change the function to toggle cells to account for it!
 
     // dimension in pixel of the View
-    size_t viewLargeur = 900; // if I use "gameWin->get_ViewResolution()" then it crashes by the first setting... WHY?
+    size_t viewLargeur = 900; //
     size_t viewLongueur = 600;
     //calculate the biggest area
 
