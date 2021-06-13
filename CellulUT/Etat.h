@@ -26,6 +26,7 @@ namespace ETAT_NP{
         void setIndice (int ind);
         void setLabel (std::string lab);
         void setColor (int couleur);
+        void augmenterIndice();
         // operator==
     };
 }

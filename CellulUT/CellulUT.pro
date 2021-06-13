@@ -2,6 +2,7 @@ QT += widgets
 QT += xml
 QT += gui
 QT += core
+QT += core gui
 
 HEADERS += \
     Automate.h \
@@ -19,7 +20,9 @@ HEADERS += \
     VoisinageARayon.h \
     AutomateException.h \
     Arbitraire.h \
-    GriffeathTransition.h
+    GriffeathTransition.h \
+    fenetredejeu.h \
+    gamewindow.h
 
 
 
@@ -36,10 +39,14 @@ SOURCES += \
     Voisinage.cpp \
     VoisinageARayon.cpp \
     AutomateException.cpp \
+    fenetredejeu.cpp \
     main.cpp \
     Arbitraire.cpp \
     BrianBrainTransition.cpp \
-    GriffeathTransition.cpp
+    GriffeathTransition.cpp \
+    gamewindow.cpp
 
 FORMS += \
-    mainwindow.ui
+    fenetredejeu.ui \
+    gamewindow.ui \
+    mainwindow.ui \

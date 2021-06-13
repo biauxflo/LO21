@@ -31,7 +31,7 @@ namespace SIMULATEUR_NP {
 
         QTimer *timer;
 
-    public slots :
+    public :
         void run();
         void execute();
         void stop();
@@ -69,6 +69,10 @@ namespace SIMULATEUR_NP {
         * \brief Met la simulation en mode pas à pas
         */
         void setStepByStep();
+
+        void creerSimulation();
+
+        AUTOMATE_NP::Automate *getAutomate();
 
 
     public:
