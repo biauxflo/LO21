@@ -14,22 +14,16 @@ createSim::~createSim()
 {
     delete ui;
 }
-void createSim::golChecked(){
+void createSim::autoEtat(){
     if(ui->golChecked->isChecked()){
         choixEtat = 1;
     }
-}
-void createSim::langstonChecked(){
     if(ui->langstonChecked->isChecked()){
         choixEtat = 2;
     }
-}
-void createSim::brianChecked(){
     if(ui->brainChecked->isChecked()){
         choixEtat = 3;
     }
-}
-void createSim::griffeathChecked(){
     if(ui->griffithChecked->isChecked()){
         choixEtat = 4;
     }
@@ -92,4 +86,32 @@ void createSim::manuelEtat(){
 
 void createSim::ok_clicked(){
     dimReseau=ui->dimBox->value();
+}
+
+void createSim::autoVoisinage(){
+    rayonVoisinage=ui->rayonBox->value();
+    if(ui->vonNeumann->isChecked()){
+        choixVoisinage=1;
+    }if (ui->vonNeumann2->isChecked()){
+        choixVoisinage=2;
+    }if (ui->moore->isChecked()){
+        choixVoisinage=3;
+    }if (ui->moore2->isChecked()){
+        choixVoisinage=4;
+    }if (ui->arbitraire->isChecked()){
+        choixVoisinage=5;
+    }
+}
+
+void createSim::autoTransition(){
+    if (ui->gol3->isChecked()){
+        choixTransition=1;
+        transitionGoL[0]=ui->survieMin->value();
+        transitionGoL[1]=ui->survieMax->value();
+        transitionGoL[2]=ui->naissance->value();
+    }if(ui->brain3->isChecked()){
+        choixTransition=2;
+    }if(ui->griffeath3->isChecked()){
+        choixTransition=3;
+    }
 }

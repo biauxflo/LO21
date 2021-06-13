@@ -327,35 +327,35 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_3">
     <item>
-     <widget class="QRadioButton" name="golChecked_2">
+     <widget class="QRadioButton" name="vonNeumann">
       <property name="text">
        <string>Von Neumann</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QRadioButton" name="langstonChecked_2">
+     <widget class="QRadioButton" name="vonNeumann2">
       <property name="text">
        <string>Von Neumann généralisé</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QRadioButton" name="brainCheck_2">
+     <widget class="QRadioButton" name="moore">
       <property name="text">
        <string>Moore</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QRadioButton" name="griffithCheckd_2">
+     <widget class="QRadioButton" name="moore2">
       <property name="text">
        <string>Moore généralisé</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QRadioButton" name="radioButton_2">
+     <widget class="QRadioButton" name="arbitraire">
       <property name="text">
        <string>Arbitraire</string>
       </property>
@@ -513,7 +513,7 @@
    <property name="orientation">
     <enum>Qt::Vertical</enum>
    </property>
-   <widget class="QRadioButton" name="golChecked_3">
+   <widget class="QRadioButton" name="gol3">
     <property name="text">
      <string>Game Of Life</string>
     </property>
@@ -538,7 +538,7 @@
      <string>Min</string>
     </property>
    </widget>
-   <widget class="QSpinBox" name="spinBox">
+   <widget class="QSpinBox" name="survieMin">
     <property name="minimum">
      <number>1</number>
     </property>
@@ -553,7 +553,7 @@
      <string>Max</string>
     </property>
    </widget>
-   <widget class="QSpinBox" name="spinBox_2">
+   <widget class="QSpinBox" name="survieMax">
     <property name="minimum">
      <number>1</number>
     </property>
@@ -566,17 +566,17 @@
      <string>Naissance</string>
     </property>
    </widget>
-   <widget class="QSpinBox" name="spinBox_3">
+   <widget class="QSpinBox" name="naissance">
     <property name="minimum">
      <number>1</number>
     </property>
    </widget>
-   <widget class="QRadioButton" name="brainCheck_3">
+   <widget class="QRadioButton" name="brain3">
     <property name="text">
      <string>Brian's Brain</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="griffithCheckd_3">
+   <widget class="QRadioButton" name="griffeath3">
     <property name="text">
      <string>Griffeath</string>
     </property>
