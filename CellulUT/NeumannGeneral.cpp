@@ -13,6 +13,18 @@ using namespace std;
 
 const std::vector<CELLULE_NP::Cellule*> NeumannGeneral::calculerVoisinage(std::vector<CELLULE_NP::Cellule*> tab, std::vector<std::vector<CELLULE_NP::Cellule>>& reseau, unsigned int x, unsigned int y, unsigned int largeur, unsigned int longueur) const {
     //int k, l, i = 0;
+    int k, l;
+
+     for(k=0; k < (int)largeur; k++) {
+         for(l=0; l < (int)longueur; l++){
+             int abscisseDelta = std::abs(k-(int)x);
+             int ordonneeDelta = std::abs(l-(int)y);
+             if(abscisseDelta + ordonneeDelta <= (int)rayon && !((k == (int)x) && (l == (int)y))){
+                 tab.push_back(&reseau[k][l]);
+             }
+         }
+     //ne fonctionne pas... :'(
+     }
 
 /*
     if(x == 0){
