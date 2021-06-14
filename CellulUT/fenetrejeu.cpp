@@ -15,7 +15,7 @@ FenetreJeu::FenetreJeu(QWidget *parent) :
 {
     ui->setupUi(this);
     timer=new QTimer();
-    viewResolutionLargeur = 900; // resolution of the view - depends on GraphicScene!
+    viewResolutionLargeur = 900;
     viewResolutionLongueur = 600;
     scene = new GraphAutomate(this);
     ui->graphicsView->setScene(scene);

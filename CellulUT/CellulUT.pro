@@ -22,7 +22,6 @@ HEADERS += \
     Arbitraire.h \
     GriffeathTransition.h \
     GraphAutomate.h \
-    chargesim.h \
     createsim.h \
     langtonslooptransition.h \
     menucreation.h \
@@ -42,7 +41,6 @@ SOURCES += \
     Reseau.cpp \
     MooreGeneral.cpp \
     NeumannGeneral.cpp \
-    chargesim.cpp \
     createsim.cpp \
     langtonslooptransition.cpp \
     menucreation.cpp \
@@ -59,7 +57,6 @@ SOURCES += \
 
 
 FORMS += \
-    chargesim.ui \
     createsim.ui \
     fenetrejeu.ui \
     menucreation.ui \
