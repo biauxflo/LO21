@@ -53,14 +53,14 @@ void createSim::accept()
         es.push_back(e4);
         AUTOMATE_NP::Automate& automate = AUTOMATE_NP::Automate::getAutomate();
         automate.setEtats(4,es);
-    }if(ui->manuelChecked->isChecked()){
+   }if(ui->manuelChecked->isChecked()){
         std::vector<ETAT_NP::Etat*> es;
         int nbEtats = 0;
         if(ui->valeur1!=NULL&&ui->color1!=NULL){
             std::string valeurS1(ui->valeur1->toPlainText().toStdString());
             QString couleurS1(ui->color1->toPlainText());
             QColor *couleur1 = new QColor(couleurS1);
-            ETAT_NP::Etat* first(0,valeurS1, couleur1->rgb());
+            ETAT_NP::Etat* first = new ETAT_NP::Etat(0,valeurS1, couleur1->rgb());
             nbEtats++;
             es.push_back(first);
         }
@@ -68,7 +68,7 @@ void createSim::accept()
             std::string valeurS2(ui->valeur2->toPlainText().toStdString());
             QString couleurS2(ui->color2->toPlainText());
             QColor *couleur2 = new QColor(couleurS2);
-            ETAT_NP::Etat* second(1,valeurS2, couleur2->rgb());
+            ETAT_NP::Etat* second = new ETAT_NP::Etat(1,valeurS2, couleur2->rgb());
             nbEtats++;
             es.push_back(second);
 
@@ -77,7 +77,7 @@ void createSim::accept()
             std::string valeurS3(ui->valeur3->toPlainText().toStdString());
             QString couleurS3(ui->color3->toPlainText());
             QColor *couleur3 = new QColor(couleurS3);
-            ETAT_NP::Etat* third(2,valeurS3, couleur3->rgb());
+            ETAT_NP::Etat* third = new ETAT_NP::Etat(2,valeurS3, couleur3->rgb());
             nbEtats++;
             es.push_back(third);
 
@@ -86,7 +86,7 @@ void createSim::accept()
             std::string valeurS4(ui->valeur4->toPlainText().toStdString());
             QString couleurS4(ui->color4->toPlainText());
             QColor *couleur4 = new QColor(couleurS4);
-            ETAT_NP::Etat* forth(3,valeurS4, couleur4->rgb());
+            ETAT_NP::Etat* forth = new ETAT_NP::Etat(3,valeurS4, couleur4->rgb());
             nbEtats++;
             es.push_back(forth);
 
@@ -95,7 +95,7 @@ void createSim::accept()
             std::string valeurS5(ui->valeur5->toPlainText().toStdString());
             QString couleurS5(ui->color5->toPlainText());
             QColor *couleur5 = new QColor(couleurS5);
-            ETAT_NP::Etat* fifth(4,valeurS5, couleur5->rgb());
+            ETAT_NP::Etat* fifth = new ETAT_NP::Etat(4,valeurS5, couleur5->rgb());
             nbEtats++;
             es.push_back(fifth);
 
@@ -104,7 +104,7 @@ void createSim::accept()
             std::string valeurS6(ui->valeur6->toPlainText().toStdString());
             QString couleurS6(ui->color6->toPlainText());
             QColor *couleur6 = new QColor(couleurS6);
-            ETAT_NP::Etat* sixth(5,valeurS6, couleur6->rgb());
+            ETAT_NP::Etat* sixth = new ETAT_NP::Etat(5,valeurS6, couleur6->rgb());
             nbEtats++;
             es.push_back(sixth);
 
@@ -113,7 +113,7 @@ void createSim::accept()
             std::string valeurS7(ui->valeur7->toPlainText().toStdString());
             QString couleurS7(ui->color7->toPlainText());
             QColor *couleur7 = new QColor(couleurS7);
-            ETAT_NP::Etat* seventh(6,valeurS7, couleur7->rgb());
+            ETAT_NP::Etat* seventh = new ETAT_NP::Etat(6,valeurS7, couleur7->rgb());
             nbEtats++;
             es.push_back(seventh);
 
@@ -122,7 +122,7 @@ void createSim::accept()
             std::string valeurS8(ui->valeur8->toPlainText().toStdString());
             QString couleurS8(ui->color8->toPlainText());
             QColor *couleur8 = new QColor(couleurS8);
-            ETAT_NP::Etat* eigth(7,valeurS8, couleur8->rgb());
+            ETAT_NP::Etat* eigth = new ETAT_NP::Etat(7,valeurS8, couleur8->rgb());
             nbEtats++;
             es.push_back(eigth);
 
