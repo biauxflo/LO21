@@ -10,9 +10,9 @@ ETAT_NP::Etat& GameLifeTransition::creerTransition(std::vector<ETAT_NP::Etat*> e
     unsigned int mortes = 0;
 
     for(unsigned int i = 0; i < nbVoisines; i++){
-        if(voisines[i]->getEtat().getLabel() == "alive"){ // A MODIFIER avec operator== et fabrique etat
+        if(voisines[i]->getEtat().getIndice() == 1){ // A MODIFIER avec operator== et fabrique etat
             vivantes++;
-        } else if(voisines[i]->getEtat().getLabel() == "dead"){
+        } else if(voisines[i]->getEtat().getIndice() == 0){
             mortes++;
         }
     }
