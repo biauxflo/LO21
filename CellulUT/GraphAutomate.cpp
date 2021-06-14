@@ -19,13 +19,8 @@ void GraphAutomate::mousePressEvent(QGraphicsSceneMouseEvent *event){
 
 void GraphAutomate::printAutomate(RESEAU_NP::Reseau* r)
 {
-    // the border stays right bottom
-    // if you change it, remember to change the function to toggle cells to account for it!
-
-    // dimension in pixel of the View
     size_t viewLargeur = 900; //
     size_t viewLongueur = 600;
-    //calculate the biggest area
 
     size_t cellLarg = viewLargeur/r->getLargeur();
     size_t cellLong = viewLongueur/r->getLongueur();
@@ -44,7 +39,6 @@ void GraphAutomate::printAutomate(RESEAU_NP::Reseau* r)
         }
     }
 
-    // Print it
     setSceneRect(0,0,viewLargeur,viewLongueur);
     addPixmap(QPixmap::fromImage(image));
 }

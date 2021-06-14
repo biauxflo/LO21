@@ -23,7 +23,6 @@ const std::vector<CELLULE_NP::Cellule*> NeumannGeneral::calculerVoisinage(std::v
                  tab.push_back(&reseau[k][l]);
              }
          }
-     //ne fonctionne pas... :'(
      }
 
 /*

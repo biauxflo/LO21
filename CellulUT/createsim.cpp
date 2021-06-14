@@ -159,7 +159,7 @@ void createSim::accept()
         automate.setTransition(gt);
     }
 
-    /* :'(
+    /*
     QFile * file = new QFile(filename);
     QXmlStreamReader * xml = new QXmlStreamReader(file);
     AUTOMATE_NP::Automate::getAutomate().appliquerConfiguration(xml);

@@ -141,20 +141,8 @@ void AUTOMATE_NP::Automate::calculerTransition(){
             voisines = voisinage->calculerVoisinage(voisines, reseauCopie, i, j, reseau->getLargeur(), reseau->getLongueur());
             ETAT_NP::Etat& e = regleTransition->creerTransition(getEtats(), etmp, voisines, voisines.size());
             reseau->getCellule(i,j).setEtat(e);
-
-            /*
-            for(unsigned int i = 0; i < voisines.size(); i++){
-                delete voisines[i];
-            }*/
         }
     }
-/*
-    for(unsigned int i = 0; i < reseau->getLargeur() ; i++)
-    {
-        for(unsigned int j = 0; j < reseau->getLongueur(); j++){
-            delete reseauCopie[i][j];
-        }
-    }*/
 
 }
 
