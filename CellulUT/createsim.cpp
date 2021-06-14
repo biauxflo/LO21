@@ -146,7 +146,17 @@ void createSim::on_buttonBox_clicked(QAbstractButton *button)
         AUTOMATE_NP::Automate& automate = AUTOMATE_NP::Automate::getAutomate();
         automate.setVoisinage(v);
     }if (ui->gol3->isChecked()){
-
+        GameLifeTransition* gt = new GameLifeTransition;
+        AUTOMATE_NP::Automate& automate = AUTOMATE_NP::Automate::getAutomate();
+        automate.setTransition(gt);
+    }if (ui->brain3->isChecked()){
+        BrianBrainTransition* bt = new BrianBrainTransition;
+        AUTOMATE_NP::Automate& automate = AUTOMATE_NP::Automate::getAutomate();
+        automate.setTransition(bt);
+    }if (ui->griffeath3->isChecked()){
+        GriffeathTransition* gt = new GriffeathTransition;
+        AUTOMATE_NP::Automate& automate = AUTOMATE_NP::Automate::getAutomate();
+        automate.setTransition(gt);
     }
 
     /* :'(
