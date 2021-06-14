@@ -24,6 +24,8 @@ public:
     int getChoixTransition(){return choixTransition;};
     int *getTransitionGoL(){return transitionGoL;};
 
+private slots:
+    void accept();
 private:
     int choixEtat;
     ETAT_NP::Etat *createEtat;
