@@ -56,7 +56,7 @@ void createSim::accept()
    }if(ui->manuelChecked->isChecked()){
         std::vector<ETAT_NP::Etat*> es;
         int nbEtats = 0;
-        if(ui->valeur1!=NULL&&ui->color1!=NULL){
+        if(ui->valeur1->toPlainText().toStdString()!=""&&ui->color1!=NULL){
             std::string valeurS1(ui->valeur1->toPlainText().toStdString());
             QString couleurS1(ui->color1->toPlainText());
             QColor *couleur1 = new QColor(couleurS1);
@@ -64,7 +64,7 @@ void createSim::accept()
             nbEtats++;
             es.push_back(first);
         }
-        if(ui->valeur2!=NULL&&ui->color2!=NULL){
+        if(ui->valeur2->toPlainText().toStdString()!=""&&ui->color2!=NULL){
             std::string valeurS2(ui->valeur2->toPlainText().toStdString());
             QString couleurS2(ui->color2->toPlainText());
             QColor *couleur2 = new QColor(couleurS2);
@@ -73,7 +73,7 @@ void createSim::accept()
             es.push_back(second);
 
         }
-        if(ui->valeur3!=NULL&&ui->color3!=NULL){
+        if(ui->valeur3->toPlainText().toStdString()!=""&&ui->color3!=NULL){
             std::string valeurS3(ui->valeur3->toPlainText().toStdString());
             QString couleurS3(ui->color3->toPlainText());
             QColor *couleur3 = new QColor(couleurS3);
@@ -82,7 +82,7 @@ void createSim::accept()
             es.push_back(third);
 
         }
-        if(ui->valeur4!=NULL&&ui->color4!=NULL){
+        if(ui->valeur4->toPlainText().toStdString()!=""&&ui->color4!=NULL){
             std::string valeurS4(ui->valeur4->toPlainText().toStdString());
             QString couleurS4(ui->color4->toPlainText());
             QColor *couleur4 = new QColor(couleurS4);
@@ -91,7 +91,7 @@ void createSim::accept()
             es.push_back(forth);
 
         }
-        if(ui->valeur5!=NULL&&ui->color5!=NULL){
+        if(ui->valeur5->toPlainText().toStdString()!=""&&ui->color5!=NULL){
             std::string valeurS5(ui->valeur5->toPlainText().toStdString());
             QString couleurS5(ui->color5->toPlainText());
             QColor *couleur5 = new QColor(couleurS5);
@@ -100,7 +100,7 @@ void createSim::accept()
             es.push_back(fifth);
 
         }
-        if(ui->valeur6!=NULL&&ui->color6!=NULL){
+        if(ui->valeur6->toPlainText().toStdString()!=""&&ui->color6!=NULL){
             std::string valeurS6(ui->valeur6->toPlainText().toStdString());
             QString couleurS6(ui->color6->toPlainText());
             QColor *couleur6 = new QColor(couleurS6);
@@ -109,7 +109,7 @@ void createSim::accept()
             es.push_back(sixth);
 
         }
-        if(ui->valeur7!=NULL&&ui->color7!=NULL){
+        if(ui->valeur7->toPlainText().toStdString()!=""&&ui->color7!=NULL){
             std::string valeurS7(ui->valeur7->toPlainText().toStdString());
             QString couleurS7(ui->color7->toPlainText());
             QColor *couleur7 = new QColor(couleurS7);
@@ -118,7 +118,7 @@ void createSim::accept()
             es.push_back(seventh);
 
         }
-        if(ui->valeur8!=NULL&&ui->color8!=NULL){
+        if(ui->valeur8->toPlainText().toStdString()!=""&&ui->color8!=NULL){
             std::string valeurS8(ui->valeur8->toPlainText().toStdString());
             QString couleurS8(ui->color8->toPlainText());
             QColor *couleur8 = new QColor(couleurS8);

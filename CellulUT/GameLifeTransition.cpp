@@ -17,12 +17,12 @@ ETAT_NP::Etat& GameLifeTransition::creerTransition(std::vector<ETAT_NP::Etat*> e
         }
     }
 
-    if(etat.getLabel() == "alive"){
+    if(etat.getIndice() == 1){
         if(vivantes == 2) return *etats[1]; // on retourne l'etat alive
         else if(vivantes == 3) return *etats[1];
         else return *etats[0]; // elle meurt dans tous les autres cas
     }
-    else if(etat.getLabel() == "dead"){
+    else if(etat.getIndice() == 0){
         if(vivantes == 3) return *etats[1]; // elle naît
         else return *etats[0];
     } else return *etats[0];

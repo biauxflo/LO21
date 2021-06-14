@@ -22,7 +22,6 @@ const std::vector<CELLULE_NP::Cellule*> MooreGeneral::calculerVoisinage(std::vec
                 tab.push_back(&reseau[k][l]);
             }
         }
-    //ne fonctionne pas... :'(
     }
 
     // abs(k−i)≤1 et abs(l−j)≤1
