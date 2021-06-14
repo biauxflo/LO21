@@ -1,117 +1,159 @@
 #include "createsim.h"
 #include "ui_createsim.h"
+#include "GameLifeTransition.h"
+#include "BrianBrainTransition.h"
+#include "GriffeathTransition.h"
 #include <QColor>
+#include "Automate.h"
 
 createSim::createSim(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::createSim)
 {
     ui->setupUi(this);
-    connect(ui->dimBox, QOverload<int>::of(&QSpinBox::valueChanged),
-        [=](int i){ dimReseau=i; });
 }
 
 createSim::~createSim()
 {
     delete ui;
 }
-void createSim::autoEtat(){
+
+void createSim::on_buttonBox_clicked(QAbstractButton *button)
+{
     if(ui->golChecked->isChecked()){
-        choixEtat = 1;
-    }
-    if(ui->langstonChecked->isChecked()){
-        choixEtat = 2;
+        ETAT_NP::Etat* e1 = new ETAT_NP::Etat(0, "dead", QColor("black").rgb());
+        ETAT_NP::Etat* e2 = new ETAT_NP::Etat(1, "alive", QColor("white").rgb());
+        std::vector<ETAT_NP::Etat*> es;
+        es.push_back(e1);
+        es.push_back(e2);
+        AUTOMATE_NP::Automate& automate = AUTOMATE_NP::Automate::getAutomate();
+        automate.setEtats(2, es);
+
     }
     if(ui->brainChecked->isChecked()){
-        choixEtat = 3;
+        ETAT_NP::Etat* e1 = new ETAT_NP::Etat(0, "resting", QColor("green").rgb());
+        ETAT_NP::Etat* e2 = new ETAT_NP::Etat(1, "excited", QColor("red").rgb());
+        ETAT_NP::Etat* e3 = new ETAT_NP::Etat(2, "refractory", QColor("jaune").rgb());
+        std::vector<ETAT_NP::Etat*> es;
+        es.push_back(e1);
+        es.push_back(e2);
+        es.push_back(e3);
+        AUTOMATE_NP::Automate& automate = AUTOMATE_NP::Automate::getAutomate();
+        automate.setEtats(3,es);
     }
     if(ui->griffithChecked->isChecked()){
-        choixEtat = 4;
-    }
-}
-void createSim::manuelEtat(){
-    if(ui->manuelChecked->isChecked()){
-        choixEtat = 5;
+        ETAT_NP::Etat* e1 = new ETAT_NP::Etat(0, "zero", QColor("yellow").rgb());
+        ETAT_NP::Etat* e2 = new ETAT_NP::Etat(1, "one", QColor("orange").rgb());
+        ETAT_NP::Etat* e3 = new ETAT_NP::Etat(2, "two", QColor("brown").rgb());
+        ETAT_NP::Etat* e4 = new ETAT_NP::Etat(3, "three", QColor("red").rgb());
+        std::vector<ETAT_NP::Etat*> es;
+        es.push_back(e1);
+        es.push_back(e2);
+        es.push_back(e3);
+        es.push_back(e4);
+        AUTOMATE_NP::Automate& automate = AUTOMATE_NP::Automate::getAutomate();
+        automate.setEtats(4,es);
+    }if(ui->manuelChecked->isChecked()){
+        std::vector<ETAT_NP::Etat*> es;
+        int nbEtats = 0;
         if(ui->valeur1!=NULL&&ui->color1!=NULL){
             std::string valeurS1(ui->valeur1->toPlainText().toStdString());
             QString couleurS1(ui->color1->toPlainText());
             QColor *couleur1 = new QColor(couleurS1);
             ETAT_NP::Etat first(0,valeurS1, couleur1->rgb());
-            createEtat[0]=first;
+            nbEtats++;
+            es.push_back(&first);
         }
         if(ui->valeur2!=NULL&&ui->color2!=NULL){
             std::string valeurS2(ui->valeur2->toPlainText().toStdString());
             QString couleurS2(ui->color2->toPlainText());
             QColor *couleur2 = new QColor(couleurS2);
             ETAT_NP::Etat second(1,valeurS2, couleur2->rgb());
-            createEtat[1]=second;        }
+            nbEtats++;
+            es.push_back(&second);
+
+        }
         if(ui->valeur3!=NULL&&ui->color3!=NULL){
             std::string valeurS3(ui->valeur3->toPlainText().toStdString());
             QString couleurS3(ui->color3->toPlainText());
             QColor *couleur3 = new QColor(couleurS3);
             ETAT_NP::Etat third(2,valeurS3, couleur3->rgb());
-            createEtat[2]=third;        }
+            nbEtats++;
+            es.push_back(&third);
+
+        }
         if(ui->valeur4!=NULL&&ui->color4!=NULL){
             std::string valeurS4(ui->valeur4->toPlainText().toStdString());
             QString couleurS4(ui->color4->toPlainText());
             QColor *couleur4 = new QColor(couleurS4);
             ETAT_NP::Etat forth(3,valeurS4, couleur4->rgb());
-            createEtat[3]=forth;        }
+            nbEtats++;
+            es.push_back(&forth);
+
+        }
         if(ui->valeur5!=NULL&&ui->color5!=NULL){
             std::string valeurS5(ui->valeur5->toPlainText().toStdString());
             QString couleurS5(ui->color5->toPlainText());
             QColor *couleur5 = new QColor(couleurS5);
             ETAT_NP::Etat fifth(4,valeurS5, couleur5->rgb());
-            createEtat[4]=fifth;        }
+            nbEtats++;
+            es.push_back(&fifth);
+
+        }
         if(ui->valeur6!=NULL&&ui->color6!=NULL){
             std::string valeurS6(ui->valeur6->toPlainText().toStdString());
             QString couleurS6(ui->color6->toPlainText());
             QColor *couleur6 = new QColor(couleurS6);
             ETAT_NP::Etat sixth(5,valeurS6, couleur6->rgb());
-            createEtat[5]=sixth;        }
+            nbEtats++;
+            es.push_back(&sixth);
+
+        }
         if(ui->valeur7!=NULL&&ui->color7!=NULL){
             std::string valeurS7(ui->valeur7->toPlainText().toStdString());
             QString couleurS7(ui->color7->toPlainText());
             QColor *couleur7 = new QColor(couleurS7);
             ETAT_NP::Etat seventh(6,valeurS7, couleur7->rgb());
-            createEtat[6]=seventh;        }
+            nbEtats++;
+            es.push_back(&seventh);
+
+        }
         if(ui->valeur8!=NULL&&ui->color8!=NULL){
             std::string valeurS8(ui->valeur8->toPlainText().toStdString());
             QString couleurS8(ui->color8->toPlainText());
             QColor *couleur8 = new QColor(couleurS8);
             ETAT_NP::Etat eigth(7,valeurS8, couleur8->rgb());
-            createEtat[7]=eigth;
+            nbEtats++;
+            es.push_back(&eigth);
+
         }
-    }
-}
-
-
-void createSim::autoVoisinage(){
-    rayonVoisinage=ui->rayonBox->value();
-    if(ui->vonNeumann->isChecked()){
-        choixVoisinage=1;
-    }if (ui->vonNeumann2->isChecked()){
-        choixVoisinage=2;
+        AUTOMATE_NP::Automate& automate = AUTOMATE_NP::Automate::getAutomate();
+        automate.setEtats(nbEtats,es);
     }if (ui->moore->isChecked()){
-        choixVoisinage=3;
+        Moore* v = new Moore;
+        AUTOMATE_NP::Automate& automate = AUTOMATE_NP::Automate::getAutomate();
+        automate.setVoisinage(v);
     }if (ui->moore2->isChecked()){
-        choixVoisinage=4;
-    }if (ui->arbitraire->isChecked()){
-        choixVoisinage=5;
-    }
-}
+        MooreGeneral* v = new MooreGeneral(ui->rayonBox->value());
+        AUTOMATE_NP::Automate& automate = AUTOMATE_NP::Automate::getAutomate();
+        automate.setVoisinage(v);
+    }if (ui->vonNeumann->isChecked()){
+        Neumann* v = new Neumann;
+        AUTOMATE_NP::Automate& automate = AUTOMATE_NP::Automate::getAutomate();
+        automate.setVoisinage(v);
+    }if (ui->moore2->isChecked()){
+        NeumannGeneral* v = new NeumannGeneral(ui->rayonBox->value());
+        AUTOMATE_NP::Automate& automate = AUTOMATE_NP::Automate::getAutomate();
+        automate.setVoisinage(v);
+    }if (ui->gol3->isChecked()){
 
-void createSim::autoTransition(){
-    if (ui->gol3->isChecked()){
-        choixTransition=1;
-        transitionGoL[0]=ui->survieMin->value();
-        transitionGoL[1]=ui->survieMax->value();
-        transitionGoL[2]=ui->naissance->value();
-    }if(ui->brain3->isChecked()){
-        choixTransition=2;
-    }if(ui->griffeath3->isChecked()){
-        choixTransition=3;
     }
-}
 
+    /* :'(
+    QFile * file = new QFile(filename);
+    QXmlStreamReader * xml = new QXmlStreamReader(file);
+    AUTOMATE_NP::Automate::getAutomate().appliquerConfiguration(xml);
+    file->close();*/
+    this->close();
+}
 

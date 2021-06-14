@@ -1,6 +1,7 @@
 #ifndef CREATESIM_H
 #define CREATESIM_H
 
+#include <QAbstractButton>
 #include <QDialog>
 #include "Etat.h"
 
@@ -32,6 +33,9 @@ private:
     size_t rayonVoisinage;
     int choixTransition;
     int* transitionGoL;
+
+    void on_buttonBox_clicked(QAbstractButton *button);
+
 
     void manuelEtat();
     void autoEtat();

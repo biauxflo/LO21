@@ -24,9 +24,9 @@ void popUpLoadModele::langstonChecked(){
     }
 }
 void popUpLoadModele::brianChecked(){
-    filename = "D:\\UTC\\GI04\\LO21\\lo21\\CellulUT\\modeles\\brianbrain.xml";
+    filename = "modeles\\brianbrain.xml";
     if(ui->brainChecked->isChecked()){
-        filename = "D:\\UTC\\GI04\\LO21\\lo21\\CellulUT\\modeles\\brianbrain.xml";
+        filename = "modeles\\brianbrain.xml";
             //filename = "modeles\\brianbrain.xml";
     }
 }

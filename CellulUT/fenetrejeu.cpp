@@ -32,6 +32,8 @@ FenetreJeu::FenetreJeu(QWidget *parent) :
     connect(ui->config,SIGNAL(clicked()),this,SLOT(config()));
     connect(ui->pasbox, QOverload<int>::of(&QSpinBox::valueChanged),
         [=](int i){ timer->stop();timer->start(i);});
+    connect(ui->dimBox, QOverload<int>::of(&QSpinBox::valueChanged),
+        [=](int j){ automate.getReseau()->setLargeur(j);automate.getReseau()->setLongeur(j);});
 
 }
 

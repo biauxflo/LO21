@@ -49,7 +49,6 @@ private slots:
 
     void config();
 
-
 private:
     AUTOMATE_NP::Automate& automate = AUTOMATE_NP::Automate::getAutomate();
     Ui::FenetreJeu *ui;
