@@ -18,7 +18,7 @@ namespace SIMULATEUR_NP {
 
         AUTOMATE_NP::Automate &automate; /*!< Automate de la simulation*/
         RESEAU_NP::Reseau* depart; /*!< Reseau de départ de la simulation*/
-        RESEAU_NP::Reseau* save= nullptr;/*!< Sauvegarde des x derniers etats*/
+        std::array <RESEAU_NP::Reseau*,10> save;/*!< Sauvegarde des x derniers etats*/
         Voisinage &voisinage;/*!< Voisinage de la simulation*/
         Transition &transition;/*!< Fonction de transition de la simulation*/
 
@@ -27,7 +27,7 @@ namespace SIMULATEUR_NP {
         std::string nom;/*!< Titre de la simulation*/
 
     public :
-        Simulateur(AUTOMATE_NP::Automate& a, Voisinage& v, Transition& t): automate(a), voisinage(v), transition(t) {}
+        Simulateur(AUTOMATE_NP::Automate& a, Voisinage& v, Transition& t): automate(a), voisinage(v), transition(t), memoire(10), indexMem(0) {}
         void next();
         void back();
         void reset();

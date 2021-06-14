@@ -23,18 +23,18 @@ void SIMULATEUR_NP::Simulateur::reset() {
 }
 
 void SIMULATEUR_NP::Simulateur::next(){
-    //saveReseau();
+    saveReseau();
     automate.calculerTransition();
 }
-/*
+
 void SIMULATEUR_NP::Simulateur::back(){
     if (indexMem>0){
         indexMem=indexMem-1;
     }else if (indexMem==0){
         indexMem=memoire-1;
     }
-    automate.setReseau(&save[indexMem]);
-}*/
+    automate.setReseau(save[indexMem]);
+}
 
 void SIMULATEUR_NP::Simulateur::setMemoire(size_t mem){
     memoire=mem;
@@ -43,26 +43,23 @@ void SIMULATEUR_NP::Simulateur::setMemoire(size_t mem){
 size_t SIMULATEUR_NP::Simulateur::getMemoire(){
     return memoire;
 }
-/*
+
 void SIMULATEUR_NP::Simulateur::saveReseau(){
-    if (!save){
-        save = new RESEAU_NP::Reseau[getMemoire()];
-        indexMem=0;
-        save[indexMem]= *automate.getReseau();
-    }else{
-    indexMem++;
-        if (indexMem==memoire-1){
-            indexMem=0;
+    if (indexMem >= memoire) indexMem = 0;
+    RESEAU_NP::Reseau* r = new RESEAU_NP::Reseau(automate.getReseau()->getLargeur(),automate.getReseau()->getLongueur(),automate.getReseau()->getHorloge());
+    for (int i = 0; i < automate.getReseau()->getLargeur(); i++) {
+        for (int j = 0; j < automate.getReseau()->getLongueur(); j++) {
+            r->getCellule(i,j).setEtat(automate.getReseau()->getCellule(i,j).getEtat());
+            r->getCellule(i,j).setAbscisse(automate.getReseau()->getCellule(i,j).getAbscisse());
+            r->getCellule(i,j).setOrdonnee(automate.getReseau()->getCellule(i,j).getOrdonnee());
         }
-    save[indexMem]= *automate.getReseau();
     }
-}*/
+    save[indexMem] = r;
+    indexMem++;
+}
 
 AUTOMATE_NP::Automate *SIMULATEUR_NP::Simulateur::getAutomate()
 {
     return &AUTOMATE_NP::Automate::getAutomate();
 }
 
-void SIMULATEUR_NP::Simulateur::creerSimulation(){
-    memoire = 3;
-}

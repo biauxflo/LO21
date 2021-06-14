@@ -20,13 +20,12 @@ FenetreJeu::FenetreJeu(QWidget *parent) :
     scene = new GraphAutomate(this);
     ui->graphicsView->setScene(scene);
     simulation = new SIMULATEUR_NP::Simulateur(automate, *automate.getVoisinage(), *automate.getTransition());
-    simulation->creerSimulation();
     scene->printAutomate(simulation->getAutomate()->getReseau());
     connect(ui->playButton,SIGNAL(clicked()),this,SLOT(playButton_clicked()));
     connect(ui->pauseButton,SIGNAL(clicked()),this,SLOT(pauseButton_clicked()));
     connect(ui->stopButton,SIGNAL(clicked()),this,SLOT(stopButton_clicked()));
     connect(ui->nextButton,SIGNAL(clicked()),this,SLOT(nextButton_clicked()));
-    //connect(ui->backButton,SIGNAL(clicked()),this,SLOT(backButton_clicked()));
+    connect(ui->backButton,SIGNAL(clicked()),this,SLOT(backButton_clicked()));
     connect(ui->resetButton,SIGNAL(clicked()),this,SLOT(resetButton_clicked()));
     connect(timer,SIGNAL(timeout()),this,SLOT(execute()));
     connect(ui->randomButton,SIGNAL(clicked()),this,SLOT(randomize()));
@@ -85,13 +84,12 @@ void FenetreJeu::stopButton_clicked(){
 }
 void FenetreJeu::backButton_clicked()
 {
-    //simulation->back();
+    simulation->back();
     scene->printAutomate(simulation->getAutomate()->getReseau());
 }
 
 void FenetreJeu::nextButton_clicked()
 {
-    execute();
     simulation->next();
     scene->printAutomate(simulation->getAutomate()->getReseau());
 }
