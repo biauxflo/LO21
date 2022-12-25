@@ -1,5 +1,5 @@
 # Cellul'UT
-**Projet de simulateur d'automates cellulaires basé sur des modèles prédéfinis ou des paramètres modifiables codé en C++.**
+**Projet de simulateur d'automates cellulaires basé sur des modèles prédéfinis ou des paramètres modifiables codé en C++ avec le framewrok Qt.**
 
 ## Pourquoi ?
 Projet scolaire pour l'UV LO21 : "Programmation et conception orientée objet"
