@@ -1,5 +1,27 @@
-# LO21
+# Cellul'UT
+**Projet de simulateur d'automates cellulaires basé sur des modèles prédéfinis ou des paramètres modifiables codé en C++.**
 
-[Kanban](https://kanban.picasoft.net/b/3hu3enmpABN7WP3cb/lo21)
+## Pourquoi ?
+Projet scolaire pour l'UV LO21 : ""
 
-[UML](https://md.picasoft.net/s/Y4wWBPDrN)
+## Avec qui ?
+Ce projet était en groupe de 5. 
+
+Je remercie Mohamed Reda SAREHANE, Lucas CLUSMAN, Amélie PELLÉ et Anisa Shehu d'avoir participer à ce projet.
+
+## Mots-clés
+
+* héritage
+* patrons
+* encapsulation
+* UML
+* design patterns
+* C++
+* classes
+* Qt
+* Clion
+* CMake
+* Game of life
+* Brian's Brain
+
+[UML du projet](https://md.picasoft.net/s/Y4wWBPDrN)
